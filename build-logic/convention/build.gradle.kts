@@ -22,7 +22,7 @@ kotlin {
 dependencies {
     compileOnly(libs.kotlin.gradle.plugin)
     compileOnly(libs.compose.gradle.plugin)
-
+    compileOnly(libs.detekt.gradle.plugin)
     compileOnly(files(libs.javaClass.superclass.protectionDomain.codeSource.location))
 }
 
@@ -35,6 +35,9 @@ tasks {
 
 gradlePlugin {
     plugins {
-
+        register("detektMutiplaform") {
+            id = libs.plugins.app.detekt.get().pluginId
+            implementationClass = "DetektConventionPlugin"
+        }
     }
 }

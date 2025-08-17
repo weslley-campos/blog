@@ -1,0 +1,59 @@
+# Node.js / npm
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-store/
+
+# Build artifacts
+dist/
+out/
+.parcel-cache/
+
+# Editor and IDE files
+.vscode/
+*.sublime-project
+*.sublime-workspace
+.DS_Store # macOS
+Thumbs.db # Windows
+
+# Sensitive information and environment variables
+.env
+.env.local
+.env.*.local
+config/secrets.js # Or similar sensitive configuration files
+
+# Logs and temporary files
+*.log
+tmp/
+temp/
+
+# Dependency caches
+vendor/ # For PHP/Composer projects
+target/ # For Java/Maven or similar build systems
+
+# Uploaded files (if not meant to be versioned)
+uploads/
+
+# Gradle files
+.gradle/
+build/
+.kotlin
+
+# Local configuration file (sdk path, etc)
+local.properties
+secrets.properties
+
+# Android Studio generated files and folders
+captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+output.json
+
+# IntelliJ
+*.iml
+.idea/
+misc.xml
+deploymentTargetDropDown.xml
+render.experimental.xml

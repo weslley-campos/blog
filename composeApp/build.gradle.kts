@@ -47,4 +47,9 @@ kotlin {
     }
 }
 
+compose.resources {
+    publicResClass = false
+    packageOfResClass = "br.com.weslleycampos.blog.resources"
+    generateResClass = auto
+}
 

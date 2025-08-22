@@ -1,12 +1,13 @@
 package br.com.weslleycampos.blog.theme
 
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 
 @Composable
 fun BlogTheme(
-    isDarkMode: Boolean = false,
+    isDarkMode: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
     val colors = if (isDarkMode) darkBlogColors else lightBlogColors

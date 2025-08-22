@@ -10,6 +10,11 @@ import org.gradle.kotlin.dsl.getByType
 val Project.libs
     get() = extensions.getByType<LibrariesForLibs>()
 
+
+fun DependencyHandlerScope.debugImplementation(module: Any) {
+    add("debugImplementation", module)
+}
+
 fun DependencyHandlerScope.detektPlugins(module: Any) {
     add("detektPlugins", module)
 }

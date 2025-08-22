@@ -28,7 +28,7 @@ fun Project.configureWasmJs(
                 }
                 testTask {
                     useKarma {
-                        useChromiumHeadless()
+                        useFirefoxHeadless()
                     }
                 }
             }

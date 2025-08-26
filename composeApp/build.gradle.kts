@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.app.kotlin)
-    alias(libs.plugins.app.compose)
-    alias(libs.plugins.app.detekt)
+    alias(libs.plugins.blog.application)
+    alias(libs.plugins.blog.compose.application)
+    alias(libs.plugins.blog.detekt)
 }

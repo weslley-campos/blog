@@ -20,6 +20,7 @@ kotlin {
 }
 
 dependencies {
+    compileOnly(libs.android.gradle.plugin)
     compileOnly(libs.kotlin.gradle.plugin)
     compileOnly(libs.compose.gradle.plugin)
     compileOnly(libs.compose.compiler.gradle.plugin)
@@ -36,18 +37,28 @@ tasks {
 
 gradlePlugin {
     plugins {
-        register("kotlinMultiplatform") {
-            id = libs.plugins.app.kotlin.get().pluginId
-            implementationClass = "KotlinMultiplatformConventionPlugin"
+        register("kotlinApplicationMultiplatform") {
+            id = libs.plugins.blog.application.get().pluginId
+            implementationClass = "KotlinApplicationMultiplatformConventionPlugin"
         }
 
-        register("composeMultiplatform") {
-            id = libs.plugins.app.compose.get().pluginId
-            implementationClass = "ComposeMultiplatformConventionPlugin"
+        register("kotlinLibraryMultiplatform") {
+            id = libs.plugins.blog.library.get().pluginId
+            implementationClass = "KotlinLibraryMultiplatformConventionPlugin"
+        }
+
+        register("composeApplicationMultiplatform") {
+            id = libs.plugins.blog.compose.application.get().pluginId
+            implementationClass = "ComposeApplicationMultiplatformConventionPlugin"
+        }
+
+        register("composeLibraryMultiplatform") {
+            id = libs.plugins.blog.compose.library.get().pluginId
+            implementationClass = "ComposeLibraryMultiplatformConventionPlugin"
         }
 
         register("detektMutiplaform") {
-            id = libs.plugins.app.detekt.get().pluginId
+            id = libs.plugins.blog.detekt.get().pluginId
             implementationClass = "DetektConventionPlugin"
         }
     }

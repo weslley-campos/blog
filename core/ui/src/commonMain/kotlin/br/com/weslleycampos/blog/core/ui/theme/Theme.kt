@@ -1,4 +1,4 @@
-package br.com.weslleycampos.blog.theme
+package br.com.weslleycampos.blog.core.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme

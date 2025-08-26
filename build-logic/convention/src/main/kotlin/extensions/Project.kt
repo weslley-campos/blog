@@ -10,6 +10,27 @@ import org.gradle.kotlin.dsl.getByType
 val Project.libs
     get() = extensions.getByType<LibrariesForLibs>()
 
+val Project.blogPackage: String
+    get() = "br.com.weslleycampos.blog"
+
+val Project.resourcePackage: String
+    get() {
+        return buildString {
+            append("br.com.weslleycampos.blog.")
+            path.removePrefix(":")
+                .replace(":", ".")
+                .let { append(it) }
+            append(".resources")
+        }
+    }
+
+val Project.packageName: String
+    get() {
+        return buildString {
+            append("br.com.weslleycampos.blog")
+            append(path.replace(":", "."))
+        }
+    }
 
 fun DependencyHandlerScope.debugImplementation(module: Any) {
     add("debugImplementation", module)

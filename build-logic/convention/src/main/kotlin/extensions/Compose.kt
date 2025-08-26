@@ -11,14 +11,8 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 internal fun Project.configureComposeMultiplatform(
     extension: KotlinMultiplatformExtension
 ) {
-    val compose = extensions.getByType<ComposeExtension>()
-    compose.extensions.configure<ResourcesExtension> {
-        publicResClass = false
-        packageOfResClass = "br.com.weslleycampos.blog.resources"
-        generateResClass = auto
-    }
+    val compose = extensions.getByType<ComposeExtension>().dependencies
 
-    val deps = compose.dependencies
     extension.apply {
         sourceSets.apply {
             commonMain.dependencies {
@@ -26,46 +20,46 @@ internal fun Project.configureComposeMultiplatform(
                 // Core, platform-agnostic runtime for Compose: provides the reactive state model,
                 // recomposition engine, and effect APIs (e.g., `remember`, `mutableStateOf`,
                 // `derivedStateOf`, `LaunchedEffect`, snapshots).
-                implementation(deps.runtime)
+                implementation(compose.runtime)
 
                 // Compose UI Graphics
                 // Provides fundamental graphics primitives and operations for drawing in Compose.
                 // Includes things like `Color`, `Brush`, `ImageBitmap`, `Canvas`, and other low-level drawing APIs.
-                implementation(deps.ui)
+                implementation(compose.ui)
 
                 // Compose Foundation
                 // Provides fundamental building blocks for Compose UI including basic layout components,
                 // gestures, scrolling, focus handling, and other foundational primitives that higher-level
                 // components are built upon (e.g., `Box`, `Row`, `Column`, `LazyColumn`, `clickable`).
-                implementation(deps.foundation)
+                implementation(compose.foundation)
 
                 // Material Design 3
                 // It provides a collection of ready-to-use composable UI elements, such as buttons, text fields,
                 // cards, layouts, and themes, all adhering to Material 3 guidelines.
-                implementation(deps.material3)
+                implementation(compose.material3)
 
                 // Compose Material 3 Adaptive Navigation Suite
                 // This library provides a comprehensive navigation suite that adapts to different screen sizes
                 // and device configurations. It includes NavigationBar, NavigationRail, and NavigationDrawer
                 // components that automatically adjust based on window size classes, providing an optimal
                 // navigation experience across phones, tablets, and foldable devices.
-                implementation(deps.material3AdaptiveNavigationSuite)
+                implementation(compose.material3AdaptiveNavigationSuite)
 
                 // Material Design Icons Extended
                 // Provides a large collection of icons that you can directly use as composables in your UI.
-                implementation(deps.materialIconsExtended)
+                implementation(compose.materialIconsExtended)
 
                 // Compose Components Resources
                 // Enables access to resources (strings, images, fonts, etc.) in a multiplatform way.
                 // Provides APIs to load and use resources consistently across different platforms
                 // in Compose Multiplatform applications.
-                implementation(deps.components.resources)
+                implementation(compose.components.resources)
 
                 // Compose UI Tooling Preview
                 // Provides preview functionality for Compose UI components, allowing developers to
                 // see how their composables look without running the full application. Essential
                 // for development-time previews and design iteration.
-                implementation(deps.components.uiToolingPreview)
+                implementation(compose.components.uiToolingPreview)
 
                 // Lifecycle Runtime for Compose
                 // Lifecycle-aware bindings for Compose: adds helpers such as
@@ -97,8 +91,17 @@ internal fun Project.configureComposeMultiplatform(
                 // Provides testing utilities specifically for Compose UI components including semantic matchers,
                 // test rules, and assertion functions for verifying UI behavior and state in automated tests.
                 // Essential for writing unit and integration tests for Compose-based user interfaces.
-                implementation(deps.uiTest)
+                implementation(compose.uiTest)
             }
         }
+    }
+}
+
+fun Project.configureComposeResources(packageResource: String) {
+    val compose = extensions.getByType<ComposeExtension>()
+    compose.extensions.configure<ResourcesExtension> {
+        publicResClass = false
+        packageOfResClass = packageResource
+        generateResClass = auto
     }
 }

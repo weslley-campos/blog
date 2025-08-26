@@ -1,4 +1,4 @@
-package br.com.weslleycampos.blog.theme
+package br.com.weslleycampos.blog.core.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.runtime.Composable
@@ -7,9 +7,9 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import br.com.weslleycampos.blog.resources.Res
-import br.com.weslleycampos.blog.resources.inter
-import br.com.weslleycampos.blog.resources.jetbrains_mono
+import br.com.weslleycampos.blog.core.ui.resources.Res
+import br.com.weslleycampos.blog.core.ui.resources.inter
+import br.com.weslleycampos.blog.core.ui.resources.jetbrains_mono
 import org.jetbrains.compose.resources.Font
 
 val InterFontFamily: FontFamily

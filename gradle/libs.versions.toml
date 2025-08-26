@@ -1,6 +1,7 @@
 [versions]
-kotlin = "2.2.0"
-lifecycle = "2.9.1"
+agp = "8.11.1"
+kotlin = "2.2.10"
+lifecycle = "2.9.2"
 compose-multiplatform = "1.9.0-beta03"
 compose-navigation = "2.9.0-beta05"
 
@@ -28,6 +29,7 @@ kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version
 # ================================================================
 # Dependencies of the included build-logic
 # ================================================================
+android-gradle-plugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
 kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version =  "1.9.0"}
 compose-compiler-gradle-plugin = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
 compose-gradle-plugin = { module = "org.jetbrains.compose:compose-gradle-plugin", version.ref = "compose-multiplatform" }
@@ -37,6 +39,7 @@ detekt-gradle-plugin = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plu
 
 [plugins]
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlin-library-multiplatform = { id = "com.android.kotlin.multiplatform.library", version.ref = "agp" }
 compose-multiplatform = { id = "org.jetbrains.compose", version.ref = "compose-multiplatform" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 
@@ -46,6 +49,10 @@ detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 # ================================================================
 #  Plugins defined by this project
 # ================================================================
-app-kotlin = { id = "app.kotlin" }
-app-compose = { id = "app.compose" }
-app-detekt = { id = "app.detekt" }
+blog-application = { id = "app.application" }
+blog-library = { id = "app.library" }
+
+blog-compose-application = { id = "app.compose.application" }
+blog-compose-library = { id = "app.compose.library" }
+
+blog-detekt = { id = "app.detekt" }

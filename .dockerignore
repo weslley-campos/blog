@@ -1,0 +1,32 @@
+# Build artifacts
+build/
+**/build/
+.gradle/
+
+# IDE files
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Documentation
+README.md
+*.md
+
+# Local properties
+local.properties
+
+# Kotlin JS store
+kotlin-js-store/
+
+# Docker files
+Dockerfile
+.dockerignore

@@ -57,3 +57,6 @@ output.json
 misc.xml
 deploymentTargetDropDown.xml
 render.experimental.xml
+
+# Claude
+.claude

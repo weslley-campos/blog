@@ -39,3 +39,7 @@ fun DependencyHandlerScope.debugImplementation(module: Any) {
 fun DependencyHandlerScope.detektPlugins(module: Any) {
     add("detektPlugins", module)
 }
+
+fun DependencyHandlerScope.kspCommonMainMetadata(module: Any) {
+    add("kspCommonMainMetadata", module)
+}

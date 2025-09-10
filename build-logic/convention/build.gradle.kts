@@ -24,6 +24,7 @@ dependencies {
     compileOnly(libs.kotlin.gradle.plugin)
     compileOnly(libs.compose.gradle.plugin)
     compileOnly(libs.compose.compiler.gradle.plugin)
+    compileOnly(libs.ksp.gradle.plugin)
     compileOnly(libs.detekt.gradle.plugin)
     compileOnly(files(libs.javaClass.superclass.protectionDomain.codeSource.location))
 }
@@ -55,6 +56,11 @@ gradlePlugin {
         register("composeLibraryMultiplatform") {
             id = libs.plugins.blog.compose.library.get().pluginId
             implementationClass = "ComposeLibraryMultiplatformConventionPlugin"
+        }
+
+        register("koinMultiplatform") {
+            id = libs.plugins.blog.koin.get().pluginId
+            implementationClass = "KoinMultiplatformConventionPlugin"
         }
 
         register("detektMutiplaform") {

@@ -6,6 +6,9 @@ plugins {
     alias(libs.plugins.compose.multiplatform) apply false
     alias(libs.plugins.compose.compiler) apply false
 
+    // KSP
+    alias(libs.plugins.ksp) apply false
+
     // Detekt
     alias(libs.plugins.detekt) apply false
 }

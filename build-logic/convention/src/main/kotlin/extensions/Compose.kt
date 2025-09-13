@@ -2,6 +2,7 @@ package extensions
 
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
+import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.getByType
 import org.jetbrains.compose.ComposeExtension
 import org.jetbrains.compose.ExperimentalComposeLibrary
@@ -120,15 +121,13 @@ internal fun Project.configureComposeMultiplatform(
             }
         }
 
-//        afterEvaluate {
-//            dependencies {
-//                // Compose UI Tooling
-//                // Provides tools for debugging and inspecting Compose UI layouts at runtime.
-//                // Includes features like the Layout Inspector integration in Android Studio,
-//                // which helps visualize the composable hierarchy, inspect properties, and debug UI issues.
-//                debugImplementation(compose.uiTooling)
-//            }
-//        }
+        dependencies {
+            // Compose UI Tooling
+            // Provides tools for debugging and inspecting Compose UI layouts at runtime.
+            // Includes features like the Layout Inspector integration in Android Studio,
+            // which helps visualize the composable hierarchy, inspect properties, and debug UI issues.
+            debugImplementation(compose.uiTooling)
+        }
     }
 }
 

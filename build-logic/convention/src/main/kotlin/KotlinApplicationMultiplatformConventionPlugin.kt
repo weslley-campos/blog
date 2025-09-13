@@ -1,4 +1,6 @@
-import extensions.configureAndroidLibrary
+import com.android.build.api.dsl.ApplicationExtension
+import extensions.configureAndroid
+import extensions.configureAndroidTarget
 import extensions.configureWasmJs
 import extensions.libs
 import org.gradle.api.Plugin
@@ -15,13 +17,15 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
  *
  * @since 1.0.0
  */
+@Suppress("MagicNumber")
 class KotlinApplicationMultiplatformConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) = with(target) {
+        apply(plugin = libs.plugins.android.application.get().pluginId)
         apply(plugin = libs.plugins.kotlin.multiplatform.get().pluginId)
-        apply(plugin = libs.plugins.kotlin.library.multiplatform.get().pluginId)
 
+        extensions.configure<ApplicationExtension>(::configureAndroid)
+        extensions.configure<KotlinMultiplatformExtension>(::configureAndroidTarget)
         extensions.configure<KotlinMultiplatformExtension>(::configureWasmJs)
-        extensions.configure<KotlinMultiplatformExtension>(::configureAndroidLibrary)
         extensions.configure<KotlinMultiplatformExtension> {
             sourceSets.apply {
                 commonMain.dependencies {

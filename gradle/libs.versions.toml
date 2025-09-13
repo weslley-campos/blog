@@ -3,6 +3,10 @@ agp = "8.11.1"
 kotlin = "2.2.10"
 lifecycle = "2.9.3"
 
+minSdk = "28"
+compileSdk = "36"
+targetSdk = "36"
+
 # Compose
 compose-multiplatform = "1.9.0-rc02"
 compose-navigation = "2.9.0-rc02"
@@ -67,8 +71,12 @@ ksp-gradle-plugin = { group = "com.google.devtools.ksp", name = "com.google.devt
 detekt-gradle-plugin = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt" }
 
 [plugins]
+# Android dependencies to enable compose preview
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+
+# Multiplatform
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
-kotlin-library-multiplatform = { id = "com.android.kotlin.multiplatform.library", version.ref = "agp" }
 compose-multiplatform = { id = "org.jetbrains.compose", version.ref = "compose-multiplatform" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 

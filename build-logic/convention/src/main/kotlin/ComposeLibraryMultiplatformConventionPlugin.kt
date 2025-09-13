@@ -10,7 +10,7 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
 class ComposeLibraryMultiplatformConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) = with(target) {
-        apply(plugin = libs.plugins.kotlin.library.multiplatform.get().pluginId)
+        apply(plugin = libs.plugins.android.library.get().pluginId)
         apply(plugin = libs.plugins.compose.multiplatform.get().pluginId)
         apply(plugin = libs.plugins.compose.compiler.get().pluginId)
 

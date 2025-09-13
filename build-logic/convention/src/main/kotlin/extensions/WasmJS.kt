@@ -36,3 +36,22 @@ fun Project.configureWasmJs(
         }
     }
 }
+
+
+@OptIn(ExperimentalWasmDsl::class)
+fun Project.configureWasmJsLibrary(
+    extension: KotlinMultiplatformExtension
+) {
+    extension.apply {
+        wasmJs {
+            browser {
+                testTask {
+                    useKarma {
+                        useFirefoxHeadless()
+                    }
+                }
+            }
+            binaries.library()
+        }
+    }
+}

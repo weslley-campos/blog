@@ -1,5 +1,5 @@
 import extensions.configureAndroidLibrary
-import extensions.configureNodeJSLibrary
+import extensions.configureWasmJsLibrary
 import extensions.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -18,6 +18,6 @@ class KotlinLibraryMultiplatformConventionPlugin : Plugin<Project> {
         apply(plugin = libs.plugins.kotlin.library.multiplatform.get().pluginId)
 
         extensions.configure<KotlinMultiplatformExtension>(::configureAndroidLibrary)
-        extensions.configure<KotlinMultiplatformExtension>(::configureNodeJSLibrary)
+        extensions.configure<KotlinMultiplatformExtension>(::configureWasmJsLibrary)
     }
 }

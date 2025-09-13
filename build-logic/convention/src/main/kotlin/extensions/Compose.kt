@@ -38,6 +38,12 @@ internal fun Project.configureComposeMultiplatform(
                 // cards, layouts, and themes, all adhering to Material 3 guidelines.
                 implementation(compose.material3)
 
+                // Compose UI Utilities
+                // Provides utility functions and helpers for Compose UI that complement core functionality.
+                // Includes layout helpers, geometry utilities, convenience functions, and performance tools
+                // for building more complex UI components and handling advanced use cases.
+                implementation(compose.uiUtil)
+
                 // Compose Material 3 Adaptive Navigation Suite
                 // This library provides a comprehensive navigation suite that adapts to different screen sizes
                 // and device configurations. It includes NavigationBar, NavigationRail, and NavigationDrawer
@@ -78,6 +84,24 @@ internal fun Project.configureComposeMultiplatform(
                 // It provides composable functions for defining your navigation graph, handling navigation
                 // actions, and passing data between screens.
                 implementation(libs.navigation.compose)
+
+                // Compose Material 3 Adaptive
+                // This library helps you create adaptive UIs that automatically adjust to different window
+                // configurations, such as varying window sizes and device postures (e.g., folded, unfolded).
+                // It offers both pre-built scaffold implementations and fundamental composable components for
+                // crafting custom adaptive experiences.
+                implementation(libs.compose.material3.adaptive)
+
+                // Compose Material 3 Adaptive Navigation
+                // This library provides components to build adaptive navigation UIs.
+                // It offers pre-built navigation components like NavigationRail, NavigationBar, and more
+                // that adjust their behavior and appearance based on the window size and device posture.
+                implementation(libs.compose.material3.adaptive.navigation)
+
+                // Material 3 Window Size Class
+                // It allows you to easily implement adaptive UI designs by providing the size class,
+                // making it easy to have different layouts in different screen sizes.
+                implementation(libs.compose.material3.window.size)
             }
 
             commonTest.dependencies {

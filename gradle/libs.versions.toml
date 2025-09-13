@@ -2,8 +2,12 @@
 agp = "8.11.1"
 kotlin = "2.2.10"
 lifecycle = "2.9.3"
-compose-multiplatform = "1.9.0-rc01"
-compose-navigation = "2.9.0-rc01"
+
+# Compose
+compose-multiplatform = "1.9.0-rc02"
+compose-navigation = "2.9.0-rc02"
+material-adaptive = "1.2.0-alpha06"
+material-window-size = "1.9.0-beta04"
 
 # Ksp
 ksp = "2.2.10-2.0.2"
@@ -25,6 +29,12 @@ lifecycle-runtime-compose = { module = "org.jetbrains.androidx.lifecycle:lifecyc
 
 # Compose Navigation (Multiplatform compatible)
 navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "compose-navigation" }
+
+# Compose Adaptive
+compose-material3-adaptive = { module = "org.jetbrains.compose.material3.adaptive:adaptive", version.ref = "material-adaptive" }
+compose-material3-adaptive-layout = { module = "org.jetbrains.compose.material3.adaptive:adaptive-layout", version.ref = "material-adaptive" }
+compose-material3-adaptive-navigation = { module = "org.jetbrains.compose.material3.adaptive:adaptive-navigation", version.ref = "material-adaptive" }
+compose-material3-window-size = { module = "org.jetbrains.compose.material3:material3-window-size-class", version.ref = "material-window-size" }
 
 # Koin
 koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koin" }

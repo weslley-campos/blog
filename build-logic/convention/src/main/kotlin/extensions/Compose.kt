@@ -4,10 +4,11 @@ import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.getByType
 import org.jetbrains.compose.ComposeExtension
+import org.jetbrains.compose.ExperimentalComposeLibrary
 import org.jetbrains.compose.resources.ResourcesExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
-@OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
+@OptIn(ExperimentalComposeLibrary::class)
 internal fun Project.configureComposeMultiplatform(
     extension: KotlinMultiplatformExtension
 ) {
@@ -118,6 +119,16 @@ internal fun Project.configureComposeMultiplatform(
                 implementation(compose.uiTest)
             }
         }
+
+//        afterEvaluate {
+//            dependencies {
+//                // Compose UI Tooling
+//                // Provides tools for debugging and inspecting Compose UI layouts at runtime.
+//                // Includes features like the Layout Inspector integration in Android Studio,
+//                // which helps visualize the composable hierarchy, inspect properties, and debug UI issues.
+//                debugImplementation(compose.uiTooling)
+//            }
+//        }
     }
 }
 

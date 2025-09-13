@@ -2,8 +2,11 @@ package br.com.weslleycampos.blog.core.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import br.com.weslleycampos.blog.core.ui.utils.LocalWindowType
+import br.com.weslleycampos.blog.core.ui.utils.calculateWindowType
 
 @Composable
 fun BlogTheme(
@@ -12,10 +15,13 @@ fun BlogTheme(
 ) {
     val colors = if (isDarkMode) darkBlogColors else lightBlogColors
     val typography = BlogTypography
+    val windowType = currentWindowAdaptiveInfo().calculateWindowType()
+
     CompositionLocalProvider(
         values = arrayOf(
             LocalBlogColors provides colors,
-            LocalBlogTypography provides typography
+            LocalBlogTypography provides typography,
+            LocalWindowType provides windowType
         )
     ) {
         MaterialTheme(

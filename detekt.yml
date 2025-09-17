@@ -29,6 +29,7 @@ style:
     ignoreLocalVariableDeclaration: true
   UnusedPrivateMember:
     ignoreAnnotated: ['Preview']
+    allowedNames: '(_|ignored|expected|.*[Pp]review.*)'
 
 formatting:
   EnumWrapping:

@@ -43,6 +43,10 @@ fun DependencyHandlerScope.detektPlugins(module: Any) {
     add("detektPlugins", module)
 }
 
+fun DependencyHandlerScope.lintChecks(module: Any) {
+    add("lintChecks", module)
+}
+
 fun DependencyHandlerScope.kspCommonMainMetadata(module: Any) {
     add("kspCommonMainMetadata", module)
 }

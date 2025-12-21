@@ -1,24 +1,24 @@
 [versions]
-agp = "8.11.1"
-kotlin = "2.2.10"
-lifecycle = "2.9.3"
+agp = "8.11.2"
+kotlin = "2.3.0"
+lifecycle = "2.9.6"
 
 minSdk = "28"
 compileSdk = "36"
 targetSdk = "36"
 
 # Compose
-compose-multiplatform = "1.9.0-rc02"
-compose-navigation = "2.9.0-rc02"
-material-adaptive = "1.2.0-alpha06"
-material-window-size = "1.9.0-beta04"
+compose-multiplatform = "1.9.3"
+compose-navigation = "2.9.1"
+material-adaptive = "1.2.0"
+material-window-size = "1.9.0"
 
 # Ksp
-ksp = "2.2.10-2.0.2"
+ksp = "2.3.2"
 
 # Koin
 koin = "4.1.1"
-koin-annotations = "2.2.0-RC1"
+koin-annotations = "2.3.1"
 
 # Detekt
 detekt = "1.23.8"

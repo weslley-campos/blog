@@ -120,14 +120,14 @@ internal fun Project.configureComposeMultiplatform(
                 implementation(compose.uiTest)
             }
         }
+    }
 
-        dependencies {
-            // Compose UI Tooling
-            // Provides tools for debugging and inspecting Compose UI layouts at runtime.
-            // Includes features like the Layout Inspector integration in Android Studio,
-            // which helps visualize the composable hierarchy, inspect properties, and debug UI issues.
-            debugImplementation(compose.uiTooling)
-        }
+    dependencies {
+        // Compose UI Tooling
+        // Provides tools for debugging and inspecting Compose UI layouts at runtime.
+        // Includes features like the Layout Inspector integration in Android Studio,
+        // which helps visualize the composable hierarchy, inspect properties, and debug UI issues.
+        debugImplementation(compose.uiTooling)
     }
 }
 

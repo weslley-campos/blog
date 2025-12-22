@@ -5,6 +5,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.ReadOnlyComposable
 import br.com.weslleycampos.blog.core.ui.utils.LocalWindowType
 import br.com.weslleycampos.blog.core.ui.utils.calculateWindowType
 
@@ -15,14 +16,16 @@ fun BlogTheme(
 ) {
     val colors = if (isDarkMode) darkBlogColors else lightBlogColors
     val typography = BlogTypography
+    val shapes = BlogShapes()
+    val spacing = BlogSpacing()
     val windowType = currentWindowAdaptiveInfo().calculateWindowType()
 
     CompositionLocalProvider(
-        values = arrayOf(
-            LocalBlogColors provides colors,
-            LocalBlogTypography provides typography,
-            LocalWindowType provides windowType
-        )
+        LocalBlogColors provides colors,
+        LocalBlogTypography provides typography,
+        LocalBlogShapes provides shapes,
+        LocalBlogSpacing provides spacing,
+        LocalWindowType provides windowType,
     ) {
         MaterialTheme(
             colorScheme = debugColors(),
@@ -34,11 +37,21 @@ fun BlogTheme(
 object BlogTheme {
     val colors: BlogColors
         @Composable
+        @ReadOnlyComposable
         get() = LocalBlogColors.current
+
     val typography
         @Composable
+        @ReadOnlyComposable
         get() = LocalBlogTypography.current
-    val shapes
+
+    val shapes: BlogShapes
         @Composable
-        get() = MaterialTheme.shapes
+        @ReadOnlyComposable
+        get() = LocalBlogShapes.current
+
+    val spacing: BlogSpacing
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalBlogSpacing.current
 }

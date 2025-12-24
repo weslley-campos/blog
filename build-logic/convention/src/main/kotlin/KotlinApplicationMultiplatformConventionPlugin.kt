@@ -22,6 +22,7 @@ class KotlinApplicationMultiplatformConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) = with(target) {
         apply(plugin = libs.plugins.android.application.get().pluginId)
         apply(plugin = libs.plugins.kotlin.multiplatform.get().pluginId)
+        apply(plugin = libs.plugins.kotlin.serialization.get().pluginId)
 
         extensions.configure<ApplicationExtension>(::configureAndroid)
         extensions.configure<KotlinMultiplatformExtension>(::configureAndroidTarget)

@@ -5,7 +5,6 @@ import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.getByType
 import org.jetbrains.compose.ComposeExtension
-import org.jetbrains.compose.ExperimentalComposeLibrary
 import org.jetbrains.compose.resources.ResourcesExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
@@ -66,6 +65,18 @@ internal fun Project.configureComposeMultiplatform(
                 // Provides a large collection of icons that you can directly use as composables in your UI.
                 implementation(libs.material3.icons.extended)
 
+                // Compose Material 3 Adaptive
+                // This library helps you create adaptive UIs that automatically adjust to different window
+                // configurations, such as varying window sizes and device postures (e.g., folded, unfolded).
+                // It offers both pre-built scaffold implementations and fundamental composable components for
+                // crafting custom adaptive experiences.
+                implementation(libs.material3.adaptive)
+
+                // Material 3 Window Size Class
+                // It allows you to easily implement adaptive UI designs by providing the size class,
+                // making it easy to have different layouts in different screen sizes.
+                implementation(libs.material3.window.size)
+
                 // Lifecycle Runtime for Compose
                 // Lifecycle-aware bindings for Compose: adds helpers such as
                 // `collectAsStateWithLifecycle`, `LocalLifecycleOwner`, and lifecycle-aware
@@ -82,25 +93,20 @@ internal fun Project.configureComposeMultiplatform(
                 // This is the core library for implementing navigation within a Compose-based app.
                 // It provides composable functions for defining your navigation graph, handling navigation
                 // actions, and passing data between screens.
-                implementation(libs.navigation.compose)
-
-                // Compose Material 3 Adaptive
-                // This library helps you create adaptive UIs that automatically adjust to different window
-                // configurations, such as varying window sizes and device postures (e.g., folded, unfolded).
-                // It offers both pre-built scaffold implementations and fundamental composable components for
-                // crafting custom adaptive experiences.
-                implementation(libs.compose.material3.adaptive)
+                implementation(libs.nav3)
+                implementation(libs.nav3.lifecycle.viewmodel)
 
                 // Compose Material 3 Adaptive Navigation
                 // This library provides components to build adaptive navigation UIs.
                 // It offers pre-built navigation components like NavigationRail, NavigationBar, and more
                 // that adjust their behavior and appearance based on the window size and device posture.
-                implementation(libs.compose.material3.adaptive.navigation)
+                implementation(libs.nav3.material3.adaptive)
 
-                // Material 3 Window Size Class
-                // It allows you to easily implement adaptive UI designs by providing the size class,
-                // making it easy to have different layouts in different screen sizes.
-                implementation(libs.compose.material3.window.size)
+
+            }
+
+            wasmJsMain.dependencies {
+                implementation(libs.nav3.browser)
             }
 
             commonTest.dependencies {

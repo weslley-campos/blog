@@ -4,11 +4,3 @@ plugins {
     alias(libs.plugins.blog.koin)
     alias(libs.plugins.blog.detekt)
 }
-
-kotlin {
-    sourceSets {
-        commonMain.dependencies {
-            implementation(projects.core.navigation)
-        }
-    }
-}

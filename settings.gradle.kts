@@ -32,6 +32,7 @@ dependencyResolutionManagement {
 include(":composeApp")
 include(":core:ui")
 include(":core:common")
+include(":core:navigation")
 include(":feature:home")
 
 check(JavaVersion.current().isCompatibleWith(JavaVersion.VERSION_17)) {

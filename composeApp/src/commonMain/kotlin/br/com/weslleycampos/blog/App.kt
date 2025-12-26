@@ -1,19 +1,30 @@
 package br.com.weslleycampos.blog
 
 import androidx.compose.runtime.Composable
-import androidx.navigation.NavHostController
+import androidx.lifecycle.viewmodel.navigation3.rememberViewModelStoreNavEntryDecorator
+import androidx.navigation3.runtime.EntryProviderScope
+import androidx.navigation3.runtime.NavBackStack
+import androidx.navigation3.runtime.NavKey
+import androidx.navigation3.runtime.entryProvider
+import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
+import androidx.navigation3.ui.NavDisplay
 import br.com.weslleycampos.blog.core.ui.theme.BlogTheme
-import br.com.weslleycampos.blog.navigation.BlogNavHost
 
 @Composable
 fun App(
-    startDestination: Any,
-    navController: NavHostController
+    navBackStack: NavBackStack<NavKey>,
+    entryBuilders: List<EntryProviderScope<NavKey>.() -> Unit>
 ) {
     BlogTheme {
-        BlogNavHost(
-            startDestination = startDestination,
-            navController = navController
+        NavDisplay(
+            backStack = navBackStack,
+            entryDecorators = listOf(
+                rememberSaveableStateHolderNavEntryDecorator(),
+                rememberViewModelStoreNavEntryDecorator()
+            ),
+            entryProvider = entryProvider {
+                entryBuilders.forEach { builder -> this.builder() }
+            },
         )
     }
 }

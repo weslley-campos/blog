@@ -8,7 +8,7 @@ import androidx.navigation.ExperimentalBrowserHistoryApi
 import androidx.navigation.NavHostController
 import androidx.navigation.bindToBrowserNavigation
 import androidx.navigation.compose.rememberNavController
-import br.com.weslleycampos.core.common.di.BlogKoinApp
+import br.com.weslleycampos.blog.core.common.di.BlogKoinApp
 import kotlinx.browser.document
 import org.koin.core.logger.Level
 import org.koin.ksp.generated.module

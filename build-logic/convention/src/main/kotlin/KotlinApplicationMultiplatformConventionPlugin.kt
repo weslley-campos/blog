@@ -1,6 +1,7 @@
 import com.android.build.api.dsl.ApplicationExtension
 import extensions.configureAndroid
 import extensions.configureAndroidTarget
+import extensions.configureKotlin
 import extensions.configureWasmJs
 import extensions.libs
 import org.gradle.api.Plugin
@@ -27,13 +28,6 @@ class KotlinApplicationMultiplatformConventionPlugin : Plugin<Project> {
         extensions.configure<ApplicationExtension>(::configureAndroid)
         extensions.configure<KotlinMultiplatformExtension>(::configureAndroidTarget)
         extensions.configure<KotlinMultiplatformExtension>(::configureWasmJs)
-        extensions.configure<KotlinMultiplatformExtension> {
-            sourceSets.apply {
-                commonMain.dependencies {
-                    implementation(project(":core:ui"))
-                    implementation(project(":core:common"))
-                }
-            }
-        }
+        extensions.configure<KotlinMultiplatformExtension>(::configureKotlin)
     }
 }

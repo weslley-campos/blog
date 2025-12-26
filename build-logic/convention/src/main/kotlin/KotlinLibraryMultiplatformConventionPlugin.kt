@@ -1,6 +1,7 @@
 import com.android.build.api.dsl.LibraryExtension
 import extensions.configureAndroid
 import extensions.configureAndroidTarget
+import extensions.configureKotlin
 import extensions.configureWasmJsLibrary
 import extensions.libs
 import org.gradle.api.Plugin
@@ -23,5 +24,6 @@ class KotlinLibraryMultiplatformConventionPlugin : Plugin<Project> {
         extensions.configure<LibraryExtension>(::configureAndroid)
         extensions.configure<KotlinMultiplatformExtension>(::configureAndroidTarget)
         extensions.configure<KotlinMultiplatformExtension>(::configureWasmJsLibrary)
+        extensions.configure<KotlinMultiplatformExtension>(::configureKotlin)
     }
 }

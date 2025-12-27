@@ -2,6 +2,7 @@ package extensions
 
 import org.gradle.accessors.dm.LibrariesForLibs
 import org.gradle.api.Project
+import org.gradle.internal.extensions.stdlib.capitalized
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 import org.gradle.kotlin.dsl.getByType
 
@@ -17,9 +18,7 @@ val Project.resourcePackage: String
     get() {
         return buildString {
             append("br.com.weslleycampos.blog.")
-            path.removePrefix(":")
-                .replace(":", ".")
-                .let { append(it) }
+            path.removePrefix(":").replace(":", ".").let { append(it) }
             append(".resources")
         }
     }
@@ -31,6 +30,10 @@ val Project.packageName: String
             append(path.replace(":", "."))
         }
     }
+
+fun String.toResClassName(): String = split(":")
+    .filter { it.isNotEmpty() }
+    .joinToString("") { it.capitalized() } + "Res"
 
 fun DependencyHandlerScope.debugImplementation(module: Any) {
     add("debugImplementation", module)

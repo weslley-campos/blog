@@ -7,29 +7,29 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import br.com.weslleycampos.blog.core.ui.resources.Res
+import br.com.weslleycampos.blog.core.ui.resources.CoreUiRes
 import br.com.weslleycampos.blog.core.ui.resources.inter
 import br.com.weslleycampos.blog.core.ui.resources.jetbrains_mono
 import org.jetbrains.compose.resources.Font
 
 val InterFontFamily: FontFamily
     @Composable get() = FontFamily(
-        Font(Res.font.inter),
-        Font(Res.font.inter, FontWeight.Normal),
-        Font(Res.font.inter, FontWeight.Light),
-        Font(Res.font.inter, FontWeight.Medium),
-        Font(Res.font.inter, FontWeight.SemiBold),
-        Font(Res.font.inter, FontWeight.Bold),
+        Font(CoreUiRes.font.inter),
+        Font(CoreUiRes.font.inter, FontWeight.Normal),
+        Font(CoreUiRes.font.inter, FontWeight.Light),
+        Font(CoreUiRes.font.inter, FontWeight.Medium),
+        Font(CoreUiRes.font.inter, FontWeight.SemiBold),
+        Font(CoreUiRes.font.inter, FontWeight.Bold),
     )
 
 val JetBrainsMonoFontFamily: FontFamily
     @Composable get() = FontFamily(
-        Font(Res.font.jetbrains_mono),
-        Font(Res.font.jetbrains_mono, FontWeight.Normal),
-        Font(Res.font.jetbrains_mono, FontWeight.Light),
-        Font(Res.font.jetbrains_mono, FontWeight.Medium),
-        Font(Res.font.jetbrains_mono, FontWeight.SemiBold),
-        Font(Res.font.jetbrains_mono, FontWeight.Bold),
+        Font(CoreUiRes.font.jetbrains_mono),
+        Font(CoreUiRes.font.jetbrains_mono, FontWeight.Normal),
+        Font(CoreUiRes.font.jetbrains_mono, FontWeight.Light),
+        Font(CoreUiRes.font.jetbrains_mono, FontWeight.Medium),
+        Font(CoreUiRes.font.jetbrains_mono, FontWeight.SemiBold),
+        Font(CoreUiRes.font.jetbrains_mono, FontWeight.Bold),
     )
 
 val BlogTypography: Typography

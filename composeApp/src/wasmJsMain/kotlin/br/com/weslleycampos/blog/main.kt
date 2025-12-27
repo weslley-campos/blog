@@ -3,11 +3,11 @@ package br.com.weslleycampos.blog
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.window.ComposeViewport
 import androidx.savedstate.serialization.SavedStateConfiguration
+import br.com.weslleycampos.blog.core.common.di.BlogKoinApp
 import br.com.weslleycampos.blog.core.navigation.Navigator
 import br.com.weslleycampos.blog.core.navigation.entries.home.HomeEntry
 import br.com.weslleycampos.blog.core.navigation.utils.EntryProvider
 import br.com.weslleycampos.blog.core.navigation.utils.bindNavBackStack
-import br.com.weslleycampos.blog.core.common.di.BlogKoinApp
 import kotlinx.browser.document
 import kotlinx.serialization.modules.SerializersModule
 import org.koin.compose.getKoin

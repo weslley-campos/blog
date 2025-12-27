@@ -1,5 +1,6 @@
 package extensions
 
+import com.android.build.api.variant.impl.joinToString
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
@@ -137,7 +138,8 @@ internal fun Project.configureComposeMultiplatform(
 fun Project.configureComposeResources(packageResource: String) {
     val compose = extensions.getByType<ComposeExtension>()
     compose.extensions.configure<ResourcesExtension> {
-        publicResClass = false
+        nameOfResClass = path.toResClassName()
+        publicResClass = true
         packageOfResClass = packageResource
         generateResClass = auto
     }

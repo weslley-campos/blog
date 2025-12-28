@@ -42,3 +42,8 @@ check(JavaVersion.current().isCompatibleWith(JavaVersion.VERSION_17)) {
     https://developer.android.com/build/jdks#jdk-config-in-studio
     """.trimIndent()
 }
+
+// Automatically download the JetBrains Runtime to launching Compose Hot Reload
+plugins {
+    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
+}

@@ -1,6 +1,5 @@
 package extensions
 
-import com.android.build.api.variant.impl.joinToString
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
@@ -12,6 +11,8 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 internal fun Project.configureComposeMultiplatform(
     extension: KotlinMultiplatformExtension
 ) {
+    val compose = extensions.getByType<ComposeExtension>().dependencies
+
     extension.apply {
         sourceSets.apply {
             commonMain.dependencies {
@@ -102,12 +103,15 @@ internal fun Project.configureComposeMultiplatform(
                 // It offers pre-built navigation components like NavigationRail, NavigationBar, and more
                 // that adjust their behavior and appearance based on the window size and device posture.
                 implementation(libs.nav3.material3.adaptive)
-
-
             }
 
             wasmJsMain.dependencies {
                 implementation(libs.nav3.browser)
+            }
+
+            jvmMain.dependencies {
+                implementation(compose.desktop.currentOs)
+                implementation(libs.kotlin.coroutines.swing)
             }
 
             commonTest.dependencies {

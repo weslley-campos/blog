@@ -1,6 +1,7 @@
 import extensions.blogPackage
 import extensions.configureComposeMultiplatform
 import extensions.configureComposeResources
+import extensions.configureDesktop
 import extensions.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -16,5 +17,6 @@ class ComposeApplicationMultiplatformConventionPlugin : Plugin<Project> {
 
         extensions.configure<KotlinMultiplatformExtension>(::configureComposeMultiplatform)
         configureComposeResources("$blogPackage.resources")
+        configureDesktop()
     }
 }

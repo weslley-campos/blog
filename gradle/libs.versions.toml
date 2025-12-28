@@ -27,6 +27,9 @@ ksp = "2.3.2"
 koin = "4.1.1"
 koin-annotations = "2.3.1"
 
+# Coroutines
+kotlin-coroutines = "1.10.2"
+
 # Detekt
 detekt = "1.23.8"
 
@@ -34,6 +37,9 @@ detekt = "1.23.8"
 junit = "4.13.2"
 
 [libraries]
+# Kotlin
+kotlin-coroutines-swing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing", version.ref = "kotlin-coroutines" }
+
 # Lifecycle
 lifecycle-viewmodel-compose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle" }
 lifecycle-runtime-compose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycle" }
@@ -47,6 +53,7 @@ compose-ui-test = { module = "org.jetbrains.compose.ui:ui-test", version.ref = "
 compose-runtime = { module = "org.jetbrains.compose.runtime:runtime", version.ref = "compose-multiplatform" }
 compose-foundation = { module = "org.jetbrains.compose.foundation:foundation", version.ref = "compose-multiplatform" }
 compose-components-resources = { module = "org.jetbrains.compose.components:components-resources", version.ref = "compose-multiplatform" }
+compose-desktop = { module = "org.jetbrains.compose.desktop:desktop", version.ref = "compose-multiplatform" }
 
 # Material 3
 material3 = { module = "org.jetbrains.compose.material3:material3", version.ref = "material3" }

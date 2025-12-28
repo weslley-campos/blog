@@ -11,7 +11,7 @@ interface Navigator {
     fun navigateUp()
 }
 
-@Single(binds = [Navigator::class], createdAtStart = true)
+@Single(binds = [Navigator::class])
 class NavigatorImpl(@Provided startEntry: NavKey) : Navigator {
     override val navBackStack = NavBackStack(startEntry)
 

@@ -34,7 +34,6 @@ fun Project.configureWasmJs(
     }
 }
 
-
 @OptIn(ExperimentalWasmDsl::class)
 fun Project.configureWasmJsLibrary(
     extension: KotlinMultiplatformExtension

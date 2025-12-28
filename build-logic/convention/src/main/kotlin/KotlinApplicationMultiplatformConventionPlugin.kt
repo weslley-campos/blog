@@ -1,6 +1,7 @@
 import com.android.build.api.dsl.ApplicationExtension
 import extensions.configureAndroid
 import extensions.configureAndroidTarget
+import extensions.configureDesktop
 import extensions.configureKotlin
 import extensions.configureWasmJs
 import extensions.libs
@@ -25,9 +26,9 @@ class KotlinApplicationMultiplatformConventionPlugin : Plugin<Project> {
         apply(plugin = libs.plugins.kotlin.multiplatform.get().pluginId)
         apply(plugin = libs.plugins.kotlin.serialization.get().pluginId)
 
+        extensions.configure<KotlinMultiplatformExtension>(::configureKotlin)
         extensions.configure<ApplicationExtension>(::configureAndroid)
         extensions.configure<KotlinMultiplatformExtension>(::configureAndroidTarget)
         extensions.configure<KotlinMultiplatformExtension>(::configureWasmJs)
-        extensions.configure<KotlinMultiplatformExtension>(::configureKotlin)
     }
 }

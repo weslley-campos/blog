@@ -7,6 +7,8 @@ internal fun Project.configureKotlin(
     extension: KotlinMultiplatformExtension
 ) {
     extension.apply {
+        jvm()
+
         targets.configureEach {
             compilations.configureEach {
                 compileTaskProvider.configure {

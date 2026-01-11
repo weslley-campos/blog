@@ -2,12 +2,12 @@ package br.com.weslleycampos.blog.core.ui.utils
 
 import androidx.compose.material3.adaptive.WindowAdaptiveInfo
 import androidx.compose.runtime.Composable
-import br.com.weslleycampos.blog.core.ui.utils.WindowType.Compact
-import br.com.weslleycampos.blog.core.ui.utils.WindowType.Expanded
-import br.com.weslleycampos.blog.core.ui.utils.WindowType.Medium
+import br.com.weslleycampos.blog.core.ui.utils.ScreenSize.Compact
+import br.com.weslleycampos.blog.core.ui.utils.ScreenSize.Expanded
+import br.com.weslleycampos.blog.core.ui.utils.ScreenSize.Medium
 
 /**
- * Calculates the [WindowType] based on the current [WindowAdaptiveInfo].
+ * Calculates the [ScreenSize] based on the current [WindowAdaptiveInfo].
  *
  * This function determines the window type (Compact, Medium, or Expanded)
  * by checking the width of the window against predefined breakpoints.
@@ -17,14 +17,13 @@ import br.com.weslleycampos.blog.core.ui.utils.WindowType.Medium
  * - Otherwise, it's considered Expanded.
  *
  * @receiver The [WindowAdaptiveInfo] providing information about the current window size.
- * @return The calculated [WindowType] (Compact, Medium, or Expanded).
+ * @return The calculated [ScreenSize] (Compact, Medium, or Expanded).
  */
 @Composable
-fun WindowAdaptiveInfo.calculateWindowType(): WindowType {
+fun WindowAdaptiveInfo.calculateScreenSize(): ScreenSize {
     return when {
-        windowSizeClass.isWidthAtLeastBreakpoint(Expanded.size) -> Expanded
-        windowSizeClass.isWidthAtLeastBreakpoint(Medium.size) -> Medium
-        windowSizeClass.isWidthAtLeastBreakpoint(Compact.size) -> Compact
-        else -> Compact
+        !windowSizeClass.isWidthAtLeastBreakpoint(Compact.size) -> Compact
+        !windowSizeClass.isWidthAtLeastBreakpoint(Medium.size) -> Medium
+        else -> Expanded
     }
 }

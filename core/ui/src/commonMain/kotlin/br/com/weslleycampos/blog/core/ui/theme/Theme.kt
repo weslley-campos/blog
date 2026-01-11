@@ -6,8 +6,8 @@ import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
-import br.com.weslleycampos.blog.core.ui.utils.LocalWindowType
-import br.com.weslleycampos.blog.core.ui.utils.calculateWindowType
+import br.com.weslleycampos.blog.core.ui.utils.LocalScreenSize
+import br.com.weslleycampos.blog.core.ui.utils.calculateScreenSize
 
 @Composable
 fun BlogTheme(
@@ -18,14 +18,14 @@ fun BlogTheme(
     val typography = BlogTypography
     val shapes = BlogShapes()
     val spacing = BlogSpacing()
-    val windowType = currentWindowAdaptiveInfo().calculateWindowType()
+    val screenSize = currentWindowAdaptiveInfo().calculateScreenSize()
 
     CompositionLocalProvider(
         LocalBlogColors provides colors,
         LocalBlogTypography provides typography,
         LocalBlogShapes provides shapes,
         LocalBlogSpacing provides spacing,
-        LocalWindowType provides windowType,
+        LocalScreenSize provides screenSize,
     ) {
         MaterialTheme(
             colorScheme = debugColors(),

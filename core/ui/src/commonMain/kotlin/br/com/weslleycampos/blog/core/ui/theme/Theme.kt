@@ -8,27 +8,26 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
 import br.com.weslleycampos.blog.core.ui.utils.LocalScreenSize
 import br.com.weslleycampos.blog.core.ui.utils.calculateScreenSize
+import br.com.weslleycampos.blog.core.ui.utils.debugColorScheme
 
 @Composable
 fun BlogTheme(
     isDarkMode: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
-    val colors = if (isDarkMode) darkBlogColors else lightBlogColors
     val typography = BlogTypography
     val shapes = BlogShapes()
     val spacing = BlogSpacing()
     val screenSize = currentWindowAdaptiveInfo().calculateScreenSize()
 
     CompositionLocalProvider(
-        LocalBlogColors provides colors,
         LocalBlogTypography provides typography,
         LocalBlogShapes provides shapes,
         LocalBlogSpacing provides spacing,
         LocalScreenSize provides screenSize,
     ) {
         MaterialTheme(
-            colorScheme = debugColors(),
+            colorScheme = debugColorScheme,
             content = content
         )
     }

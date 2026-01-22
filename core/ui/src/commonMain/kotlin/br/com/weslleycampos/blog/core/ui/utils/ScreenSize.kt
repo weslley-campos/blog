@@ -8,6 +8,9 @@ enum class ScreenSize(val size: Int) {
     Expanded(size = 1200)
 }
 
+val ScreenSize.isCompact: Boolean
+    get() = this == ScreenSize.Compact
+
 val LocalScreenSize = staticCompositionLocalOf<ScreenSize> {
     error("No ScreenSize provided")
 }

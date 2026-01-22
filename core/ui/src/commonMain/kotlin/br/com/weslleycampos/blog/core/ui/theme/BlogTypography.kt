@@ -5,11 +5,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import br.com.weslleycampos.blog.core.ui.resources.CoreUiRes
 import br.com.weslleycampos.blog.core.ui.resources.inter
 import br.com.weslleycampos.blog.core.ui.resources.jetbrains_mono
+import br.com.weslleycampos.blog.core.ui.resources.merriweather
+import br.com.weslleycampos.blog.core.ui.resources.shrikhand
 import org.jetbrains.compose.resources.Font
 
 val InterFontFamily: FontFamily
@@ -22,6 +25,13 @@ val InterFontFamily: FontFamily
         Font(CoreUiRes.font.inter, FontWeight.Bold),
     )
 
+val MerriWeatherFontFamily: FontFamily
+    @Composable get() = FontFamily(
+        Font(CoreUiRes.font.merriweather),
+        Font(CoreUiRes.font.merriweather, FontWeight.Normal),
+        Font(CoreUiRes.font.merriweather, FontWeight.Bold),
+    )
+
 val JetBrainsMonoFontFamily: FontFamily
     @Composable get() = FontFamily(
         Font(CoreUiRes.font.jetbrains_mono),
@@ -32,43 +42,44 @@ val JetBrainsMonoFontFamily: FontFamily
         Font(CoreUiRes.font.jetbrains_mono, FontWeight.Bold),
     )
 
-val BlogTypography: Typography
+val ShrikhandFontFamily: FontFamily
+    @Composable get() = FontFamily(
+        Font(CoreUiRes.font.shrikhand),
+    )
+
+val blogTypography: Typography
     @Composable get() = Typography(
+        // --- LEVEL 1: DISPLAY & HERO ---
+        // Used for: Markdown H1 (# Title)
         displayLarge = TextStyle(
-            fontFamily = InterFontFamily,
-            fontWeight = FontWeight.Light,
-            fontSize = 57.sp,
-            lineHeight = 64.sp,
-            letterSpacing = 0.sp,
+            fontFamily = MerriWeatherFontFamily,
+            fontWeight = FontWeight.Bold,
+            fontSize = 48.sp,
+            lineHeight = 56.sp,
+            letterSpacing = (-1.5).sp
         ),
+        // --- SPECIAL: BLOCKQUOTES ---
+        // Used for: Markdown Blockquotes (> Quote)
+        // Context: Editorial quotes that break the reading flow.
         displayMedium = TextStyle(
-            fontFamily = InterFontFamily,
-            fontWeight = FontWeight.Light,
-            fontSize = 45.sp,
-            lineHeight = 52.sp,
-            letterSpacing = 0.sp,
-        ),
-        displaySmall = TextStyle(
-            fontFamily = InterFontFamily,
+            fontFamily = MerriWeatherFontFamily,
             fontWeight = FontWeight.Normal,
-            fontSize = 36.sp,
-            lineHeight = 44.sp,
+            fontStyle = FontStyle.Italic,
+            fontSize = 24.sp,
+            lineHeight = 36.sp,
             letterSpacing = 0.sp,
         ),
+        // --- LEVEL 2: MAJOR SECTIONS ---
+        // Used for: Markdown H2 (## Section)
         headlineLarge = TextStyle(
-            fontFamily = InterFontFamily,
-            fontWeight = FontWeight.SemiBold,
+            fontFamily = MerriWeatherFontFamily,
+            fontWeight = FontWeight.Bold,
             fontSize = 32.sp,
             lineHeight = 40.sp,
             letterSpacing = 0.sp,
         ),
-        headlineMedium = TextStyle(
-            fontFamily = InterFontFamily,
-            fontWeight = FontWeight.SemiBold,
-            fontSize = 28.sp,
-            lineHeight = 36.sp,
-            letterSpacing = 0.sp,
-        ),
+        // --- LEVEL 3: SUBSECTIONS ---
+        // Used for: Markdown H3 (### Subsection)
         headlineSmall = TextStyle(
             fontFamily = InterFontFamily,
             fontWeight = FontWeight.SemiBold,
@@ -76,20 +87,26 @@ val BlogTypography: Typography
             lineHeight = 32.sp,
             letterSpacing = 0.sp,
         ),
+        // --- LEVEL 4: GROUP HEADERS ---
+        // Used for: Markdown H4 (#### Title)
         titleLarge = TextStyle(
             fontFamily = InterFontFamily,
-            fontWeight = FontWeight.SemiBold,
+            fontWeight = FontWeight.Bold,
             fontSize = 22.sp,
             lineHeight = 28.sp,
             letterSpacing = 0.sp,
         ),
+        // --- LEVEL 5: SMALL HEADERS ---
+        // Used for: Markdown H5 (##### Title)
         titleMedium = TextStyle(
-            fontFamily = InterFontFamily,
+            fontFamily = MerriWeatherFontFamily,
             fontWeight = FontWeight.SemiBold,
-            fontSize = 16.sp,
+            fontSize = 18.sp,
             lineHeight = 24.sp,
             letterSpacing = 0.15.sp,
         ),
+        // --- LEVEL 6: TINY HEADERS ---
+        // Used for: Markdown H6 (###### Title)
         titleSmall = TextStyle(
             fontFamily = InterFontFamily,
             fontWeight = FontWeight.Bold,
@@ -97,47 +114,22 @@ val BlogTypography: Typography
             lineHeight = 20.sp,
             letterSpacing = 0.1.sp,
         ),
+        // --- BODY TEXT (PARAGRAPHS) ---
+        // Used for: Standard Markdown Paragraph (p)
         bodyLarge = TextStyle(
             fontFamily = InterFontFamily,
             fontWeight = FontWeight.Normal,
-            fontSize = 16.sp,
-            lineHeight = 24.sp,
-            letterSpacing = 0.15.sp,
+            fontSize = 18.sp,
+            lineHeight = 28.sp,
+            letterSpacing = 0.15.sp
         ),
-        bodyMedium = TextStyle(
-            fontFamily = InterFontFamily,
-            fontWeight = FontWeight.Medium,
-            fontSize = 14.sp,
-            lineHeight = 20.sp,
-            letterSpacing = 0.25.sp,
-        ),
-        bodySmall = TextStyle(
-            fontFamily = InterFontFamily,
-            fontWeight = FontWeight.Bold,
-            fontSize = 12.sp,
-            lineHeight = 16.sp,
-            letterSpacing = 0.4.sp,
-        ),
+        // --- CODE ---
         labelLarge = TextStyle(
-            fontFamily = InterFontFamily,
+            fontFamily = JetBrainsMonoFontFamily,
             fontWeight = FontWeight.SemiBold,
             fontSize = 14.sp,
             lineHeight = 20.sp,
             letterSpacing = 0.1.sp,
-        ),
-        labelMedium = TextStyle(
-            fontFamily = InterFontFamily,
-            fontWeight = FontWeight.SemiBold,
-            fontSize = 12.sp,
-            lineHeight = 16.sp,
-            letterSpacing = 0.5.sp,
-        ),
-        labelSmall = TextStyle(
-            fontFamily = InterFontFamily,
-            fontWeight = FontWeight.SemiBold,
-            fontSize = 11.sp,
-            lineHeight = 16.sp,
-            letterSpacing = 0.5.sp,
         )
     )
 

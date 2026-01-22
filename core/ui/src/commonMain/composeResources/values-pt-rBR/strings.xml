@@ -1,0 +1,18 @@
+<resources>
+    <!-- A11y -->
+    <string name="a11y_theme_mode_button">Botão de modo de tema</string>
+    <string name="a11y_language_button">Botão de idioma</string>
+    <string name="a11y_menu_button">Botão de menu</string>
+    <string name="a11y_selected_language">Idioma selecionado</string>
+
+    <string name="app_name">Blog</string>
+    <string name="author_name">Weslley Campos</string>
+
+    <!-- Common -->
+    <string name="common_apply">Aplicar</string>
+
+    <!-- Language Selector   -->
+    <string name="en_US">Inglês</string>
+    <string name="pt_BR">Português</string>
+    <string name="language_selector_title">Selecionar idioma:</string>
+</resources>

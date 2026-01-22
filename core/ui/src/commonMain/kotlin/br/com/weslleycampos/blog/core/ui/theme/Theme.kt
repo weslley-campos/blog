@@ -42,6 +42,7 @@ fun BlogTheme(
         LocalBlogIcons provides BlogIcons,
         LocalBlogSizes provides BlogSizes(),
         LocalDarkTheme provides isDarkMode,
+        BlogLanguage provides language,
         LocalScreenSize provides screenSize,
         LocalRippleConfiguration provides rippleConfiguration,
     ) {
@@ -86,4 +87,8 @@ object BlogTheme {
         @Composable
         @ReadOnlyComposable
         get() = LocalBlogSpacing.current
+
+    val language: Locale
+        @Composable
+        get() = BlogLanguage.current
 }

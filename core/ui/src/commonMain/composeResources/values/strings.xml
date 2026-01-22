@@ -1,2 +1,18 @@
 <resources>
+    <!-- A11y -->
+    <string name="a11y_theme_mode_button">Theme mode button</string>
+    <string name="a11y_language_button">Language button</string>
+    <string name="a11y_menu_button">Menu button</string>
+    <string name="a11y_selected_language">Selected language</string>
+
+    <string name="app_name">Blog</string>
+    <string name="author_name">Weslley Campos</string>
+
+    <!-- Common -->
+    <string name="common_apply">Apply</string>
+
+    <!-- Language Selector   -->
+    <string name="en_US">English</string>
+    <string name="pt_BR">Portuguese</string>
+    <string name="language_selector_title">Select language:</string>
 </resources>

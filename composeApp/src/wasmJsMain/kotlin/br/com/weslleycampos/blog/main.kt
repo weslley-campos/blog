@@ -27,7 +27,6 @@ fun main() {
     ComposeViewport(viewportContainer = document.body!!) {
         val entries = getKoin().getAll<EntryProvider>()
         val navigator = koinInject<Navigator> { parametersOf(HomeEntry) }
-
         val config = SavedStateConfiguration {
             serializersModule = SerializersModule {
                 entries.forEach { entry -> include(entry.serializerModule()) }
@@ -36,7 +35,7 @@ fun main() {
 
         App(
             navBackStack = bindNavBackStack(config, navigator.navBackStack),
-            entryBuilders = entries.map { it.entryBuilder() }
+            entryBuilders = entries.map { it.entryBuilder() },
         )
     }
 }

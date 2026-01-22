@@ -15,6 +15,7 @@ import org.koin.core.logger.Level
 import org.koin.core.parameter.parametersOf
 import org.koin.ksp.generated.module
 import org.koin.ksp.generated.startKoin
+import java.awt.Dimension
 
 fun main() = application {
     BlogKoinApp.startKoin {
@@ -26,6 +27,7 @@ fun main() = application {
         onCloseRequest = ::exitApplication,
         title = "Blog",
     ) {
+        window.minimumSize = Dimension(320, 700)
         val entries = getKoin().getAll<EntryProvider>()
         val navigator = koinInject<Navigator> { parametersOf(HomeEntry) }
 
@@ -37,7 +39,7 @@ fun main() = application {
 
         App(
             navBackStack = bindNavBackStack(config, navigator.navBackStack),
-            entryBuilders = entries.map { it.entryBuilder() }
+            entryBuilders = entries.map { it.entryBuilder() },
         )
     }
 }

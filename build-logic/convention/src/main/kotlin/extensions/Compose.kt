@@ -103,6 +103,8 @@ internal fun Project.configureComposeMultiplatform(
                 // It offers pre-built navigation components like NavigationRail, NavigationBar, and more
                 // that adjust their behavior and appearance based on the window size and device posture.
                 implementation(libs.nav3.material3.adaptive)
+
+                implementation(libs.compose.animation)
             }
 
             wasmJsMain.dependencies {

@@ -42,6 +42,8 @@ import androidx.compose.ui.text.intl.Locale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
+import br.com.weslleycampos.blog.core.ui.constants.defaultLanguage
+import br.com.weslleycampos.blog.core.ui.constants.portugueseLanguage
 import br.com.weslleycampos.blog.core.ui.resources.CoreUiRes
 import br.com.weslleycampos.blog.core.ui.resources.a11y_selected_language
 import br.com.weslleycampos.blog.core.ui.resources.common_apply
@@ -58,8 +60,8 @@ data class Language(val code: String, val name: StringResource, val flag: Drawab
 
 private val languagesAvailable: List<Language>
     @Composable get() = listOf(
-        Language("en-US", CoreUiRes.string.en_US, BlogTheme.icons.USAFlag),
-        Language("pt-BR", CoreUiRes.string.pt_BR, BlogTheme.icons.BrazilFlag),
+        Language(defaultLanguage, CoreUiRes.string.en_US, BlogTheme.icons.USAFlag),
+        Language(portugueseLanguage, CoreUiRes.string.pt_BR, BlogTheme.icons.BrazilFlag),
     )
 
 @Composable
@@ -189,7 +191,7 @@ fun LanguageItem(
 @Preview(showBackground = true)
 @Composable
 private fun LanguageSelectDialogPreview() {
-    var selectedLanguage by remember { mutableStateOf("en-US") }
+    var selectedLanguage by remember { mutableStateOf(defaultLanguage) }
 
     BlogTheme(language = Locale(languageTag = selectedLanguage)) {
         SelectLanguageDialog(

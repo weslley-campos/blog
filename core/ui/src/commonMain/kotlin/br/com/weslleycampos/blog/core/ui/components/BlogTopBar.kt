@@ -50,7 +50,7 @@ import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun BlogTopBar(
-    onThemeToggle: () -> Unit,
+    onThemeToggle: (Boolean) -> Unit,
     onSelectLanguage: (Locale) -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -89,7 +89,7 @@ fun BlogTopBar(
 private fun ExpandedTopBar(
     selected: String,
     onItemClick: (String) -> Unit,
-    onThemeToggle: () -> Unit,
+    onThemeToggle: (Boolean) -> Unit,
     onLanguageClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -138,7 +138,7 @@ private fun ExpandedTopBar(
             )
 
             val isDarkThemeEnabled = LocalDarkTheme.current
-            IconButton(onClick = onThemeToggle) {
+            IconButton(onClick = { onThemeToggle.invoke(!isDarkThemeEnabled) }) {
                 Icon(
                     painter = BlogTheme.icons.run {
                         if (isDarkThemeEnabled) Moon else Sun
@@ -199,7 +199,7 @@ private fun NavBarItem(
 private fun CompactTopBar(
     onMenuClick: () -> Unit,
     onLanguageClick: () -> Unit,
-    onThemeToggle: () -> Unit,
+    onThemeToggle: (Boolean) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val maxSize = LocalScreenSize.current.size.dp
@@ -226,7 +226,7 @@ private fun CompactTopBar(
 
             val isDarkThemeEnabled = LocalDarkTheme.current
             IconButton(
-                onClick = onThemeToggle,
+                onClick = { onThemeToggle.invoke(!isDarkThemeEnabled) },
                 modifier = Modifier.size(BlogTheme.sizes.icon.large)
             ) {
                 Icon(

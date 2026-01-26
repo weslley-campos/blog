@@ -9,14 +9,9 @@ internal fun Project.configureKotlin(
     extension.apply {
         jvm()
 
-        targets.configureEach {
-            compilations.configureEach {
-                compileTaskProvider.configure {
-                    compilerOptions {
-                        freeCompilerArgs.add("-Xexpect-actual-classes")
-                    }
-                }
-            }
+        compilerOptions {
+            // Common compiler options applied to all Kotlin source sets
+            freeCompilerArgs.add("-Xexpect-actual-classes")
         }
     }
 }

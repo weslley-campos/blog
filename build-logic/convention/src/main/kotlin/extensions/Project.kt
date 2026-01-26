@@ -50,3 +50,15 @@ fun DependencyHandlerScope.lintChecks(module: Any) {
 fun DependencyHandlerScope.kspCommonMainMetadata(module: Any) {
     add("kspCommonMainMetadata", module)
 }
+
+fun DependencyHandlerScope.kspAndroid(module: Any) {
+    add("kspAndroid", module)
+}
+
+fun DependencyHandlerScope.kspJvm(module: Any) {
+    add("kspJvm", module)
+}
+
+fun DependencyHandlerScope.kspWasmJs(module: Any) {
+    add("kspWasmJs", module)
+}

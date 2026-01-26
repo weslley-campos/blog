@@ -21,9 +21,9 @@ class KotlinLibraryMultiplatformConventionPlugin : Plugin<Project> {
         apply(plugin = libs.plugins.android.library.get().pluginId)
         apply(plugin = libs.plugins.kotlin.serialization.get().pluginId)
 
+        extensions.configure<KotlinMultiplatformExtension>(::configureKotlin)
         extensions.configure<LibraryExtension>(::configureAndroid)
         extensions.configure<KotlinMultiplatformExtension>(::configureAndroidTarget)
         extensions.configure<KotlinMultiplatformExtension>(::configureWasmJsLibrary)
-        extensions.configure<KotlinMultiplatformExtension>(::configureKotlin)
     }
 }

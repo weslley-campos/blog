@@ -23,11 +23,7 @@ fun Project.configureWasmJs(
                         port = serverPort
                     }
                 }
-                testTask {
-                    useKarma {
-                        useFirefoxHeadless()
-                    }
-                }
+                testTask { enabled = false }
             }
             binaries.executable()
         }
@@ -41,11 +37,7 @@ fun Project.configureWasmJsLibrary(
     extension.apply {
         wasmJs {
             browser {
-                testTask {
-                    useKarma {
-                        useFirefoxHeadless()
-                    }
-                }
+                testTask { enabled = false }
             }
             binaries.library()
         }

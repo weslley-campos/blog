@@ -3,3 +3,14 @@ plugins {
     alias(libs.plugins.blog.koin)
     alias(libs.plugins.blog.detekt)
 }
+
+kotlin {
+    sourceSets {
+        commonMain.dependencies {
+            api(libs.datastore.core.preferences)
+        }
+        jsMain.dependencies {
+            implementation(libs.datastore.core.okio)
+        }
+    }
+}

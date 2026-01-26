@@ -6,11 +6,10 @@ import androidx.savedstate.serialization.SavedStateConfiguration
 import br.com.weslleycampos.blog.core.common.di.BlogKoinApp
 import br.com.weslleycampos.blog.core.navigation.Navigator
 import br.com.weslleycampos.blog.core.navigation.entries.home.HomeEntry
-import br.com.weslleycampos.blog.core.navigation.utils.EntryProvider
+import br.com.weslleycampos.blog.core.navigation.utils.EntriesAggregator
 import br.com.weslleycampos.blog.core.navigation.utils.bindNavBackStack
 import kotlinx.browser.document
 import kotlinx.serialization.modules.SerializersModule
-import org.koin.compose.getKoin
 import org.koin.compose.koinInject
 import org.koin.core.logger.Level
 import org.koin.core.parameter.parametersOf
@@ -25,7 +24,8 @@ fun main() {
     }
 
     ComposeViewport(viewportContainer = document.body!!) {
-        val entries = getKoin().getAll<EntryProvider>()
+        val entries = koinInject<EntriesAggregator>().entries
+
         val navigator = koinInject<Navigator> { parametersOf(HomeEntry) }
         val config = SavedStateConfiguration {
             serializersModule = SerializersModule {

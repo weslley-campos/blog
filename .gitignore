@@ -14,8 +14,10 @@ out/
 .vscode/
 *.sublime-project
 *.sublime-workspace
-.DS_Store # macOS
-Thumbs.db # Windows
+# macOS
+.DS_Store
+# Windows
+Thumbs.db
 
 # Sensitive information and environment variables
 .env

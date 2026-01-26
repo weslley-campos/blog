@@ -11,6 +11,7 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.text.intl.Locale
+import br.com.weslleycampos.blog.core.ui.constants.defaultLanguage
 import br.com.weslleycampos.blog.core.ui.utils.LocalScreenSize
 import br.com.weslleycampos.blog.core.ui.utils.calculateScreenSize
 import br.com.weslleycampos.blog.core.ui.utils.debugColorScheme
@@ -18,7 +19,7 @@ import br.com.weslleycampos.blog.core.ui.utils.debugColorScheme
 @Composable
 fun BlogTheme(
     isDarkMode: Boolean = isSystemInDarkTheme(),
-    language: Locale = Locale("en-US"),
+    language: Locale = Locale(defaultLanguage),
     content: @Composable () -> Unit
 ) {
     val screenSize = currentWindowAdaptiveInfo().calculateScreenSize()

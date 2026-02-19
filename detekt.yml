@@ -30,6 +30,9 @@ style:
   UnusedPrivateMember:
     ignoreAnnotated: ['Preview']
     allowedNames: '(_|ignored|expected|.*[Pp]review.*)'
+  ReturnCount:
+    active: true
+    max: 5
 
 formatting:
   EnumWrapping:

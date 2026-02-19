@@ -13,5 +13,11 @@ internal fun Project.configureKotlin(
             // Common compiler options applied to all Kotlin source sets
             freeCompilerArgs.add("-Xexpect-actual-classes")
         }
+
+        sourceSets.apply {
+            commonMain.dependencies {
+                implementation(libs.kotlin.collections.imutable)
+            }
+        }
     }
 }

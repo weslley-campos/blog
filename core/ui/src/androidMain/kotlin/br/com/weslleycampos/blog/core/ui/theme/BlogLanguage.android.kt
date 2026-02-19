@@ -6,10 +6,11 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.intl.Locale
 import java.util.Locale as AndroidLocale
+import androidx.compose.ui.platform.LocalLocale
 
 actual object BlogLanguage {
     actual val current: Locale
-        @Composable get() = Locale(languageTag = AndroidLocale.getDefault().toLanguageTag())
+        @Composable get() = Locale(LocalLocale.current.platformLocale)
 
     @Composable
     actual infix fun provides(value: Locale): ProvidedValue<*> {

@@ -11,7 +11,12 @@ internal fun Project.configureKotlin(
 
         compilerOptions {
             // Common compiler options applied to all Kotlin source sets
-            freeCompilerArgs.add("-Xexpect-actual-classes")
+            freeCompilerArgs.addAll(
+                "-Xexpect-actual-classes",
+                "-Xexplicit-backing-fields",
+                "-Xenable-suspend-function-exporting",
+                "-Xdata-flow-based-exhaustiveness"
+            )
         }
 
         sourceSets.apply {

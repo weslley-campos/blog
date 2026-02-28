@@ -95,9 +95,20 @@ data class BadgeColors(
 )
 
 @Immutable
+data class ContentColors(
+    val heading: Color,
+    val body: Color,
+    val muted: Color,
+    val link: Color,
+    val code: Color,
+    val codeSurface: Color,
+)
+
+@Immutable
 data class BlogColors(
     val app: AppColors,
     val text: TextColors,
+    val content: ContentColors,
     val border: BorderColors,
     val icon: IconColors,
     val chip: ChipColors,
@@ -115,6 +126,14 @@ val LightColors = BlogColors(
         primary = appColors.primary,
         onSurface = Black,
         onPrimary = White
+    ),
+    content = ContentColors(
+        heading = Black,
+        body = Black,
+        muted = Grey,
+        link = Turquoise,
+        code = Black,
+        codeSurface = Wash,
     ),
     border = BorderColors(
         default = Mist,
@@ -141,6 +160,14 @@ val DarkColors = BlogColors(
         primary = appColors.primary,
         onSurface = Mist,
         onPrimary = White
+    ),
+    content = ContentColors(
+        heading = White,
+        body = Mist,
+        muted = Grey,
+        link = Turquoise,
+        code = Mist,
+        codeSurface = Obsidian,
     ),
     border = BorderColors(
         default = Grey,

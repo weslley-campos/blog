@@ -17,7 +17,11 @@ actual object BlogLanguage {
         val configuration = LocalConfiguration.current
 
         val locale = AndroidLocale.forLanguageTag(value.toLanguageTag())
-        AndroidLocale.setDefault(locale)
+        try {
+            AndroidLocale.setDefault(locale)
+        } catch (_: SecurityException) {
+            // Blocked by Android Studio preview security manager
+        }
         configuration.setLocale(locale)
 
         LocalContext.current.createConfigurationContext(configuration)

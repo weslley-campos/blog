@@ -30,6 +30,6 @@ class MarkdownParser(private val processors: List<Processor>) {
     }
 
     private fun convertNode(node: ASTNode, source: String): MarkdownBlock? {
-       return processors.firstNotNullOfOrNull { it.process(node, source, ::convertNode) }
+        return processors.firstNotNullOfOrNull { it.process(node, source, ::convertNode) }
     }
 }

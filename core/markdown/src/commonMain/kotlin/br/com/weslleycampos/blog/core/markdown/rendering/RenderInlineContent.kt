@@ -12,7 +12,6 @@ import br.com.weslleycampos.blog.core.markdown.model.InlineMarkdown
 import br.com.weslleycampos.blog.core.markdown.styling.LocalMarkdownStyling
 import br.com.weslleycampos.blog.core.markdown.styling.MarkdownStyling
 
-
 @Composable
 fun List<InlineMarkdown>.toAnnotatedString(): AnnotatedString {
     val styling = LocalMarkdownStyling.current
@@ -46,26 +45,30 @@ private fun AnnotatedString.Builder.appendInline(
             }
         }
         is InlineMarkdown.Code -> {
-            withStyle(SpanStyle(
-                fontFamily = styling.codeFontFamily,
-                background = styling.codeBackgroundColor,
-                fontSize = styling.codeTextSize
-            )) {
+            withStyle(
+                SpanStyle(
+                    fontFamily = styling.codeFontFamily,
+                    background = styling.codeBackgroundColor,
+                    fontSize = styling.codeTextSize
+                )
+            ) {
                 append(inline.content)
             }
         }
         is InlineMarkdown.Link -> {
             pushStringAnnotation(tag = "URL", annotation = inline.destination)
-            withStyle(SpanStyle(
-                color = styling.linkColor,
-                textDecoration = TextDecoration.Underline
-            )) {
+            withStyle(
+                SpanStyle(
+                    color = styling.linkColor,
+                    textDecoration = TextDecoration.Underline
+                )
+            ) {
                 inline.children.forEach { appendInline(it, styling) }
             }
             pop()
         }
         is InlineMarkdown.LineBreak -> append("\n")
-        is InlineMarkdown.SoftBreak -> append(" ")
+        is InlineMarkdown.SoftBreak -> append("")
         is InlineMarkdown.Image -> append("[${inline.alt}]")
     }
 }

@@ -23,6 +23,7 @@ fun Markdown(
 internal fun Render(block: MarkdownBlock) {
     when (block) {
         is MarkdownBlock.Heading -> Render(heading = block)
+        is MarkdownBlock.Paragraph -> Render(paragraph = block)
         else -> Unit
     }
 }

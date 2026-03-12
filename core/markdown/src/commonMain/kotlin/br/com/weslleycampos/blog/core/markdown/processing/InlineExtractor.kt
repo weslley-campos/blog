@@ -15,20 +15,22 @@ class InlineExtractor {
     fun extract(node: ASTNode, source: String): ImmutableList<InlineMarkdown> {
         return node.children.mapNotNull { child ->
             when (child.type) {
-                MarkdownTokenTypes.TEXT -> InlineMarkdown.Text(
-                    child.getTextInNode(source).toString()
-                )
+                MarkdownTokenTypes.TEXT -> InlineMarkdown.Text(child.getTextInNode(source).toString())
                 MarkdownElementTypes.STRONG -> InlineMarkdown.Bold(extract(child, source))
                 MarkdownElementTypes.EMPH -> InlineMarkdown.Italic(extract(child, source))
                 MarkdownElementTypes.CODE_SPAN -> InlineMarkdown.Code(extractCodeSpanContent(child, source))
                 MarkdownElementTypes.INLINE_LINK -> createInlineLink(child, source)
                 MarkdownElementTypes.IMAGE -> createInlineImage(child, source)
                 GFMElementTypes.STRIKETHROUGH -> InlineMarkdown.Strikethrough(extract(child, source))
+                MarkdownTokenTypes.WHITE_SPACE -> InlineMarkdown.Text(child.getTextInNode(source).toString())
                 MarkdownTokenTypes.EOL -> InlineMarkdown.SoftBreak
                 MarkdownTokenTypes.HARD_LINE_BREAK -> InlineMarkdown.LineBreak
                 else -> null
             }
-        }.toPersistentList()
+        }
+            .dropWhile { it is InlineMarkdown.Text && it.content.isBlank() }
+            .dropLastWhile { it is InlineMarkdown.Text && it.content.isBlank() }
+            .toPersistentList()
     }
 
     private fun extractCodeSpanContent(node: ASTNode, source: String): String {

@@ -16,7 +16,6 @@ class TableProcessor(
         source: String,
         convertNode: (ASTNode, String) -> MarkdownBlock?
     ): MarkdownBlock? = node.takeIf { it.type == GFMElementTypes.TABLE }?.let {
-
         val headerNode = node.children.find { it.type == GFMElementTypes.HEADER }
             ?: return null
         val header = createTableRow(headerNode, source)

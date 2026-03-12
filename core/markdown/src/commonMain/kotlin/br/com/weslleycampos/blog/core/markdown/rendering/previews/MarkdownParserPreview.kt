@@ -3,6 +3,7 @@ package br.com.weslleycampos.blog.core.markdown.rendering.previews
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
+import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import br.com.weslleycampos.blog.core.markdown.processing.CodeHighlightProcessor
 import br.com.weslleycampos.blog.core.markdown.processing.CodeSnippetProcessor
@@ -19,8 +20,8 @@ import br.com.weslleycampos.blog.core.markdown.styling.LocalMarkdownStyling
 import br.com.weslleycampos.blog.core.markdown.styling.MarkdownStyling
 import br.com.weslleycampos.blog.core.ui.theme.BlogTheme
 
-private val sampleMarkdown = """
-    |# Markdown Parser Module
+val sampleMarkdown = """
+    |#Markdown Parser Module
     |
     |## Overview
     |
@@ -92,7 +93,9 @@ private val sampleMarkdown = """
     |This module provides a clean, extensible way to parse markdown. Check the [source code](https://github.com/example/blog).
 """.trimMargin()
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, device = Devices.PHONE)
+@Preview(showBackground = true, device = Devices.TABLET)
+@Preview(showBackground = true, device = Devices.DESKTOP)
 @Composable
 private fun MarkdownParserPreview() {
     val blocks = remember {

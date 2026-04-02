@@ -17,7 +17,7 @@ fun HomeScreen(
 ) {
     Column(
         modifier = modifier.fillMaxSize()
-            .background(color = BlogTheme.colors.app.background),
+            .background(color = BlogTheme.colors.background),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {

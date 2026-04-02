@@ -5,27 +5,27 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.dp
+
 /**
- * Blog Design System Shapes
- * Based on "Profissional" theme specification
+ * Shape tokens
  *
- * Border Radius Scale:
- * - None: 0dp
- * - Extra Small (xs): 4dp
- * - Small (sm): 8dp
- * - Medium (md): 12dp
- * - Large (lg): 16dp
- * - Extra Large (xl): 24dp
- * - Full: 50% (pill shape)
+ * The blog's aesthetic favors generous rounding (editorial softness)
+ * with sharp corners reserved for code blocks and accents.
  */
 @Immutable
 data class BlogShapes(
     val none: Shape = RoundedCornerShape(0.dp),
-    val extraSmall: Shape = RoundedCornerShape(4.dp),
-    val small: Shape = RoundedCornerShape(8.dp),
-    val medium: Shape = RoundedCornerShape(12.dp),
-    val large: Shape = RoundedCornerShape(16.dp),
+    /** Tags, badges, small chips */
+    val extraSmall: Shape = RoundedCornerShape(6.dp),
+    /** Buttons, inputs, callouts */
+    val small: Shape = RoundedCornerShape(10.dp),
+    /** Cards, code blocks */
+    val medium: Shape = RoundedCornerShape(14.dp),
+    /** CTA sections, large cards */
+    val large: Shape = RoundedCornerShape(20.dp),
+    /** Modal sheets, nav drawer */
     val extraLarge: Shape = RoundedCornerShape(24.dp),
+    /** Pill shape */
     val full: Shape = RoundedCornerShape(percent = 50),
 )
 

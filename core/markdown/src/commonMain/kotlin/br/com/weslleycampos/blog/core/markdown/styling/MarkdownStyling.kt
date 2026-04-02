@@ -9,7 +9,11 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
+import br.com.weslleycampos.blog.core.ui.theme.BlockquoteTextStyle
 import br.com.weslleycampos.blog.core.ui.theme.BlogTheme
+import br.com.weslleycampos.blog.core.ui.theme.CodeTextStyle
+import br.com.weslleycampos.blog.core.ui.theme.JetBrainsMonoFontFamily
+import br.com.weslleycampos.blog.core.ui.theme.SyntaxDefault
 
 @Immutable
 data class MarkdownStyling(
@@ -68,60 +72,59 @@ data class MarkdownStyling(
             val typography = BlogTheme.typography
             val colors = BlogTheme.colors
 
-            val content = colors.content
+            val spacing = BlogTheme.spacing
+            val divider = colors.dividerGradientColor.copy(alpha = colors.dividerGradientOpacity)
+            val codeStyle = CodeTextStyle
 
             return MarkdownStyling(
                 // Heading
-                h1Style = typography.displayLarge.copy(color = content.heading),
-                h2Style = typography.headlineLarge.copy(color = content.heading),
-                h3Style = typography.headlineSmall.copy(color = content.heading),
-                h4Style = typography.titleLarge.copy(color = content.heading),
-                h5Style = typography.titleMedium.copy(color = content.heading),
-                h6Style = typography.titleSmall.copy(color = content.heading),
+                h1Style = typography.displayLarge.copy(color = colors.textPrimary),
+                h2Style = typography.headlineLarge.copy(color = colors.textPrimary),
+                h3Style = typography.headlineSmall.copy(color = colors.textPrimary),
+                h4Style = typography.titleLarge.copy(color = colors.textPrimary),
+                h5Style = typography.titleMedium.copy(color = colors.textPrimary),
+                h6Style = typography.titleSmall.copy(color = colors.textPrimary),
                 // Paragraph
-                paragraphStyle = typography.bodyLarge.copy(color = content.body),
-                // Inline code
-                codeFontFamily = typography.labelLarge.fontFamily ?: FontFamily.Monospace,
-                codeBackgroundColor = content.codeSurface,
-                codeTextSize = typography.labelLarge.fontSize,
-                // Code block
-                codeBlockStyle = typography.labelLarge.copy(color = content.code),
-                codeBlockBackgroundColor = content.codeSurface,
-                codeBlockBorderColor = colors.border.divider,
-                codeBlockPadding = 12.dp,
+                paragraphStyle = typography.bodyLarge.copy(color = colors.textSecondary),
+                // Inline code — JetBrains Mono with subtle background
+                codeFontFamily = JetBrainsMonoFontFamily,
+                codeBackgroundColor = colors.interactiveSecondaryFill,
+                codeTextSize = codeStyle.fontSize,
+                // Code block — always dark, monospace
+                codeBlockStyle = codeStyle.copy(color = SyntaxDefault),
+                codeBlockBackgroundColor = colors.codeBackground,
+                codeBlockBorderColor = Color.Transparent,
+                codeBlockPadding = spacing.lg,
                 // Links
-                linkColor = content.link,
-                // Blockquote
-                blockquoteStyle = typography.displayMedium.copy(color = content.muted),
-                blockquoteBorderColor = colors.border.divider,
+                linkColor = colors.textLink,
+                // Blockquote — editorial Merriweather italic
+                blockquoteStyle = BlockquoteTextStyle.copy(color = colors.textMuted),
+                blockquoteBorderColor = colors.brand,
                 blockquoteBorderWidth = 4.dp,
                 blockquoteBackgroundColor = Color.Transparent,
-                blockquotePadding = 12.dp,
+                blockquotePadding = spacing.lg,
                 // List
-                listItemStyle = typography.bodyLarge.copy(color = content.body),
-                listBulletColor = content.muted,
-                listItemSpacing = 4.dp,
+                listItemStyle = typography.bodyLarge.copy(color = colors.textSecondary),
+                listBulletColor = colors.brand,
+                listItemSpacing = spacing.xs,
                 // Table
-                tableHeaderStyle = typography.bodyLarge.copy(
-                    color = content.heading,
-                    fontFamily = typography.titleSmall.fontFamily,
-                ),
-                tableCellStyle = typography.bodyLarge.copy(color = content.body),
-                tableBorderColor = colors.border.divider,
-                tableHeaderBackgroundColor = content.codeSurface,
-                tableCellPadding = 8.dp,
+                tableHeaderStyle = typography.titleSmall.copy(color = colors.textPrimary),
+                tableCellStyle = typography.bodyMedium.copy(color = colors.textSecondary),
+                tableBorderColor = divider,
+                tableHeaderBackgroundColor = colors.surfaceElevated,
+                tableCellPadding = spacing.sm,
                 // Thematic break
-                thematicBreakColor = colors.border.divider,
+                thematicBreakColor = divider,
                 thematicBreakThickness = 1.dp,
                 // Alert
-                alertNoteColor = colors.badge.info,
-                alertTipColor = colors.badge.success,
-                alertImportantColor = colors.app.primary,
-                alertWarningColor = colors.badge.warning,
-                alertCautionColor = colors.badge.error,
+                alertNoteColor = colors.statusInfoAccent,
+                alertTipColor = colors.statusSuccessAccent,
+                alertImportantColor = colors.brand,
+                alertWarningColor = colors.statusWarningAccent,
+                alertCautionColor = colors.statusDangerAccent,
                 alertBackgroundAlpha = 0.08f,
                 alertBorderWidth = 4.dp,
-                alertPadding = 12.dp,
+                alertPadding = spacing.md,
             )
         }
     }

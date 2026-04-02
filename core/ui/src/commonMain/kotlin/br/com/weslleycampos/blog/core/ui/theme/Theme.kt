@@ -5,6 +5,7 @@ import androidx.compose.material.ripple.RippleAlpha
 import androidx.compose.material3.LocalRippleConfiguration
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RippleConfiguration
+import androidx.compose.material3.Typography
 import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -23,7 +24,7 @@ fun BlogTheme(
     content: @Composable () -> Unit
 ) {
     val screenSize = currentWindowAdaptiveInfo().calculateScreenSize()
-    val colors = if (isDarkMode) DarkColors else LightColors
+    val colors = if (isDarkMode) DarkColorPalette else LightColorPalette
 
     val rippleConfiguration = RippleConfiguration(
         rippleAlpha = RippleAlpha(
@@ -32,12 +33,13 @@ fun BlogTheme(
             draggedAlpha = 0.2f,
             hoveredAlpha = 0.2f
         ),
-        color = colors.app.primary
+        color = colors.brand
     )
 
     CompositionLocalProvider(
         LocalBlogColors provides colors,
         LocalBlogTypography provides blogTypography,
+        LocalBlogGradients provides blogGradients(colors),
         LocalBlogShapes provides BlogShapes(),
         LocalBlogSpacing provides BlogSpacing(),
         LocalBlogIcons provides BlogIcons,
@@ -58,13 +60,22 @@ val LocalDarkTheme = staticCompositionLocalOf<Boolean> {
     error("No DarkTheme provided")
 }
 
+/**
+ * ── Theme access object ─────────────────────────────────────
+ * Mirrors how MaterialTheme.colorScheme works, but for our system.
+ *
+ * Components consume via:
+ *   BlogTheme.colors.brand
+ *   BlogTheme.colors.textPrimary
+ *   BlogTheme.colors.surfaceElevated
+ */
 object BlogTheme {
     val colors: BlogColors
         @Composable
         @ReadOnlyComposable
         get() = LocalBlogColors.current
 
-    val typography
+    val typography: Typography
         @Composable
         @ReadOnlyComposable
         get() = LocalBlogTypography.current
@@ -83,6 +94,11 @@ object BlogTheme {
         @Composable
         @ReadOnlyComposable
         get() = LocalBlogShapes.current
+
+    val gradients: BlogGradients
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalBlogGradients.current
 
     val spacing: BlogSpacing
         @Composable

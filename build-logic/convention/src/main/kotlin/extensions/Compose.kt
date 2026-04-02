@@ -107,6 +107,11 @@ internal fun Project.configureComposeMultiplatform(
                 implementation(libs.compose.animation)
             }
 
+            androidMain.dependencies {
+                // Compose UI Tooling — @Preview rendering in Android Studio Narwhal+
+                implementation(libs.compose.ui.tooling)
+            }
+
             wasmJsMain.dependencies {
                 implementation(libs.nav3.browser)
             }
@@ -114,6 +119,7 @@ internal fun Project.configureComposeMultiplatform(
             jvmMain.dependencies {
                 implementation(compose.desktop.currentOs)
                 implementation(libs.kotlin.coroutines.swing)
+                implementation(libs.compose.ui.tooling)
             }
 
             commonTest.dependencies {
@@ -130,14 +136,6 @@ internal fun Project.configureComposeMultiplatform(
                 implementation(libs.compose.ui.test)
             }
         }
-    }
-
-    dependencies {
-        // Compose UI Tooling
-        // Provides tools for debugging and inspecting Compose UI layouts at runtime.
-        // Includes features like the Layout Inspector integration in Android Studio,
-        // which helps visualize the composable hierarchy, inspect properties, and debug UI issues.
-        debugImplementation(libs.compose.ui.tooling)
     }
 }
 

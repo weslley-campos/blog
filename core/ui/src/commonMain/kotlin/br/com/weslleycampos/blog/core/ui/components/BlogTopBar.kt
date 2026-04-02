@@ -97,7 +97,7 @@ private fun ExpandedTopBar(
 
     Column(
         modifier = Modifier.fillMaxWidth()
-            .background(color = BlogTheme.colors.app.surface),
+            .background(color = BlogTheme.colors.surfaceElevated),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
@@ -111,7 +111,7 @@ private fun ExpandedTopBar(
                 text = stringResource(CoreUiRes.string.author_name),
                 style = BlogTheme.typography.titleMedium,
                 fontFamily = MerriWeatherFontFamily,
-                color = BlogTheme.colors.text.primary
+                color = BlogTheme.colors.brand
             )
             Spacer(modifier = Modifier.weight(1f))
             NavBarItem(
@@ -134,7 +134,7 @@ private fun ExpandedTopBar(
             VerticalDivider(
                 modifier = Modifier.height(BlogTheme.spacing.xl)
                     .padding(horizontal = BlogTheme.spacing.sm),
-                color = BlogTheme.colors.border.divider
+                color = BlogTheme.colors.dividerGradientColor.copy(alpha = BlogTheme.colors.dividerGradientOpacity)
             )
 
             val isDarkThemeEnabled = LocalDarkTheme.current
@@ -144,7 +144,7 @@ private fun ExpandedTopBar(
                         if (isDarkThemeEnabled) Moon else Sun
                     }.painter,
                     contentDescription = stringResource(CoreUiRes.string.a11y_theme_mode_button),
-                    tint = BlogTheme.colors.icon.onSurface,
+                    tint = BlogTheme.colors.textPrimary,
                     modifier = Modifier.size(BlogTheme.sizes.icon.small)
                 )
             }
@@ -152,12 +152,14 @@ private fun ExpandedTopBar(
                 Icon(
                     painter = BlogTheme.icons.Translate.painter,
                     contentDescription = stringResource(CoreUiRes.string.a11y_language_button),
-                    tint = BlogTheme.colors.icon.onSurface,
+                    tint = BlogTheme.colors.textPrimary,
                     modifier = Modifier.size(BlogTheme.sizes.icon.small)
                 )
             }
         }
-        HorizontalDivider(color = BlogTheme.colors.border.divider)
+        HorizontalDivider(
+            color = BlogTheme.colors.dividerGradientColor.copy(alpha = BlogTheme.colors.dividerGradientOpacity)
+        )
     }
 }
 
@@ -178,9 +180,7 @@ private fun NavBarItem(
         Icon(
             painter = icon,
             contentDescription = label,
-            tint = BlogTheme.colors.icon.run {
-                if (isSelected) primary else onSurface
-            },
+            tint = if (isSelected) BlogTheme.colors.brand else BlogTheme.colors.textPrimary,
             modifier = Modifier.size(BlogTheme.sizes.icon.small)
         )
         Spacer(modifier = Modifier.width(BlogTheme.spacing.sm))
@@ -188,9 +188,7 @@ private fun NavBarItem(
             text = label,
             style = BlogTheme.typography.bodyMedium,
             fontWeight = if (isSelected) FontWeight.SemiBold else FontWeight.Normal,
-            color = BlogTheme.colors.text.run {
-                if (isSelected) primary else onSurface
-            },
+            color = if (isSelected) BlogTheme.colors.brand else BlogTheme.colors.textPrimary,
         )
     }
 }
@@ -206,7 +204,7 @@ private fun CompactTopBar(
 
     Column(
         modifier = Modifier.fillMaxWidth()
-            .background(BlogTheme.colors.app.surface),
+            .background(BlogTheme.colors.surfaceElevated),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
@@ -220,7 +218,7 @@ private fun CompactTopBar(
                 text = stringResource(CoreUiRes.string.author_name),
                 style = BlogTheme.typography.titleSmall,
                 fontFamily = MerriWeatherFontFamily,
-                color = BlogTheme.colors.text.primary
+                color = BlogTheme.colors.brand
             )
             Spacer(modifier = Modifier.weight(1f))
 
@@ -234,7 +232,7 @@ private fun CompactTopBar(
                         if (isDarkThemeEnabled) Moon else Sun
                     }.painter,
                     contentDescription = stringResource(CoreUiRes.string.a11y_theme_mode_button),
-                    tint = BlogTheme.colors.icon.onSurface,
+                    tint = BlogTheme.colors.textPrimary,
                     modifier = Modifier.size(BlogTheme.sizes.icon.small)
                 )
             }
@@ -245,7 +243,7 @@ private fun CompactTopBar(
                 Icon(
                     painter = BlogTheme.icons.Translate.painter,
                     contentDescription = stringResource(CoreUiRes.string.a11y_language_button),
-                    tint = BlogTheme.colors.icon.onSurface,
+                    tint = BlogTheme.colors.textPrimary,
                     modifier = Modifier.size(BlogTheme.sizes.icon.small)
                 )
             }
@@ -256,12 +254,14 @@ private fun CompactTopBar(
                 Icon(
                     painter = BlogTheme.icons.Menu.painter,
                     contentDescription = stringResource(CoreUiRes.string.a11y_menu_button),
-                    tint = BlogTheme.colors.icon.onSurface,
+                    tint = BlogTheme.colors.textPrimary,
                     modifier = Modifier.size(BlogTheme.sizes.icon.small)
                 )
             }
         }
-        HorizontalDivider(color = BlogTheme.colors.border.divider)
+        HorizontalDivider(
+            color = BlogTheme.colors.dividerGradientColor.copy(alpha = BlogTheme.colors.dividerGradientOpacity)
+        )
     }
 }
 

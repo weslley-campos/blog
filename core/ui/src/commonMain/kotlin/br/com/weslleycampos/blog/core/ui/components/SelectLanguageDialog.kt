@@ -77,7 +77,7 @@ fun SelectLanguageDialog(
         var selectedLanguage by remember { mutableStateOf(currentLanguage) }
         Card(
             colors = CardDefaults.cardColors(
-                containerColor = BlogTheme.colors.app.surface
+                containerColor = BlogTheme.colors.surfaceElevated
             ),
             modifier = modifier.padding(BlogTheme.spacing.xl)
                 .widthIn(max = 320.dp)
@@ -88,7 +88,7 @@ fun SelectLanguageDialog(
                 Text(
                     text = stringResource(CoreUiRes.string.language_selector_title),
                     style = BlogTheme.typography.bodyLarge,
-                    color = BlogTheme.colors.text.onSurface,
+                    color = BlogTheme.colors.textPrimary,
                     modifier = Modifier.padding(vertical = BlogTheme.spacing.lg)
                 )
                 languagesAvailable.forEach { language ->
@@ -107,12 +107,12 @@ fun SelectLanguageDialog(
                     modifier = Modifier.fillMaxWidth()
                         .padding(vertical = BlogTheme.spacing.lg),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = BlogTheme.colors.app.primary,
+                        containerColor = BlogTheme.colors.brand,
                     )
                 ) {
                     Text(
                         text = stringResource(CoreUiRes.string.common_apply),
-                        color = BlogTheme.colors.text.onPrimary
+                        color = BlogTheme.colors.textInverse
                     )
                 }
             }
@@ -133,10 +133,10 @@ fun LanguageItem(
                 if (isSelected) {
                     Modifier.border(
                         width = 1.dp,
-                        color = BlogTheme.colors.border.primary,
+                        color = BlogTheme.colors.brand,
                         shape = BlogTheme.shapes.medium
                     ).background(
-                        color = BlogTheme.colors.app.primary.copy(alpha = 0.1f),
+                        color = BlogTheme.colors.brand.copy(alpha = 0.1f),
                     )
                 } else {
                     Modifier
@@ -159,7 +159,7 @@ fun LanguageItem(
             style = MaterialTheme.typography.bodyLarge,
             fontWeight = if (isSelected) FontWeight.SemiBold else FontWeight.Normal,
             modifier = Modifier.weight(1f),
-            color = BlogTheme.colors.text.onSurface
+            color = BlogTheme.colors.textPrimary
         )
 
         AnimatedVisibility(
@@ -174,7 +174,7 @@ fun LanguageItem(
         ) {
             Surface(
                 shape = CircleShape,
-                color = BlogTheme.colors.icon.primary,
+                color = BlogTheme.colors.brand,
                 modifier = Modifier.size(BlogTheme.sizes.icon.small)
             ) {
                 Icon(

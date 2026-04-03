@@ -13,6 +13,7 @@ kotlin {
             implementation(projects.core.common)
             implementation(projects.core.navigation)
             implementation(projects.feature.home)
+            implementation(projects.feature.about)
         }
     }
 }

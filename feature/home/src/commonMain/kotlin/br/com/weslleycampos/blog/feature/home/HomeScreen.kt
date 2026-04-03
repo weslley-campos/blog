@@ -1,4 +1,4 @@
-package br.com.weslleycampos.feature.home
+package br.com.weslleycampos.blog.feature.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement

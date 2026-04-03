@@ -9,7 +9,7 @@ kotlin {
         commonMain.dependencies {
             api(libs.datastore.core.preferences)
         }
-        jsMain.dependencies {
+        wasmJsMain.dependencies {
             implementation(libs.datastore.core.okio)
         }
     }

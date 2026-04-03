@@ -1,4 +1,4 @@
-package br.com.weslleycampos.feature.home.navigation
+package br.com.weslleycampos.blog.feature.home.navigation
 
 import androidx.navigation3.runtime.EntryProviderScope
 import androidx.navigation3.runtime.NavKey

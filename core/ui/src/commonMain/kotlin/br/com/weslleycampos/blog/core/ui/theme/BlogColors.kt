@@ -77,17 +77,33 @@ val Deep5 = Color(0xFF091328)
 val Deep6 = Color(0xFF060E20)
 val Deep7 = Color(0xFF000000)
 
+// SlateBlue — Cool steel-blue ramp, used for text on dark surfaces
+val SlateBlue3 = Color(0xFF9AADCC)
+val SlateBlue5 = Color(0xFF7A8BAA)
+val SlateBlue6 = Color(0xFF64748B)
+val SlateBlue7 = Color(0xFF4A5A7A)
+
+// Ice — Pale lavender tint, primary text on dark + hero gradient stop
+val IceLavender = Color(0xFFDEE5FF)
+
 // Functional — Status colors
 val FunctionalGreen = Color(0xFF059669)
+val FunctionalGreenBright = Color(0xFF34D399)
 val FunctionalGreenLight = Color(0xFFECFDF5)
 val FunctionalGreenDark = Color(0xFF064E3B)
+val EmeraldDeep = Color(0xFF0A3A2A)
 
 val FunctionalAmber = Color(0xFFD97706)
+val FunctionalAmberBright = Color(0xFFFBBF24)
 val FunctionalAmberLight = Color(0xFFFFFBEB)
+val FunctionalAmberDeep = Color(0xFF92400E)
 val FunctionalAmberDark = Color(0xFF78350F)
+val RustDeep = Color(0xFF3A2510)
 
 val FunctionalRed = Color(0xFFDC2626)
+val FunctionalRedBright = Color(0xFFF87171)
 val FunctionalRedLight = Color(0xFFFEF2F2)
+val FunctionalRedDeep = Color(0xFF991B1B)
 val FunctionalRedDark = Color(0xFF7F1D1D)
 
 val FunctionalBlue = Color(0xFF3B82F6)
@@ -204,16 +220,16 @@ val DarkColorPalette = BlogColors(
         Ocean4.copy(alpha = 0.08f),
     ),
     // Text
-    textPrimary = Color(0xFFDEE5FF),
-    textSecondary = Color(0xFF7A8BAA),
-    textMuted = Color(0xFF4A5A7A),
+    textPrimary = IceLavender,
+    textSecondary = SlateBlue5,
+    textMuted = SlateBlue7,
     textInverse = Deep6,
     textLink = Shadow5,
     // Brand
     brand = Shadow5,
     brandSecondary = Ocean4,
     gradientBrand = listOf(Shadow5, Ocean4),
-    gradientHero = listOf(Color(0xFFDEE5FF), Shadow5, Ocean4),
+    gradientHero = listOf(IceLavender, Shadow5, Ocean4),
     gradientCardThumbnail = listOf(Deep4, Deep0),
     // Interactive
     interactivePrimaryText = Deep6,
@@ -225,27 +241,27 @@ val DarkColorPalette = BlogColors(
     // Status
     statusInfoAccent = FunctionalBlue,
     statusInfoBackground = FunctionalBlueDark,
-    statusInfoText = Color(0xFF7A8BAA),
+    statusInfoText = SlateBlue5,
     statusSuccessAccent = Ocean4,
     statusSuccessBackground = Ocean9.copy(alpha = 0.3f),
-    statusSuccessText = Color(0xFF7A8BAA),
-    statusWarningAccent = Color(0xFFFBBF24),
+    statusSuccessText = SlateBlue5,
+    statusWarningAccent = FunctionalAmberBright,
     statusWarningBackground = FunctionalAmberDark.copy(alpha = 0.3f),
-    statusWarningText = Color(0xFF7A8BAA),
-    statusDangerAccent = Color(0xFFF87171),
+    statusWarningText = SlateBlue5,
+    statusDangerAccent = FunctionalRedBright,
     statusDangerBackground = FunctionalRedDark.copy(alpha = 0.3f),
-    statusDangerText = Color(0xFF7A8BAA),
+    statusDangerText = SlateBlue5,
     // Tags
     tagTypescriptBackground = Ocean10,
     tagTypescriptText = Ocean4,
-    tagRustBackground = Color(0xFF3A2510),
-    tagRustText = Color(0xFFFBBF24),
-    tagReactBackground = Color(0xFF0A3A2A),
-    tagReactText = Color(0xFF34D399),
-    tagGoBackground = Color(0xFF0A3A2A),
-    tagGoText = Color(0xFF34D399),
+    tagRustBackground = RustDeep,
+    tagRustText = FunctionalAmberBright,
+    tagReactBackground = EmeraldDeep,
+    tagReactText = FunctionalGreenBright,
+    tagGoBackground = EmeraldDeep,
+    tagGoText = FunctionalGreenBright,
     tagDefaultBackground = Deep2,
-    tagDefaultText = Color(0xFF9AADCC),
+    tagDefaultText = SlateBlue3,
     // Code (always dark — even in light theme)
     codeBackground = Deep7,
     codeHeader = Deep5,
@@ -255,7 +271,7 @@ val DarkColorPalette = BlogColors(
     shadowButtonAlpha = 0.25f,
     shadowAmbientEnabled = true,
     // Nav
-    navSlate = Color(0xFF64748B),
+    navSlate = SlateBlue6,
     isDark = true,
 )
 
@@ -302,10 +318,10 @@ val LightColorPalette = BlogColors(
     statusSuccessText = Ocean8,
     statusWarningAccent = FunctionalAmber,
     statusWarningBackground = FunctionalAmberLight,
-    statusWarningText = Color(0xFF92400E),
+    statusWarningText = FunctionalAmberDeep,
     statusDangerAccent = FunctionalRed,
     statusDangerBackground = FunctionalRedLight,
-    statusDangerText = Color(0xFF991B1B),
+    statusDangerText = FunctionalRedDeep,
     // Tags
     tagTypescriptBackground = Ocean0,
     tagTypescriptText = Ocean6,

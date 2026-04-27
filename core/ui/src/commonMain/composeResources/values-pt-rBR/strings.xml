@@ -17,7 +17,7 @@
     <!-- About Screen -->
     <string name="about_eyebrow_about_me">Sobre mim</string>
     <string name="about_hero_headline">Olá, sou Weslley.</string>
-    <string name="about_bio_paragraph">Desenvolvedor de software do Brasil. Construo aplicações web e ferramentas para devs.</string>
+    <string name="about_bio_paragraph">Engenheiro Android com mais de 8 anos de experiência especializado em Kotlin, Java e soluções multiplataforma com KMP. Histórico comprovado de construção de ferramentas de diagnóstico, plataformas de casa inteligente e soluções móveis que reduziram custos operacionais em dezenas de milhares de dólares mensalmente. Experiência em arquitetura de aplicativos, integração de APIs, testes automatizados e colaboração ágil com equipes globais.</string>
     <string name="about_avatar_initials">WC</string>
     <string name="about_cta_resume">Baixar Currículo</string>
 

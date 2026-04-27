@@ -2,9 +2,10 @@ package br.com.weslleycampos.blog.feature.about.data
 
 import br.com.weslleycampos.blog.core.ui.resources.CoreUiRes
 import br.com.weslleycampos.blog.core.ui.resources.ic_compose
+import br.com.weslleycampos.blog.core.ui.resources.ic_cup_coffee
 import br.com.weslleycampos.blog.core.ui.resources.ic_firebase
 import br.com.weslleycampos.blog.core.ui.resources.ic_git
-import br.com.weslleycampos.blog.core.ui.resources.ic_java
+import br.com.weslleycampos.blog.core.ui.resources.ic_kmp
 import br.com.weslleycampos.blog.core.ui.resources.ic_kotlin
 import br.com.weslleycampos.blog.core.ui.resources.ic_mongodb
 import br.com.weslleycampos.blog.core.ui.resources.ic_node
@@ -43,7 +44,8 @@ internal enum class SocialLink(val label: String, val url: String) {
 
 internal val techArsenal: List<TechItem> = listOf(
     TechItem("Kotlin", CoreUiRes.drawable.ic_kotlin),
-    TechItem("Java", CoreUiRes.drawable.ic_java),
+    TechItem("KMP", CoreUiRes.drawable.ic_kmp),
+    TechItem("Java", CoreUiRes.drawable.ic_cup_coffee),
     TechItem("TypeScript", CoreUiRes.drawable.ic_typescript),
     TechItem("Compose", CoreUiRes.drawable.ic_compose),
     TechItem("Firebase", CoreUiRes.drawable.ic_firebase),

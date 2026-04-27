@@ -99,20 +99,30 @@ internal val techArsenal: List<TechGroup> = listOf(
         ),
     ),
     TechGroup(
-        label = "Practices",
+        label = "Architecture & Patterns",
         items = listOf(
             TechItem("MVP", CoreUiRes.drawable.ic_target),
             TechItem("MVVM", CoreUiRes.drawable.ic_layers),
             TechItem("Architecture", CoreUiRes.drawable.ic_network),
             TechItem("Design Patterns", CoreUiRes.drawable.ic_puzzle),
             TechItem("DI", CoreUiRes.drawable.ic_syringe),
-            TechItem("REST APIs", CoreUiRes.drawable.ic_server),
-            TechItem("Sockets", CoreUiRes.drawable.ic_plug),
+        ),
+    ),
+    TechGroup(
+        label = "Testing",
+        items = listOf(
             TechItem("Unit Testing", CoreUiRes.drawable.ic_flask_conical),
             TechItem("UI Testing", CoreUiRes.drawable.ic_monitor_check),
+        ),
+    ),
+    TechGroup(
+        label = "Methods & APIs",
+        items = listOf(
             TechItem("CI/CD", CoreUiRes.drawable.ic_infinity),
             TechItem("Agile", CoreUiRes.drawable.ic_repeat),
             TechItem("Kanban", CoreUiRes.drawable.ic_kanban),
+            TechItem("REST APIs", CoreUiRes.drawable.ic_server),
+            TechItem("Sockets", CoreUiRes.drawable.ic_plug),
             TechItem("Embedded", CoreUiRes.drawable.ic_cpu),
         ),
     ),

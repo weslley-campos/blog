@@ -3,30 +3,30 @@ package br.com.weslleycampos.blog.feature.about.data
 import br.com.weslleycampos.blog.core.ui.resources.CoreUiRes
 import br.com.weslleycampos.blog.core.ui.resources.ic_android
 import br.com.weslleycampos.blog.core.ui.resources.ic_app_store
-import br.com.weslleycampos.blog.core.ui.resources.ic_compose
-import br.com.weslleycampos.blog.core.ui.resources.ic_cpu
+import br.com.weslleycampos.blog.core.ui.resources.ic_cable
 import br.com.weslleycampos.blog.core.ui.resources.ic_firebase
 import br.com.weslleycampos.blog.core.ui.resources.ic_flask_conical
 import br.com.weslleycampos.blog.core.ui.resources.ic_git
+import br.com.weslleycampos.blog.core.ui.resources.ic_git_merge
+import br.com.weslleycampos.blog.core.ui.resources.ic_github_actions
 import br.com.weslleycampos.blog.core.ui.resources.ic_google_play
 import br.com.weslleycampos.blog.core.ui.resources.ic_infinity
+import br.com.weslleycampos.blog.core.ui.resources.ic_ios
 import br.com.weslleycampos.blog.core.ui.resources.ic_java
-import br.com.weslleycampos.blog.core.ui.resources.ic_kanban
 import br.com.weslleycampos.blog.core.ui.resources.ic_kmp
 import br.com.weslleycampos.blog.core.ui.resources.ic_kotlin
 import br.com.weslleycampos.blog.core.ui.resources.ic_ktor
 import br.com.weslleycampos.blog.core.ui.resources.ic_layers
 import br.com.weslleycampos.blog.core.ui.resources.ic_mongodb
 import br.com.weslleycampos.blog.core.ui.resources.ic_monitor_check
-import br.com.weslleycampos.blog.core.ui.resources.ic_network
-import br.com.weslleycampos.blog.core.ui.resources.ic_node
-import br.com.weslleycampos.blog.core.ui.resources.ic_plug
+import br.com.weslleycampos.blog.core.ui.resources.ic_n8n
+import br.com.weslleycampos.blog.core.ui.resources.ic_postgresql
 import br.com.weslleycampos.blog.core.ui.resources.ic_puzzle
 import br.com.weslleycampos.blog.core.ui.resources.ic_repeat
-import br.com.weslleycampos.blog.core.ui.resources.ic_server
+import br.com.weslleycampos.blog.core.ui.resources.ic_sqlite
+import br.com.weslleycampos.blog.core.ui.resources.ic_swift
 import br.com.weslleycampos.blog.core.ui.resources.ic_syringe
-import br.com.weslleycampos.blog.core.ui.resources.ic_target
-import br.com.weslleycampos.blog.core.ui.resources.ic_typescript
+import br.com.weslleycampos.blog.core.ui.resources.ic_users
 import org.jetbrains.compose.resources.DrawableResource
 
 /**
@@ -69,61 +69,74 @@ internal val techArsenal: List<TechGroup> = listOf(
         label = "Languages",
         items = listOf(
             TechItem("Kotlin", CoreUiRes.drawable.ic_kotlin),
-            TechItem("KMP", CoreUiRes.drawable.ic_kmp),
+            TechItem("Swift", CoreUiRes.drawable.ic_swift),
             TechItem("Java", CoreUiRes.drawable.ic_java),
-            TechItem("TypeScript", CoreUiRes.drawable.ic_typescript),
         ),
     ),
     TechGroup(
-        label = "Android & mobile",
+        label = "Frameworks",
         items = listOf(
+            TechItem("KMP", CoreUiRes.drawable.ic_kmp),
             TechItem("Android", CoreUiRes.drawable.ic_android),
-            TechItem("Compose", CoreUiRes.drawable.ic_compose),
+            TechItem("iOS", CoreUiRes.drawable.ic_ios),
+        ),
+    ),
+    TechGroup(
+        label = "Stores",
+        items = listOf(
             TechItem("Play Store", CoreUiRes.drawable.ic_google_play),
             TechItem("App Store", CoreUiRes.drawable.ic_app_store),
         ),
     ),
     TechGroup(
-        label = "Backend & data",
+        label = "Backend",
         items = listOf(
             TechItem("Ktor", CoreUiRes.drawable.ic_ktor),
-            TechItem("Node.js", CoreUiRes.drawable.ic_node),
-            TechItem("MongoDB", CoreUiRes.drawable.ic_mongodb),
         ),
     ),
     TechGroup(
-        label = "Tools & cloud",
+        label = "Database",
         items = listOf(
-            TechItem("Firebase", CoreUiRes.drawable.ic_firebase),
+            TechItem("Postgres", CoreUiRes.drawable.ic_postgresql),
+            TechItem("SQLite", CoreUiRes.drawable.ic_sqlite),
+            TechItem("MongoDB", CoreUiRes.drawable.ic_mongodb),
+            TechItem("Firestore", CoreUiRes.drawable.ic_firebase),
+        ),
+    ),
+    TechGroup(
+        label = "Tools & deploy",
+        items = listOf(
             TechItem("Git", CoreUiRes.drawable.ic_git),
+            TechItem("GitHub Actions", CoreUiRes.drawable.ic_github_actions),
+            TechItem("Firebase", CoreUiRes.drawable.ic_firebase),
+            TechItem("n8n", CoreUiRes.drawable.ic_n8n),
         ),
     ),
     TechGroup(
         label = "Architecture & Patterns",
         items = listOf(
-            TechItem("MVP", CoreUiRes.drawable.ic_target),
             TechItem("MVVM", CoreUiRes.drawable.ic_layers),
-            TechItem("Architecture", CoreUiRes.drawable.ic_network),
+            TechItem("MVI", CoreUiRes.drawable.ic_layers),
             TechItem("Design Patterns", CoreUiRes.drawable.ic_puzzle),
-            TechItem("DI", CoreUiRes.drawable.ic_syringe),
-        ),
-    ),
-    TechGroup(
-        label = "Testing",
-        items = listOf(
-            TechItem("Unit Testing", CoreUiRes.drawable.ic_flask_conical),
-            TechItem("UI Testing", CoreUiRes.drawable.ic_monitor_check),
-        ),
-    ),
-    TechGroup(
-        label = "Methods & APIs",
-        items = listOf(
+            TechItem("Koin", CoreUiRes.drawable.ic_syringe),
+            TechItem("Hilt", CoreUiRes.drawable.ic_syringe),
             TechItem("CI/CD", CoreUiRes.drawable.ic_infinity),
+            TechItem("Retrofit", CoreUiRes.drawable.ic_cable),
+        ),
+    ),
+    TechGroup(
+        label = "Tests",
+        items = listOf(
+            TechItem("Unit", CoreUiRes.drawable.ic_flask_conical),
+            TechItem("Integration", CoreUiRes.drawable.ic_git_merge),
+            TechItem("UI", CoreUiRes.drawable.ic_monitor_check),
+        ),
+    ),
+    TechGroup(
+        label = "Others",
+        items = listOf(
             TechItem("Agile", CoreUiRes.drawable.ic_repeat),
-            TechItem("Kanban", CoreUiRes.drawable.ic_kanban),
-            TechItem("REST APIs", CoreUiRes.drawable.ic_server),
-            TechItem("Sockets", CoreUiRes.drawable.ic_plug),
-            TechItem("Embedded", CoreUiRes.drawable.ic_cpu),
+            TechItem("Scrum", CoreUiRes.drawable.ic_users),
         ),
     ),
 )

@@ -18,10 +18,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import br.com.weslleycampos.blog.core.ui.components.SectionHeader
+import br.com.weslleycampos.blog.core.ui.components.SectionEyebrow
 import br.com.weslleycampos.blog.core.ui.resources.CoreUiRes
 import br.com.weslleycampos.blog.core.ui.resources.about_eyebrow_arsenal
-import br.com.weslleycampos.blog.core.ui.resources.about_title_arsenal
 import br.com.weslleycampos.blog.core.ui.theme.BlogTheme
 import br.com.weslleycampos.blog.feature.about.data.TechItem
 import br.com.weslleycampos.blog.feature.about.data.techArsenal
@@ -42,10 +41,7 @@ internal fun AboutTechArsenal(
         modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(BlogTheme.spacing.xxxl),
     ) {
-        SectionHeader(
-            eyebrow = stringResource(CoreUiRes.string.about_eyebrow_arsenal),
-            title = stringResource(CoreUiRes.string.about_title_arsenal),
-        )
+        SectionEyebrow(text = stringResource(CoreUiRes.string.about_eyebrow_arsenal))
         FlowRow(
             horizontalArrangement = Arrangement.spacedBy(BlogTheme.spacing.lg),
             verticalArrangement = Arrangement.spacedBy(BlogTheme.spacing.xl),

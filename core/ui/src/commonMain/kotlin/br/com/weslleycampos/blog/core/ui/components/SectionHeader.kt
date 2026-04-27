@@ -14,28 +14,42 @@ import androidx.compose.ui.unit.dp
 import br.com.weslleycampos.blog.core.ui.theme.BlogTheme
 
 /**
- * Section header — eyebrow (small caps, tracked) over a display heading.
+ * Code-comment style eyebrow — `// {text}` rendered in JetBrainsMono Medium
+ * (`labelMedium`) on `colors.brandSecondary`. The `// ` prefix is added by the
+ * component so callers pass a clean label and the marker stays consistent.
+ */
+@Composable
+fun SectionEyebrow(
+    text: String,
+    modifier: Modifier = Modifier,
+) {
+    Text(
+        text = "// $text",
+        style = BlogTheme.typography.labelMedium,
+        color = BlogTheme.colors.brandSecondary,
+        modifier = modifier,
+    )
+}
+
+/**
+ * Section header — code-comment eyebrow above a display heading.
  *
- * Used on every section in About + Posts. Eyebrow uses `labelMedium` (mono,
- * tracked) on `colors.brand`; title uses `displaySmall` on `colors.textPrimary`.
+ * Used by every section in About + likely Posts later. Eyebrow uses
+ * [SectionEyebrow] (`// {label}` in mono cyan); title defaults to
+ * `displaySmall` on `textPrimary`.
  */
 @Composable
 fun SectionHeader(
     eyebrow: String,
     title: String,
     modifier: Modifier = Modifier,
-    eyebrowStyle: TextStyle = BlogTheme.typography.labelMedium,
     titleStyle: TextStyle = BlogTheme.typography.displaySmall,
 ) {
     Column(
         modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(BlogTheme.spacing.md),
     ) {
-        Text(
-            text = eyebrow,
-            style = eyebrowStyle,
-            color = BlogTheme.colors.brand,
-        )
+        SectionEyebrow(text = eyebrow)
         Text(
             text = title,
             style = titleStyle,
@@ -44,7 +58,7 @@ fun SectionHeader(
     }
 }
 
-@Preview(widthDp = 600, heightDp = 200, showBackground = true)
+@Preview(widthDp = 600, heightDp = 240, showBackground = true)
 @Composable
 private fun SectionHeaderPreviewDark() {
     BlogTheme(isDarkMode = true) {
@@ -53,16 +67,18 @@ private fun SectionHeaderPreviewDark() {
                 .fillMaxWidth()
                 .background(BlogTheme.colors.background)
                 .padding(32.dp),
+            verticalArrangement = Arrangement.spacedBy(24.dp),
         ) {
             SectionHeader(
-                eyebrow = "BIOGRAPHY",
-                title = "Crafting Digital Craft",
+                eyebrow = "tech arsenal",
+                title = "Tech Arsenal",
             )
+            SectionEyebrow(text = "standalone eyebrow")
         }
     }
 }
 
-@Preview(widthDp = 600, heightDp = 200, showBackground = true)
+@Preview(widthDp = 600, heightDp = 240, showBackground = true)
 @Composable
 private fun SectionHeaderPreviewLight() {
     BlogTheme(isDarkMode = false) {
@@ -71,11 +87,13 @@ private fun SectionHeaderPreviewLight() {
                 .fillMaxWidth()
                 .background(BlogTheme.colors.background)
                 .padding(32.dp),
+            verticalArrangement = Arrangement.spacedBy(24.dp),
         ) {
             SectionHeader(
-                eyebrow = "TECH ARSENAL",
-                title = "Tech Arsenal",
+                eyebrow = "the professional journey",
+                title = "Experience Timeline",
             )
+            SectionEyebrow(text = "standalone eyebrow")
         }
     }
 }

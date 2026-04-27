@@ -1,7 +1,11 @@
 package br.com.weslleycampos.blog.feature.about.components
 
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.hoverable
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.collectIsHoveredAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -14,9 +18,12 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -83,18 +90,24 @@ private fun TechGroupBlock(group: TechGroup) {
 
 @Composable
 private fun TechBadge(item: TechItem) {
+    val interactionSource = remember { MutableInteractionSource() }
+    val isHovered by interactionSource.collectIsHoveredAsState()
+    val scale by animateFloatAsState(if (isHovered) HOVER_SCALE else 1f)
+    val borderAlpha = if (isHovered) HOVER_BORDER_ALPHA else BADGE_BORDER_ALPHA
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(BlogTheme.spacing.xs),
     ) {
         Box(
             modifier = Modifier
+                .hoverable(interactionSource)
                 .size(BADGE_SIZE)
+                .scale(scale)
                 .clip(CircleShape)
                 .background(BlogTheme.colors.surfaceContainerHigh)
                 .border(
                     width = 1.dp,
-                    color = BlogTheme.colors.brand.copy(alpha = BADGE_BORDER_ALPHA),
+                    color = BlogTheme.colors.brand.copy(alpha = borderAlpha),
                     shape = CircleShape,
                 ),
             contentAlignment = Alignment.Center,
@@ -117,6 +130,8 @@ private fun TechBadge(item: TechItem) {
 private val BADGE_SIZE = 56.dp
 private val BADGE_ICON_SIZE = 28.dp
 private const val BADGE_BORDER_ALPHA = 0.30f
+private const val HOVER_SCALE = 1.02f
+private const val HOVER_BORDER_ALPHA = 0.45f
 
 @Preview(widthDp = 400, heightDp = 1100, showBackground = true)
 @Composable

@@ -1,15 +1,28 @@
 package br.com.weslleycampos.blog.feature.about.data
 
 import br.com.weslleycampos.blog.core.ui.resources.CoreUiRes
+import br.com.weslleycampos.blog.core.ui.resources.ic_cable
 import br.com.weslleycampos.blog.core.ui.resources.ic_compose
+import br.com.weslleycampos.blog.core.ui.resources.ic_cpu
 import br.com.weslleycampos.blog.core.ui.resources.ic_firebase
+import br.com.weslleycampos.blog.core.ui.resources.ic_flask_conical
 import br.com.weslleycampos.blog.core.ui.resources.ic_git
+import br.com.weslleycampos.blog.core.ui.resources.ic_infinity
 import br.com.weslleycampos.blog.core.ui.resources.ic_java
+import br.com.weslleycampos.blog.core.ui.resources.ic_kanban
 import br.com.weslleycampos.blog.core.ui.resources.ic_kmp
 import br.com.weslleycampos.blog.core.ui.resources.ic_kotlin
 import br.com.weslleycampos.blog.core.ui.resources.ic_ktor
+import br.com.weslleycampos.blog.core.ui.resources.ic_layers
 import br.com.weslleycampos.blog.core.ui.resources.ic_mongodb
+import br.com.weslleycampos.blog.core.ui.resources.ic_monitor_check
+import br.com.weslleycampos.blog.core.ui.resources.ic_network
 import br.com.weslleycampos.blog.core.ui.resources.ic_node
+import br.com.weslleycampos.blog.core.ui.resources.ic_plug
+import br.com.weslleycampos.blog.core.ui.resources.ic_puzzle
+import br.com.weslleycampos.blog.core.ui.resources.ic_repeat
+import br.com.weslleycampos.blog.core.ui.resources.ic_server
+import br.com.weslleycampos.blog.core.ui.resources.ic_target
 import br.com.weslleycampos.blog.core.ui.resources.ic_typescript
 import org.jetbrains.compose.resources.DrawableResource
 
@@ -44,6 +57,7 @@ internal enum class SocialLink(val label: String, val url: String) {
 }
 
 internal val techArsenal: List<TechItem> = listOf(
+    // Brand glyphs in their native colors.
     TechItem("Kotlin", CoreUiRes.drawable.ic_kotlin),
     TechItem("KMP", CoreUiRes.drawable.ic_kmp),
     TechItem("Java", CoreUiRes.drawable.ic_java),
@@ -54,6 +68,20 @@ internal val techArsenal: List<TechItem> = listOf(
     TechItem("Git", CoreUiRes.drawable.ic_git),
     TechItem("Node.js", CoreUiRes.drawable.ic_node),
     TechItem("MongoDB", CoreUiRes.drawable.ic_mongodb),
+    // Concepts/practices represented by Lucide glyphs in brand purple.
+    TechItem("MVP", CoreUiRes.drawable.ic_target),
+    TechItem("MVVM", CoreUiRes.drawable.ic_layers),
+    TechItem("CI/CD", CoreUiRes.drawable.ic_infinity),
+    TechItem("Kanban", CoreUiRes.drawable.ic_kanban),
+    TechItem("Agile", CoreUiRes.drawable.ic_repeat),
+    TechItem("Architecture", CoreUiRes.drawable.ic_network),
+    TechItem("Unit Testing", CoreUiRes.drawable.ic_flask_conical),
+    TechItem("UI Testing", CoreUiRes.drawable.ic_monitor_check),
+    TechItem("DI", CoreUiRes.drawable.ic_cable),
+    TechItem("Design Patterns", CoreUiRes.drawable.ic_puzzle),
+    TechItem("Embedded", CoreUiRes.drawable.ic_cpu),
+    TechItem("REST APIs", CoreUiRes.drawable.ic_server),
+    TechItem("Sockets", CoreUiRes.drawable.ic_plug),
 )
 
 internal val experiences: List<Experience> = listOf(

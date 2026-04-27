@@ -59,8 +59,8 @@ fun AboutScreen(
                 avatarSize = layout.avatarSize,
                 bodyMaxWidth = layout.bodyMaxWidth,
             )
-            AboutTechArsenal()
             AboutTimeline()
+            AboutTechArsenal()
             AboutEducation()
             AboutCtaCard(
                 onHireClick = { uriHandler.openUri(URL_HIRE) },

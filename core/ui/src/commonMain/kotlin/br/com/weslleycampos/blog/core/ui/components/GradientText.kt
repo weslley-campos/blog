@@ -53,10 +53,9 @@ private fun GradientTextPreviewDark() {
                 .padding(32.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
-            GradientText(text = "Crafting Digital")
-            GradientText(text = "Craft")
+            GradientText(text = "Hero Headline")
             GradientText(
-                text = "brand gradient",
+                text = "Brand Gradient",
                 brush = BlogTheme.gradients.brand,
                 style = BlogTheme.typography.headlineLarge,
             )
@@ -75,10 +74,9 @@ private fun GradientTextPreviewLight() {
                 .padding(32.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
-            GradientText(text = "Crafting Digital")
-            GradientText(text = "Craft")
+            GradientText(text = "Hero Headline")
             GradientText(
-                text = "brand gradient",
+                text = "Brand Gradient",
                 brush = BlogTheme.gradients.brand,
                 style = BlogTheme.typography.headlineLarge,
             )

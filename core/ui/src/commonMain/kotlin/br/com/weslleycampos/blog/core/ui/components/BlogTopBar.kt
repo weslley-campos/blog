@@ -132,14 +132,14 @@ private fun CompactTopBar(
             modifier = modifier
                 .widthIn(max = maxSize)
                 .fillMaxWidth()
-                .height(BlogTheme.spacing.massive)
+                .height(BlogTheme.spacing.section)
                 .padding(horizontal = BlogTheme.spacing.lg),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             GradientText(
                 text = stringResource(CoreUiRes.string.author_name),
                 brush = BlogTheme.gradients.brand,
-                style = BlogTheme.typography.titleMedium,
+                style = BlogTheme.typography.titleLarge,
             )
             Spacer(modifier = Modifier.weight(1f))
             ThemeIconButton(onThemeToggle = onThemeToggle)

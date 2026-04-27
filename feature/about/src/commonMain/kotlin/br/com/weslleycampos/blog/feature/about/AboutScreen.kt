@@ -30,7 +30,7 @@ import br.com.weslleycampos.blog.feature.about.components.AboutTechArsenal
 import br.com.weslleycampos.blog.feature.about.components.AboutTimeline
 import br.com.weslleycampos.blog.feature.about.data.SocialLink
 
-private const val MAILTO_HIRE = "mailto:weslley.campos@icloud.com?subject=Project%20Inquiry"
+private const val URL_HIRE = "https://cal.com/weslley-campos"
 private const val MAILTO_EMAIL = "mailto:weslley.campos@icloud.com"
 
 @Composable
@@ -69,7 +69,7 @@ fun AboutScreen(
             AboutEducation()
             SectionDivider()
             AboutCtaCard(
-                onHireClick = { uriHandler.openUri(MAILTO_HIRE) },
+                onHireClick = { uriHandler.openUri(URL_HIRE) },
                 onEmailClick = { uriHandler.openUri(MAILTO_EMAIL) },
             )
             AboutFooter(

@@ -5,7 +5,6 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -60,7 +59,6 @@ internal fun AboutHero(
             initials = stringResource(CoreUiRes.string.about_avatar_initials),
             size = avatarSize,
         )
-        CurrentlyChip()
         SectionTitle(text = stringResource(CoreUiRes.string.about_eyebrow_about_me))
         GradientText(
             text = stringResource(CoreUiRes.string.about_hero_headline),
@@ -110,35 +108,6 @@ private fun AvatarRing(
                 letterSpacing = (-0.02).sp,
             ),
             color = Neutral0,
-        )
-    }
-}
-
-@Composable
-private fun CurrentlyChip(modifier: Modifier = Modifier) {
-    Row(
-        modifier = modifier
-            .clip(BlogTheme.shapes.full)
-            .background(BlogTheme.colors.surfaceContainerHigh)
-            .border(
-                width = 1.dp,
-                color = BlogTheme.colors.brand.copy(alpha = 0.20f),
-                shape = BlogTheme.shapes.full,
-            )
-            .padding(horizontal = BlogTheme.spacing.md, vertical = BlogTheme.spacing.xs),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(BlogTheme.spacing.sm),
-    ) {
-        Box(
-            modifier = Modifier
-                .size(8.dp)
-                .clip(CircleShape)
-                .background(BlogTheme.colors.brand),
-        )
-        Text(
-            text = "Currently at Telus Digital · SmartHome+",
-            style = BlogTheme.typography.bodySmall,
-            color = BlogTheme.colors.textSecondary,
         )
     }
 }

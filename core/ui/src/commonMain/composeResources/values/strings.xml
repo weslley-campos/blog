@@ -17,7 +17,7 @@
     <!-- About Screen -->
     <string name="about_eyebrow_about_me">About me</string>
     <string name="about_hero_headline">Hi, I'm Weslley.</string>
-    <string name="about_bio_paragraph">Android engineer with 8+ years of experience specializing in Kotlin, Java, and cross-platform solutions with KMP. Proven track record of building diagnostic tools, smart home platforms, and mobile solutions that reduced operational costs by tens of thousands of dollars monthly. Experienced in application architecture, API integration, automated testing, and agile collaboration with global teams.</string>
+    <string name="about_bio_paragraph">Android engineer, eight years across consumer apps, financial flows, connected-home platforms, and embedded diagnostic tools. Most of my work today is in Kotlin Multiplatform — sharing logic between iOS and Android without the seams showing. The products have ranged from sensors that report once a day to apps with millions of daily sessions; what stays constant is the discipline, not the stack.\n\nThe parts I care about most are the boring ones: clear code, tests that earn their place, dependency graphs simple enough to navigate without a map, and design choices that still make sense a year later. Working with global teams from Brazil taught me to over-explain in writing — a good PR description saves someone a 2 a.m. ping, and I\'ve been on both sides of that.</string>
     <string name="about_avatar_initials">WC</string>
     <string name="about_cta_resume">Download Résumé</string>
 

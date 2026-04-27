@@ -10,7 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import br.com.weslleycampos.blog.core.ui.components.SectionEyebrow
+import br.com.weslleycampos.blog.core.ui.components.SectionTitle
 import br.com.weslleycampos.blog.core.ui.resources.CoreUiRes
 import br.com.weslleycampos.blog.core.ui.resources.about_education
 import br.com.weslleycampos.blog.core.ui.resources.about_education_degree
@@ -33,7 +33,7 @@ internal fun AboutEducation(
         modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(BlogTheme.spacing.xxxl),
     ) {
-        SectionEyebrow(text = stringResource(CoreUiRes.string.about_education))
+        SectionTitle(text = stringResource(CoreUiRes.string.about_education))
         Column(verticalArrangement = Arrangement.spacedBy(BlogTheme.spacing.sm)) {
             Text(
                 text = stringResource(CoreUiRes.string.about_education_school),

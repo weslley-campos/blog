@@ -9,14 +9,17 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import br.com.weslleycampos.blog.core.ui.theme.BlogTheme
+import br.com.weslleycampos.blog.core.ui.theme.JetBrainsMonoFontFamily
 
 /**
- * Code-comment style eyebrow — `// {text}` rendered in JetBrainsMono Medium
- * (`labelMedium`) on `colors.brandSecondary`. The `// ` prefix is added by the
- * component so callers pass a clean label and the marker stays consistent.
+ * Small code-comment eyebrow — `// {text}` in JetBrainsMono Medium 12sp on
+ * `colors.brandSecondary`. Use when the marker sits *above* a bigger headline
+ * (e.g. the hero pairs `// About me` with "Hi, I'm Weslley.").
  */
 @Composable
 fun SectionEyebrow(
@@ -32,11 +35,33 @@ fun SectionEyebrow(
 }
 
 /**
- * Section header — code-comment eyebrow above a display heading.
- *
- * Used by every section in About + likely Posts later. Eyebrow uses
- * [SectionEyebrow] (`// {label}` in mono cyan); title defaults to
- * `displaySmall` on `textPrimary`.
+ * Bigger code-comment section title — `// {text}` in JetBrainsMono Medium 22sp
+ * on `colors.brandSecondary`. Use when the marker stands alone as the section's
+ * heading (Tech Arsenal, Experience, Education).
+ */
+@Composable
+fun SectionTitle(
+    text: String,
+    modifier: Modifier = Modifier,
+) {
+    Text(
+        text = "// $text",
+        style = TextStyle(
+            fontFamily = JetBrainsMonoFontFamily,
+            fontWeight = FontWeight.Medium,
+            fontSize = 22.sp,
+            lineHeight = 30.sp,
+            letterSpacing = 0.sp,
+        ),
+        color = BlogTheme.colors.brandSecondary,
+        modifier = modifier,
+    )
+}
+
+/**
+ * Section header — small eyebrow above a display heading. Kept around for
+ * sections that genuinely pair the `//` marker with a distinct headline (the
+ * hero pattern) instead of using the marker as the section title itself.
  */
 @Composable
 fun SectionHeader(
@@ -58,7 +83,7 @@ fun SectionHeader(
     }
 }
 
-@Preview(widthDp = 600, heightDp = 240, showBackground = true)
+@Preview(widthDp = 600, heightDp = 320, showBackground = true)
 @Composable
 private fun SectionHeaderPreviewDark() {
     BlogTheme(isDarkMode = true) {
@@ -69,16 +94,14 @@ private fun SectionHeaderPreviewDark() {
                 .padding(32.dp),
             verticalArrangement = Arrangement.spacedBy(24.dp),
         ) {
-            SectionHeader(
-                eyebrow = "tech arsenal",
-                title = "Tech Arsenal",
-            )
-            SectionEyebrow(text = "standalone eyebrow")
+            SectionTitle(text = "Tech arsenal")
+            SectionEyebrow(text = "About me")
+            SectionHeader(eyebrow = "Skills", title = "Tech Arsenal")
         }
     }
 }
 
-@Preview(widthDp = 600, heightDp = 240, showBackground = true)
+@Preview(widthDp = 600, heightDp = 320, showBackground = true)
 @Composable
 private fun SectionHeaderPreviewLight() {
     BlogTheme(isDarkMode = false) {
@@ -89,11 +112,9 @@ private fun SectionHeaderPreviewLight() {
                 .padding(32.dp),
             verticalArrangement = Arrangement.spacedBy(24.dp),
         ) {
-            SectionHeader(
-                eyebrow = "the professional journey",
-                title = "Experience Timeline",
-            )
-            SectionEyebrow(text = "standalone eyebrow")
+            SectionTitle(text = "Experience")
+            SectionEyebrow(text = "About me")
+            SectionHeader(eyebrow = "Skills", title = "Tech Arsenal")
         }
     }
 }

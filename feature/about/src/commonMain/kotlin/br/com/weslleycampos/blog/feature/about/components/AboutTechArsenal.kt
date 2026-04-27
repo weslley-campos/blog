@@ -66,8 +66,8 @@ private fun TechGroupBlock(group: TechGroup) {
     Column(verticalArrangement = Arrangement.spacedBy(BlogTheme.spacing.lg)) {
         Text(
             text = group.label,
-            style = BlogTheme.typography.bodyMedium,
-            color = BlogTheme.colors.textSecondary,
+            style = BlogTheme.typography.titleMedium,
+            color = BlogTheme.colors.textPrimary,
         )
         FlowRow(
             horizontalArrangement = Arrangement.spacedBy(BlogTheme.spacing.lg),

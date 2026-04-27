@@ -14,6 +14,30 @@
     <string name="topbar_projects">Projetos</string>
     <string name="topbar_about">Sobre</string>
 
+    <!-- About Screen -->
+    <string name="about_eyebrow_biography">BIOGRAFIA</string>
+    <string name="about_hero_line_one">Criando Software</string>
+    <string name="about_hero_line_two">Artesanal</string>
+    <string name="about_bio_paragraph">Construo sistemas rápidos e elegantes por design. Engenheiro de software obcecado por desempenho técnico e estética minimalista.</string>
+    <string name="about_cta_resume">Baixar Currículo</string>
+
+    <string name="about_eyebrow_arsenal">ARSENAL TÉCNICO</string>
+    <string name="about_title_arsenal">Arsenal Técnico</string>
+
+    <string name="about_eyebrow_journey">A JORNADA PROFISSIONAL</string>
+    <string name="about_title_journey">Linha do Tempo Profissional</string>
+
+    <string name="about_cta_headline">Vamos construir algo excepcional.</string>
+    <string name="about_cta_subtitle">Atualmente aberto a projetos selecionados de consultoria e palestras. Vamos conversar.</string>
+    <string name="about_cta_hire">Contratar</string>
+    <string name="about_cta_email">Enviar Email</string>
+
+    <string name="about_footer_copyright">© 2026 Weslley Campos · Artesanato Digital.</string>
+
+    <string name="a11y_about_avatar">Avatar de perfil</string>
+    <string name="a11y_about_resume">Baixar currículo em PDF</string>
+    <string name="a11y_about_external">Abre em nova aba</string>
+
     <!-- Common -->
     <string name="common_apply">Aplicar</string>
 

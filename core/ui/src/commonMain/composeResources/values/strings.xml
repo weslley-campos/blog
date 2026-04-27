@@ -14,6 +14,30 @@
     <string name="topbar_projects">Projects</string>
     <string name="topbar_about">About</string>
 
+    <!-- About Screen -->
+    <string name="about_eyebrow_biography">BIOGRAPHY</string>
+    <string name="about_hero_line_one">Crafting Digital</string>
+    <string name="about_hero_line_two">Craft</string>
+    <string name="about_bio_paragraph">I build systems that are fast and elegant by design. Software engineer obsessed with technical performance and minimal aesthetics.</string>
+    <string name="about_cta_resume">Download Résumé</string>
+
+    <string name="about_eyebrow_arsenal">TECH ARSENAL</string>
+    <string name="about_title_arsenal">Tech Arsenal</string>
+
+    <string name="about_eyebrow_journey">THE PROFESSIONAL JOURNEY</string>
+    <string name="about_title_journey">Experience Timeline</string>
+
+    <string name="about_cta_headline">Let\'s build something exceptional.</string>
+    <string name="about_cta_subtitle">Currently open to selective consulting projects and speaking engagements. Let\'s talk.</string>
+    <string name="about_cta_hire">Hire for Project</string>
+    <string name="about_cta_email">Send Email</string>
+
+    <string name="about_footer_copyright">© 2026 Weslley Campos · Digital Craftsmanship.</string>
+
+    <string name="a11y_about_avatar">Profile avatar</string>
+    <string name="a11y_about_resume">Download résumé as PDF</string>
+    <string name="a11y_about_external">Opens in a new tab</string>
+
     <!-- Common -->
     <string name="common_apply">Apply</string>
 

@@ -7,6 +7,7 @@ import br.com.weslleycampos.blog.core.ui.resources.ic_firebase
 import br.com.weslleycampos.blog.core.ui.resources.ic_git
 import br.com.weslleycampos.blog.core.ui.resources.ic_kmp
 import br.com.weslleycampos.blog.core.ui.resources.ic_kotlin
+import br.com.weslleycampos.blog.core.ui.resources.ic_ktor
 import br.com.weslleycampos.blog.core.ui.resources.ic_mongodb
 import br.com.weslleycampos.blog.core.ui.resources.ic_node
 import br.com.weslleycampos.blog.core.ui.resources.ic_typescript
@@ -48,6 +49,7 @@ internal val techArsenal: List<TechItem> = listOf(
     TechItem("Java", CoreUiRes.drawable.ic_cup_coffee),
     TechItem("TypeScript", CoreUiRes.drawable.ic_typescript),
     TechItem("Compose", CoreUiRes.drawable.ic_compose),
+    TechItem("Ktor", CoreUiRes.drawable.ic_ktor),
     TechItem("Firebase", CoreUiRes.drawable.ic_firebase),
     TechItem("Git", CoreUiRes.drawable.ic_git),
     TechItem("Node.js", CoreUiRes.drawable.ic_node),

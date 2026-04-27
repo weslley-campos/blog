@@ -55,7 +55,6 @@ fun AboutScreen(
             verticalArrangement = Arrangement.spacedBy(layout.sectionGap),
         ) {
             AboutHero(
-                onResumeClick = { /* TODO: open hosted résumé PDF */ },
                 avatarSize = layout.avatarSize,
                 bodyMaxWidth = layout.bodyMaxWidth,
             )
@@ -92,22 +91,22 @@ private fun layoutForScreenSize(screenSize: ScreenSize): AboutLayout = when (scr
         horizontalPadding = 24.dp,
         contentMaxWidth = Dp.Unspecified,
         sectionGap = 56.dp,
-        avatarSize = 96.dp,
+        avatarSize = 144.dp,
         bodyMaxWidth = Dp.Unspecified,
     )
     ScreenSize.Medium -> AboutLayout(
         horizontalPadding = 48.dp,
         contentMaxWidth = 720.dp,
         sectionGap = 72.dp,
-        avatarSize = 128.dp,
-        bodyMaxWidth = 600.dp,
+        avatarSize = 168.dp,
+        bodyMaxWidth = 480.dp,
     )
     ScreenSize.Expanded -> AboutLayout(
         horizontalPadding = 64.dp,
         contentMaxWidth = 1080.dp,
         sectionGap = 96.dp,
-        avatarSize = 144.dp,
-        bodyMaxWidth = 720.dp,
+        avatarSize = 184.dp,
+        bodyMaxWidth = 560.dp,
     )
 }
 

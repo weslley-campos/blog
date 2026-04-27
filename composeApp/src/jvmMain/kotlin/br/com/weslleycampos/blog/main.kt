@@ -5,7 +5,7 @@ import androidx.compose.ui.window.application
 import androidx.savedstate.serialization.SavedStateConfiguration
 import br.com.weslleycampos.blog.core.common.di.BlogKoinApp
 import br.com.weslleycampos.blog.core.navigation.Navigator
-import br.com.weslleycampos.blog.core.navigation.entries.home.HomeEntry
+import br.com.weslleycampos.blog.core.navigation.entries.about.AboutEntry
 import br.com.weslleycampos.blog.core.navigation.utils.EntriesAggregator
 import br.com.weslleycampos.blog.core.navigation.utils.bindNavBackStack
 import kotlinx.serialization.modules.SerializersModule
@@ -28,7 +28,7 @@ fun main() = application {
     ) {
         window.minimumSize = Dimension(320, 700)
         val entries = koinInject<EntriesAggregator>().entries
-        val navigator = koinInject<Navigator> { parametersOf(HomeEntry) }
+        val navigator = koinInject<Navigator> { parametersOf(AboutEntry) }
 
         val config = SavedStateConfiguration {
             serializersModule = SerializersModule {

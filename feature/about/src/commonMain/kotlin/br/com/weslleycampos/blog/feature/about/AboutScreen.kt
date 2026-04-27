@@ -2,9 +2,11 @@ package br.com.weslleycampos.blog.feature.about
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.rememberScrollState
@@ -59,9 +61,13 @@ fun AboutScreen(
                 avatarSize = layout.avatarSize,
                 bodyMaxWidth = layout.bodyMaxWidth,
             )
+            SectionDivider()
             AboutTechArsenal()
+            SectionDivider()
             AboutTimeline()
+            SectionDivider()
             AboutEducation()
+            SectionDivider()
             AboutCtaCard(
                 onHireClick = { uriHandler.openUri(MAILTO_HIRE) },
                 onEmailClick = { uriHandler.openUri(MAILTO_EMAIL) },
@@ -78,6 +84,16 @@ fun AboutScreen(
             )
         }
     }
+}
+
+@Composable
+private fun SectionDivider() {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(1.dp)
+            .background(BlogTheme.gradients.navDivider),
+    )
 }
 
 private data class AboutLayout(

@@ -27,11 +27,11 @@
 
     <string name="about_education">Education</string>
     <string name="about_education_school">Federal University of Sergipe</string>
-    <string name="about_education_degree">Bachelor\'s degree, Information Systems (2015 – 2020)</string>
+    <string name="about_education_degree">Bachelor's degree, Information Systems (2015 – 2020)</string>
     <string name="about_education_description">Built a strong foundation in programming, databases, project management, systems analysis, and software architecture.</string>
 
-    <string name="about_cta_headline">Let\'s build something exceptional.</string>
-    <string name="about_cta_subtitle">Currently open to selective consulting projects and speaking engagements. Let\'s talk.</string>
+    <string name="about_cta_headline">Let's build something exceptional.</string>
+    <string name="about_cta_subtitle">Currently open to selective consulting projects and speaking engagements. Let's talk.</string>
     <string name="about_cta_hire">Hire for Project</string>
     <string name="about_cta_email">Send Email</string>
 

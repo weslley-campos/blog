@@ -17,6 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import br.com.weslleycampos.blog.core.ui.components.SectionEyebrow
@@ -30,9 +31,10 @@ import org.jetbrains.compose.resources.stringResource
 
 /**
  * Tech Arsenal section — section eyebrow above a `FlowRow` of circle badges.
- * Each badge renders a tinted brand-coloured tech glyph inside a
+ * Each badge renders the official brand-coloured glyph inside a
  * `surfaceContainerHigh` circle bordered with a faint brand stroke; label
- * sits below.
+ * sits below. Icon `tint` is `Color.Unspecified` so the AVD's `fillColor`
+ * (the actual brand hex) renders through.
  */
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -78,7 +80,7 @@ private fun TechBadge(item: TechItem) {
             Icon(
                 painter = item.icon.painter,
                 contentDescription = item.label,
-                tint = BlogTheme.colors.brand,
+                tint = Color.Unspecified,
                 modifier = Modifier.size(BADGE_ICON_SIZE),
             )
         }

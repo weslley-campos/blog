@@ -167,6 +167,8 @@ private fun DesignSystemPage() {
                 "surfaceElevated" to colors.surfaceElevated,
                 "surfaceSunken" to colors.surfaceSunken,
                 "surfaceNav" to colors.surfaceNav,
+                "surfaceSection" to colors.surfaceSection,
+                "surfaceContainerHigh" to colors.surfaceContainerHigh,
             )
         )
         Spacer(Modifier.height(20.dp))

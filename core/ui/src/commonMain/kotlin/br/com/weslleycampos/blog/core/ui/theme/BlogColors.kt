@@ -140,6 +140,8 @@ data class BlogColors(
     val surfaceSunken: Color,
     val surfaceNav: Color,
     val surfaceNavOpacity: Float,
+    val surfaceSection: Color,
+    val surfaceContainerHigh: Color,
     val surfaceBrandSubtle: List<Color>,
     // ── Text ─────────────────────────────────────────────────
     val textPrimary: Color,
@@ -215,6 +217,8 @@ val DarkColorPalette = BlogColors(
     surfaceSunken = Deep7,
     surfaceNav = Deep5,
     surfaceNavOpacity = 0.6f,
+    surfaceSection = Deep5,
+    surfaceContainerHigh = Deep1,
     surfaceBrandSubtle = listOf(
         Shadow5.copy(alpha = 0.08f),
         Ocean4.copy(alpha = 0.08f),
@@ -286,6 +290,8 @@ val LightColorPalette = BlogColors(
     surfaceSunken = Neutral8,
     surfaceNav = Neutral0,
     surfaceNavOpacity = 0.88f,
+    surfaceSection = Neutral1,
+    surfaceContainerHigh = Neutral2,
     surfaceBrandSubtle = listOf(
         Shadow6.copy(alpha = 0.05f),
         Ocean6.copy(alpha = 0.05f),

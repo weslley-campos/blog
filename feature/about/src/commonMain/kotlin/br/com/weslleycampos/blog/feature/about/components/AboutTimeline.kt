@@ -23,7 +23,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import br.com.weslleycampos.blog.core.ui.components.SectionEyebrow
 import br.com.weslleycampos.blog.core.ui.resources.CoreUiRes
-import br.com.weslleycampos.blog.core.ui.resources.about_eyebrow_journey
+import br.com.weslleycampos.blog.core.ui.resources.about_experience
 import br.com.weslleycampos.blog.core.ui.theme.BlogTheme
 import br.com.weslleycampos.blog.feature.about.data.Experience
 import br.com.weslleycampos.blog.feature.about.data.experiences
@@ -44,7 +44,7 @@ internal fun AboutTimeline(
         modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(BlogTheme.spacing.xxxl),
     ) {
-        SectionEyebrow(text = stringResource(CoreUiRes.string.about_eyebrow_journey))
+        SectionEyebrow(text = stringResource(CoreUiRes.string.about_experience))
         Column {
             items.forEachIndexed { index, experience ->
                 TimelineEntry(

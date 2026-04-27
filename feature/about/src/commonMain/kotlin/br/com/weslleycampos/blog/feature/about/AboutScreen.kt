@@ -28,8 +28,7 @@ import br.com.weslleycampos.blog.feature.about.components.AboutTechArsenal
 import br.com.weslleycampos.blog.feature.about.components.AboutTimeline
 import br.com.weslleycampos.blog.feature.about.data.SocialLink
 
-private const val URL_HIRE = "https://cal.com/weslley-campos"
-private const val MAILTO_EMAIL = "mailto:weslley.campos@icloud.com"
+private const val MAILTO_EMAIL = "mailto:weslley_campos@outlook.com"
 
 @Composable
 fun AboutScreen(
@@ -62,10 +61,7 @@ fun AboutScreen(
             AboutTimeline()
             AboutTechArsenal()
             AboutEducation()
-            AboutCtaCard(
-                onHireClick = { uriHandler.openUri(URL_HIRE) },
-                onEmailClick = { uriHandler.openUri(MAILTO_EMAIL) },
-            )
+            AboutCtaCard(onEmailClick = { uriHandler.openUri(MAILTO_EMAIL) },)
             AboutFooter(
                 onLinkClick = { link ->
                     when (link) {

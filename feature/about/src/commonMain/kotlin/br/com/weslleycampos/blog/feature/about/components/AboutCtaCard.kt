@@ -33,7 +33,6 @@ import org.jetbrains.compose.resources.stringResource
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 internal fun AboutCtaCard(
-    onHireClick: () -> Unit,
     onEmailClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -65,10 +64,6 @@ internal fun AboutCtaCard(
                 verticalArrangement = Arrangement.spacedBy(BlogTheme.spacing.md),
             ) {
                 BlogPrimaryButton(
-                    text = stringResource(CoreUiRes.string.about_cta_hire),
-                    onClick = onHireClick,
-                )
-                BlogSecondaryButton(
                     text = stringResource(CoreUiRes.string.about_cta_email),
                     onClick = onEmailClick,
                 )
@@ -89,7 +84,7 @@ private fun AboutCtaCardPreviewDark() {
                 .background(BlogTheme.colors.background)
                 .padding(BlogTheme.spacing.xxl),
         ) {
-            AboutCtaCard(onHireClick = {}, onEmailClick = {})
+            AboutCtaCard(onEmailClick = {})
         }
     }
 }
@@ -104,7 +99,7 @@ private fun AboutCtaCardPreviewLight() {
                 .background(BlogTheme.colors.background)
                 .padding(BlogTheme.spacing.xxl),
         ) {
-            AboutCtaCard(onHireClick = {}, onEmailClick = {})
+            AboutCtaCard(onEmailClick = {})
         }
     }
 }

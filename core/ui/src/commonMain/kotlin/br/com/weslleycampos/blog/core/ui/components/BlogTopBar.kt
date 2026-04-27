@@ -4,7 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -23,6 +23,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.intl.Locale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import br.com.weslleycampos.blog.core.ui.resources.CoreUiRes
 import br.com.weslleycampos.blog.core.ui.resources.a11y_language_button
@@ -50,21 +51,14 @@ fun BlogTopBar(
     onSelectLanguage: (Locale) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val currentScreenSize = LocalScreenSize.current
     var showLanguageSelector by remember { mutableStateOf(false) }
 
-    when (currentScreenSize) {
-        Compact -> CompactTopBar(
-            onLanguageClick = { showLanguageSelector = true },
-            onThemeToggle = onThemeToggle,
-            modifier = modifier,
-        )
-
-        else -> ExpandedTopBar(
-            onThemeToggle = onThemeToggle,
-            onLanguageClick = { showLanguageSelector = true },
-            modifier = modifier,
-        )
+    TopBar(
+        modifier = modifier,
+        horizontalPadding = BlogTheme.spacing.lg,
+    ) {
+        LanguageIconButton(onClick = { showLanguageSelector = true})
+        ThemeIconButton(onThemeToggle = onThemeToggle)
     }
 
     if (showLanguageSelector) {
@@ -75,63 +69,42 @@ fun BlogTopBar(
     }
 }
 
+
+/**
+ * Shared topbar — surfaceNav background, gradient logo anchored to the
+ * leading edge, trailing slot anchored to the right via `Alignment.CenterEnd`.
+ * Uses `Box` instead of `Row + Spacer.weight(1f)` because the latter can
+ * collapse the trailing children to zero width on Wasm/Skia under CMP 1.11
+ * when the parent constraint chain produces an intermediate-unbounded width.
+ */
 @Composable
-private fun ExpandedTopBar(
-    onThemeToggle: (Boolean) -> Unit,
-    onLanguageClick: () -> Unit,
+private fun TopBar(
+    horizontalPadding: Dp,
     modifier: Modifier = Modifier,
+    trailing: @Composable RowScope.() -> Unit,
 ) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .background(color = BlogTheme.colors.surfaceNav),
     ) {
-        Row(
+        Box(
             modifier = modifier
                 .fillMaxWidth()
                 .height(BlogTheme.spacing.section)
-                .padding(horizontal = BlogTheme.spacing.xxl),
-            verticalAlignment = Alignment.CenterVertically,
+                .padding(horizontal = horizontalPadding),
+            contentAlignment = Alignment.CenterStart,
         ) {
             GradientText(
                 text = stringResource(CoreUiRes.string.author_name),
                 brush = BlogTheme.gradients.brand,
                 style = BlogTheme.typography.titleLarge,
             )
-            Spacer(modifier = Modifier.weight(1f))
-            LanguageIconButton(onClick = onLanguageClick)
-            ThemeIconButton(onThemeToggle = onThemeToggle)
-        }
-        NavGradientDivider()
-    }
-}
-
-@Composable
-private fun CompactTopBar(
-    onLanguageClick: () -> Unit,
-    onThemeToggle: (Boolean) -> Unit,
-    modifier: Modifier = Modifier,
-) {
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .background(BlogTheme.colors.surfaceNav),
-    ) {
-        Row(
-            modifier = modifier
-                .fillMaxWidth()
-                .height(BlogTheme.spacing.section)
-                .padding(horizontal = BlogTheme.spacing.lg),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            GradientText(
-                text = stringResource(CoreUiRes.string.author_name),
-                brush = BlogTheme.gradients.brand,
-                style = BlogTheme.typography.titleLarge,
+            Row(
+                modifier = Modifier.align(Alignment.CenterEnd),
+                verticalAlignment = Alignment.CenterVertically,
+                content = trailing,
             )
-            Spacer(modifier = Modifier.weight(1f))
-            ThemeIconButton(onThemeToggle = onThemeToggle)
-            LanguageIconButton(onClick = onLanguageClick)
         }
         NavGradientDivider()
     }

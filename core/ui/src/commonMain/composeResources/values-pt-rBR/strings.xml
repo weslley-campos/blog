@@ -8,6 +8,12 @@
     <string name="app_name">Blog</string>
     <string name="author_name">Weslley Campos</string>
 
+    <!-- Top Bar -->
+    <string name="topbar_articles">Artigos</string>
+    <string name="topbar_snippets">Snippets</string>
+    <string name="topbar_projects">Projetos</string>
+    <string name="topbar_about">Sobre</string>
+
     <!-- Common -->
     <string name="common_apply">Aplicar</string>
 

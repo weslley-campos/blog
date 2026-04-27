@@ -22,7 +22,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import br.com.weslleycampos.blog.core.ui.components.SectionEyebrow
+import br.com.weslleycampos.blog.core.ui.components.SectionTitle
 import br.com.weslleycampos.blog.core.ui.resources.CoreUiRes
 import br.com.weslleycampos.blog.core.ui.resources.about_avatar_initials
 import br.com.weslleycampos.blog.core.ui.resources.about_bio_paragraph
@@ -58,7 +58,7 @@ internal fun AboutHero(
             initials = stringResource(CoreUiRes.string.about_avatar_initials),
             size = avatarSize,
         )
-        SectionEyebrow(text = stringResource(CoreUiRes.string.about_eyebrow_about_me))
+        SectionTitle(text = stringResource(CoreUiRes.string.about_eyebrow_about_me))
         Text(
             text = stringResource(CoreUiRes.string.about_hero_headline),
             style = BlogTheme.typography.displaySmall,

@@ -23,7 +23,12 @@
 
     <string name="about_eyebrow_arsenal">Arsenal técnico</string>
 
-    <string name="about_eyebrow_journey">A jornada profissional</string>
+    <string name="about_experience">Experiência</string>
+
+    <string name="about_education">Educação</string>
+    <string name="about_education_school">Universidade Federal de Sergipe</string>
+    <string name="about_education_degree">Bacharelado em Sistemas de Informação (2015 – 2020)</string>
+    <string name="about_education_description">Construí uma base sólida em programação, bancos de dados, gerenciamento de projetos, análise de sistemas e arquitetura de software.</string>
 
     <string name="about_cta_headline">Vamos construir algo excepcional.</string>
     <string name="about_cta_subtitle">Atualmente aberto a projetos selecionados de consultoria e palestras. Vamos conversar.</string>

@@ -21,6 +21,7 @@ import br.com.weslleycampos.blog.core.ui.theme.BlogTheme
 import br.com.weslleycampos.blog.core.ui.utils.LocalScreenSize
 import br.com.weslleycampos.blog.core.ui.utils.ScreenSize
 import br.com.weslleycampos.blog.feature.about.components.AboutCtaCard
+import br.com.weslleycampos.blog.feature.about.components.AboutEducation
 import br.com.weslleycampos.blog.feature.about.components.AboutFooter
 import br.com.weslleycampos.blog.feature.about.components.AboutHero
 import br.com.weslleycampos.blog.feature.about.components.AboutTechArsenal
@@ -60,6 +61,7 @@ fun AboutScreen(
             )
             AboutTechArsenal()
             AboutTimeline()
+            AboutEducation()
             AboutCtaCard(
                 onHireClick = { uriHandler.openUri(MAILTO_HIRE) },
                 onEmailClick = { uriHandler.openUri(MAILTO_EMAIL) },

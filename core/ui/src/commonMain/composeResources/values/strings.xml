@@ -16,14 +16,19 @@
 
     <!-- About Screen -->
     <string name="about_eyebrow_about_me">About me</string>
-    <string name="about_hero_headline">Hi, I\'m Weslley.</string>
+    <string name="about_hero_headline">Hi, I'm Weslley.</string>
     <string name="about_bio_paragraph">Android engineer with 8+ years of experience specializing in Kotlin, Java, and cross-platform solutions with KMP. Proven track record of building diagnostic tools, smart home platforms, and mobile solutions that reduced operational costs by tens of thousands of dollars monthly. Experienced in application architecture, API integration, automated testing, and agile collaboration with global teams.</string>
     <string name="about_avatar_initials">WC</string>
     <string name="about_cta_resume">Download Résumé</string>
 
     <string name="about_eyebrow_arsenal">Tech arsenal</string>
 
-    <string name="about_eyebrow_journey">The professional journey</string>
+    <string name="about_experience">Experience</string>
+
+    <string name="about_education">Education</string>
+    <string name="about_education_school">Federal University of Sergipe</string>
+    <string name="about_education_degree">Bachelor\'s degree, Information Systems (2015 – 2020)</string>
+    <string name="about_education_description">Built a strong foundation in programming, databases, project management, systems analysis, and software architecture.</string>
 
     <string name="about_cta_headline">Let\'s build something exceptional.</string>
     <string name="about_cta_subtitle">Currently open to selective consulting projects and speaking engagements. Let\'s talk.</string>

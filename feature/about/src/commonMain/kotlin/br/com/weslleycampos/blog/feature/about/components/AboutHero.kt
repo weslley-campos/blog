@@ -69,7 +69,7 @@ internal fun AboutHero(
             text = stringResource(CoreUiRes.string.about_bio_paragraph),
             style = BlogTheme.typography.bodyLarge,
             color = BlogTheme.colors.textSecondary,
-            textAlign = TextAlign.Center,
+            textAlign = TextAlign.Justify,
             modifier = Modifier.widthIn(max = bodyMaxWidth),
         )
     }

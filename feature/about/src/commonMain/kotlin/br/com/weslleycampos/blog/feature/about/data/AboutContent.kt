@@ -1,12 +1,14 @@
 package br.com.weslleycampos.blog.feature.about.data
 
 import br.com.weslleycampos.blog.core.ui.resources.CoreUiRes
-import br.com.weslleycampos.blog.core.ui.resources.ic_cable
+import br.com.weslleycampos.blog.core.ui.resources.ic_android
+import br.com.weslleycampos.blog.core.ui.resources.ic_app_store
 import br.com.weslleycampos.blog.core.ui.resources.ic_compose
 import br.com.weslleycampos.blog.core.ui.resources.ic_cpu
 import br.com.weslleycampos.blog.core.ui.resources.ic_firebase
 import br.com.weslleycampos.blog.core.ui.resources.ic_flask_conical
 import br.com.weslleycampos.blog.core.ui.resources.ic_git
+import br.com.weslleycampos.blog.core.ui.resources.ic_google_play
 import br.com.weslleycampos.blog.core.ui.resources.ic_infinity
 import br.com.weslleycampos.blog.core.ui.resources.ic_java
 import br.com.weslleycampos.blog.core.ui.resources.ic_kanban
@@ -22,6 +24,7 @@ import br.com.weslleycampos.blog.core.ui.resources.ic_plug
 import br.com.weslleycampos.blog.core.ui.resources.ic_puzzle
 import br.com.weslleycampos.blog.core.ui.resources.ic_repeat
 import br.com.weslleycampos.blog.core.ui.resources.ic_server
+import br.com.weslleycampos.blog.core.ui.resources.ic_syringe
 import br.com.weslleycampos.blog.core.ui.resources.ic_target
 import br.com.weslleycampos.blog.core.ui.resources.ic_typescript
 import org.jetbrains.compose.resources.DrawableResource
@@ -44,6 +47,11 @@ internal data class TechItem(
     val icon: DrawableResource,
 )
 
+internal data class TechGroup(
+    val label: String,
+    val items: List<TechItem>,
+)
+
 internal data class Experience(
     val period: String,
     val company: String,
@@ -56,32 +64,58 @@ internal enum class SocialLink(val label: String, val url: String) {
     Email("Email", "mailto:weslley.campos@icloud.com"),
 }
 
-internal val techArsenal: List<TechItem> = listOf(
-    // Brand glyphs in their native colors.
-    TechItem("Kotlin", CoreUiRes.drawable.ic_kotlin),
-    TechItem("KMP", CoreUiRes.drawable.ic_kmp),
-    TechItem("Java", CoreUiRes.drawable.ic_java),
-    TechItem("TypeScript", CoreUiRes.drawable.ic_typescript),
-    TechItem("Compose", CoreUiRes.drawable.ic_compose),
-    TechItem("Ktor", CoreUiRes.drawable.ic_ktor),
-    TechItem("Firebase", CoreUiRes.drawable.ic_firebase),
-    TechItem("Git", CoreUiRes.drawable.ic_git),
-    TechItem("Node.js", CoreUiRes.drawable.ic_node),
-    TechItem("MongoDB", CoreUiRes.drawable.ic_mongodb),
-    // Concepts/practices represented by Lucide glyphs in brand purple.
-    TechItem("MVP", CoreUiRes.drawable.ic_target),
-    TechItem("MVVM", CoreUiRes.drawable.ic_layers),
-    TechItem("CI/CD", CoreUiRes.drawable.ic_infinity),
-    TechItem("Kanban", CoreUiRes.drawable.ic_kanban),
-    TechItem("Agile", CoreUiRes.drawable.ic_repeat),
-    TechItem("Architecture", CoreUiRes.drawable.ic_network),
-    TechItem("Unit Testing", CoreUiRes.drawable.ic_flask_conical),
-    TechItem("UI Testing", CoreUiRes.drawable.ic_monitor_check),
-    TechItem("DI", CoreUiRes.drawable.ic_cable),
-    TechItem("Design Patterns", CoreUiRes.drawable.ic_puzzle),
-    TechItem("Embedded", CoreUiRes.drawable.ic_cpu),
-    TechItem("REST APIs", CoreUiRes.drawable.ic_server),
-    TechItem("Sockets", CoreUiRes.drawable.ic_plug),
+internal val techArsenal: List<TechGroup> = listOf(
+    TechGroup(
+        label = "Languages",
+        items = listOf(
+            TechItem("Kotlin", CoreUiRes.drawable.ic_kotlin),
+            TechItem("KMP", CoreUiRes.drawable.ic_kmp),
+            TechItem("Java", CoreUiRes.drawable.ic_java),
+            TechItem("TypeScript", CoreUiRes.drawable.ic_typescript),
+        ),
+    ),
+    TechGroup(
+        label = "Android & mobile",
+        items = listOf(
+            TechItem("Android", CoreUiRes.drawable.ic_android),
+            TechItem("Compose", CoreUiRes.drawable.ic_compose),
+            TechItem("Play Store", CoreUiRes.drawable.ic_google_play),
+            TechItem("App Store", CoreUiRes.drawable.ic_app_store),
+        ),
+    ),
+    TechGroup(
+        label = "Backend & data",
+        items = listOf(
+            TechItem("Ktor", CoreUiRes.drawable.ic_ktor),
+            TechItem("Node.js", CoreUiRes.drawable.ic_node),
+            TechItem("MongoDB", CoreUiRes.drawable.ic_mongodb),
+        ),
+    ),
+    TechGroup(
+        label = "Tools & cloud",
+        items = listOf(
+            TechItem("Firebase", CoreUiRes.drawable.ic_firebase),
+            TechItem("Git", CoreUiRes.drawable.ic_git),
+        ),
+    ),
+    TechGroup(
+        label = "Practices",
+        items = listOf(
+            TechItem("MVP", CoreUiRes.drawable.ic_target),
+            TechItem("MVVM", CoreUiRes.drawable.ic_layers),
+            TechItem("Architecture", CoreUiRes.drawable.ic_network),
+            TechItem("Design Patterns", CoreUiRes.drawable.ic_puzzle),
+            TechItem("DI", CoreUiRes.drawable.ic_syringe),
+            TechItem("REST APIs", CoreUiRes.drawable.ic_server),
+            TechItem("Sockets", CoreUiRes.drawable.ic_plug),
+            TechItem("Unit Testing", CoreUiRes.drawable.ic_flask_conical),
+            TechItem("UI Testing", CoreUiRes.drawable.ic_monitor_check),
+            TechItem("CI/CD", CoreUiRes.drawable.ic_infinity),
+            TechItem("Agile", CoreUiRes.drawable.ic_repeat),
+            TechItem("Kanban", CoreUiRes.drawable.ic_kanban),
+            TechItem("Embedded", CoreUiRes.drawable.ic_cpu),
+        ),
+    ),
 )
 
 internal val experiences: List<Experience> = listOf(

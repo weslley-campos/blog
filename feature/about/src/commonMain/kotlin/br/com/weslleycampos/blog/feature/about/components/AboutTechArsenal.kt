@@ -25,34 +25,56 @@ import br.com.weslleycampos.blog.core.ui.resources.CoreUiRes
 import br.com.weslleycampos.blog.core.ui.resources.about_eyebrow_arsenal
 import br.com.weslleycampos.blog.core.ui.theme.BlogTheme
 import br.com.weslleycampos.blog.core.ui.theme.painter
+import br.com.weslleycampos.blog.feature.about.data.TechGroup
 import br.com.weslleycampos.blog.feature.about.data.TechItem
 import br.com.weslleycampos.blog.feature.about.data.techArsenal
 import org.jetbrains.compose.resources.stringResource
 
 /**
- * Tech Arsenal section — section eyebrow above a `FlowRow` of circle badges.
- * Each badge renders the official brand-coloured glyph inside a
- * `surfaceContainerHigh` circle bordered with a faint brand stroke; label
- * sits below. Icon `tint` is `Color.Unspecified` so the AVD's `fillColor`
- * (the actual brand hex) renders through.
+ * Tech Arsenal section — single eyebrow over a vertical stack of grouped
+ * badge clusters. Each [TechGroup] renders a quiet sub-label in
+ * `textSecondary` followed by its own `FlowRow` of badges, so wrapping
+ * happens within a category instead of across mixed concepts.
+ *
+ * Badge styling is identical across groups (56 dp circle, brand-purple
+ * ring, 28 dp glyph). Brand-color glyphs render in their native colors;
+ * stroke glyphs bake `#7F52FF` into the AVD so `tint = Color.Unspecified`
+ * works for every item with no per-item logic.
  */
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 internal fun AboutTechArsenal(
     modifier: Modifier = Modifier,
-    items: List<TechItem> = techArsenal,
+    groups: List<TechGroup> = techArsenal,
 ) {
     Column(
         modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(BlogTheme.spacing.xxxl),
     ) {
         SectionEyebrow(text = stringResource(CoreUiRes.string.about_eyebrow_arsenal))
+        Column(verticalArrangement = Arrangement.spacedBy(BlogTheme.spacing.xxl)) {
+            groups.forEach { group ->
+                TechGroupBlock(group = group)
+            }
+        }
+    }
+}
+
+@OptIn(ExperimentalLayoutApi::class)
+@Composable
+private fun TechGroupBlock(group: TechGroup) {
+    Column(verticalArrangement = Arrangement.spacedBy(BlogTheme.spacing.lg)) {
+        Text(
+            text = group.label,
+            style = BlogTheme.typography.bodyMedium,
+            color = BlogTheme.colors.textSecondary,
+        )
         FlowRow(
             horizontalArrangement = Arrangement.spacedBy(BlogTheme.spacing.lg),
             verticalArrangement = Arrangement.spacedBy(BlogTheme.spacing.xl),
             modifier = Modifier.fillMaxWidth(),
         ) {
-            items.forEach { item ->
+            group.items.forEach { item ->
                 TechBadge(item = item)
             }
         }
@@ -96,7 +118,7 @@ private val BADGE_SIZE = 56.dp
 private val BADGE_ICON_SIZE = 28.dp
 private const val BADGE_BORDER_ALPHA = 0.30f
 
-@Preview(widthDp = 400, heightDp = 520, showBackground = true)
+@Preview(widthDp = 400, heightDp = 1100, showBackground = true)
 @Composable
 private fun AboutTechArsenalPreviewDark() {
     BlogTheme(isDarkMode = true) {
@@ -111,7 +133,7 @@ private fun AboutTechArsenalPreviewDark() {
     }
 }
 
-@Preview(widthDp = 400, heightDp = 520, showBackground = true)
+@Preview(widthDp = 400, heightDp = 1100, showBackground = true)
 @Composable
 private fun AboutTechArsenalPreviewLight() {
     BlogTheme(isDarkMode = false) {

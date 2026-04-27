@@ -99,14 +99,14 @@ private fun layoutForScreenSize(screenSize: ScreenSize): AboutLayout = when (scr
         contentMaxWidth = 720.dp,
         sectionGap = 72.dp,
         avatarSize = 168.dp,
-        bodyMaxWidth = 480.dp,
+        bodyMaxWidth = 640.dp,
     )
     ScreenSize.Expanded -> AboutLayout(
         horizontalPadding = 64.dp,
         contentMaxWidth = 1080.dp,
         sectionGap = 96.dp,
         avatarSize = 184.dp,
-        bodyMaxWidth = 560.dp,
+        bodyMaxWidth = 880.dp,
     )
 }
 

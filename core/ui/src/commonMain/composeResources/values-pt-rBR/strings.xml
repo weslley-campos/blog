@@ -15,16 +15,16 @@
     <string name="topbar_about">Sobre</string>
 
     <!-- About Screen -->
-    <string name="about_eyebrow_about_me">sobre mim</string>
+    <string name="about_eyebrow_about_me">Sobre mim</string>
     <string name="about_hero_headline">Olá, sou Weslley.</string>
     <string name="about_bio_paragraph">Desenvolvedor de software do Brasil. Construo aplicações web e ferramentas para devs.</string>
     <string name="about_avatar_initials">WC</string>
     <string name="about_cta_resume">Baixar Currículo</string>
 
-    <string name="about_eyebrow_arsenal">arsenal técnico</string>
+    <string name="about_eyebrow_arsenal">Arsenal técnico</string>
     <string name="about_title_arsenal">Arsenal Técnico</string>
 
-    <string name="about_eyebrow_journey">a jornada profissional</string>
+    <string name="about_eyebrow_journey">A jornada profissional</string>
     <string name="about_title_journey">Linha do Tempo Profissional</string>
 
     <string name="about_cta_headline">Vamos construir algo excepcional.</string>

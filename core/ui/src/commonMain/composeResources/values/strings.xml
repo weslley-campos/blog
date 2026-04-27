@@ -15,16 +15,16 @@
     <string name="topbar_about">About</string>
 
     <!-- About Screen -->
-    <string name="about_eyebrow_about_me">about me</string>
+    <string name="about_eyebrow_about_me">About me</string>
     <string name="about_hero_headline">Hi, I\'m Weslley.</string>
     <string name="about_bio_paragraph">Software developer from Brazil. I build web apps and dev tools.</string>
     <string name="about_avatar_initials">WC</string>
     <string name="about_cta_resume">Download Résumé</string>
 
-    <string name="about_eyebrow_arsenal">tech arsenal</string>
+    <string name="about_eyebrow_arsenal">Tech arsenal</string>
     <string name="about_title_arsenal">Tech Arsenal</string>
 
-    <string name="about_eyebrow_journey">the professional journey</string>
+    <string name="about_eyebrow_journey">The professional journey</string>
     <string name="about_title_journey">Experience Timeline</string>
 
     <string name="about_cta_headline">Let\'s build something exceptional.</string>

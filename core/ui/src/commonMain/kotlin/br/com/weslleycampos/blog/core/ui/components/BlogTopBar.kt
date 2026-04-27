@@ -1,7 +1,6 @@
 package br.com.weslleycampos.blog.core.ui.components
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -11,7 +10,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
@@ -83,18 +81,13 @@ private fun ExpandedTopBar(
     onLanguageClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val maxSize = LocalScreenSize.current.size.dp
-
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .background(color = BlogTheme.colors.surfaceNav),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
     ) {
         Row(
             modifier = modifier
-                .widthIn(max = maxSize)
                 .fillMaxWidth()
                 .height(BlogTheme.spacing.section)
                 .padding(horizontal = BlogTheme.spacing.xxl),
@@ -119,18 +112,13 @@ private fun CompactTopBar(
     onThemeToggle: (Boolean) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val maxSize = LocalScreenSize.current.size.dp
-
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .background(BlogTheme.colors.surfaceNav),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
     ) {
         Row(
             modifier = modifier
-                .widthIn(max = maxSize)
                 .fillMaxWidth()
                 .height(BlogTheme.spacing.section)
                 .padding(horizontal = BlogTheme.spacing.lg),

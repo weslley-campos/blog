@@ -153,25 +153,17 @@ internal val experiences: List<Experience> = listOf(
             "for the company.",
     ),
     Experience(
-        period = "Jan 2022 — Mar 2022",
-        company = "Tectoy | Eldorado Institute",
-        description = "Developed a facial recognition access control system for buildings and offices, " +
-            "overcoming challenges of deploying on Android-based totems with large screens.",
-    ),
-    Experience(
-        period = "Oct 2021 — Jan 2022",
-        company = "HP | Eldorado Institute",
-        description = "Created a diagnostic module proof of concept within the HP Smart application that " +
-            "identifies and resolves potential errors in HP printers. The POC's success led to its " +
-            "production release, now utilized by millions of users on the Google Play Store.",
-    ),
-    Experience(
-        period = "Apr 2021 — Sep 2021",
-        company = "Positivo | Eldorado Institute",
-        description = "Led the development of an app store and contributed to the MDM system. Detected " +
-            "malfunctioning payment machines and automated their replacement, resulting in significant " +
-            "monthly cost savings. The app store further enhanced sellers' profitability by providing " +
-            "optimized applications.",
+        period = "Apr 2021 — Mar 2022",
+        company = "Eldorado Institute",
+        description = "Delivered three Android products across consumer and enterprise hardware: Tectoy · " +
+            "HP · Positivo. For Tectoy, built a facial recognition access control system for buildings " +
+            "and offices, overcoming the challenges of deploying on Android-based totems with large " +
+            "screens. For HP, created a diagnostic module proof of concept within the HP Smart " +
+            "application that identifies and resolves potential errors in HP printers — the POC's " +
+            "success led to its production release, now utilized by millions of users on the Google " +
+            "Play Store. For Positivo, led the development of an app store and contributed to the MDM " +
+            "system, detecting malfunctioning payment machines and automating their replacement for " +
+            "significant monthly cost savings.",
     ),
     Experience(
         period = "Nov 2017 — Feb 2021",

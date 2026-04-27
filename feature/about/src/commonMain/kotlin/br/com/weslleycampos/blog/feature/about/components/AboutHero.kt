@@ -22,6 +22,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import br.com.weslleycampos.blog.core.ui.components.GradientText
 import br.com.weslleycampos.blog.core.ui.components.SectionTitle
 import br.com.weslleycampos.blog.core.ui.resources.CoreUiRes
 import br.com.weslleycampos.blog.core.ui.resources.about_avatar_initials
@@ -59,10 +60,10 @@ internal fun AboutHero(
             size = avatarSize,
         )
         SectionTitle(text = stringResource(CoreUiRes.string.about_eyebrow_about_me))
-        Text(
+        GradientText(
             text = stringResource(CoreUiRes.string.about_hero_headline),
+            brush = BlogTheme.gradients.hero,
             style = BlogTheme.typography.displaySmall,
-            color = BlogTheme.colors.brand,
             textAlign = TextAlign.Center,
         )
         Text(

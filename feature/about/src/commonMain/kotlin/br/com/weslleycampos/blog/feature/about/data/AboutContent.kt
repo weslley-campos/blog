@@ -1,5 +1,16 @@
 package br.com.weslleycampos.blog.feature.about.data
 
+import br.com.weslleycampos.blog.core.ui.resources.CoreUiRes
+import br.com.weslleycampos.blog.core.ui.resources.ic_compose
+import br.com.weslleycampos.blog.core.ui.resources.ic_firebase
+import br.com.weslleycampos.blog.core.ui.resources.ic_git
+import br.com.weslleycampos.blog.core.ui.resources.ic_java
+import br.com.weslleycampos.blog.core.ui.resources.ic_kotlin
+import br.com.weslleycampos.blog.core.ui.resources.ic_mongodb
+import br.com.weslleycampos.blog.core.ui.resources.ic_node
+import br.com.weslleycampos.blog.core.ui.resources.ic_typescript
+import org.jetbrains.compose.resources.DrawableResource
+
 /**
  * Static content for the About screen.
  *
@@ -15,7 +26,7 @@ package br.com.weslleycampos.blog.feature.about.data
 
 internal data class TechItem(
     val label: String,
-    val initials: String,
+    val icon: DrawableResource,
 )
 
 internal data class Experience(
@@ -31,18 +42,14 @@ internal enum class SocialLink(val label: String, val url: String) {
 }
 
 internal val techArsenal: List<TechItem> = listOf(
-    TechItem("Kotlin", "K"),
-    TechItem("Java", "J"),
-    TechItem("KMP", "KMP"),
-    TechItem("Compose", "JC"),
-    TechItem("Retrofit", "RT"),
-    TechItem("Hilt", "H"),
-    TechItem("Koin", "KO"),
-    TechItem("Firebase", "FB"),
-    TechItem("Git", "GIT"),
-    TechItem("TypeScript", "TS"),
-    TechItem("Node.js", "N"),
-    TechItem("MongoDB", "DB"),
+    TechItem("Kotlin", CoreUiRes.drawable.ic_kotlin),
+    TechItem("Java", CoreUiRes.drawable.ic_java),
+    TechItem("TypeScript", CoreUiRes.drawable.ic_typescript),
+    TechItem("Compose", CoreUiRes.drawable.ic_compose),
+    TechItem("Firebase", CoreUiRes.drawable.ic_firebase),
+    TechItem("Git", CoreUiRes.drawable.ic_git),
+    TechItem("Node.js", CoreUiRes.drawable.ic_node),
+    TechItem("MongoDB", CoreUiRes.drawable.ic_mongodb),
 )
 
 internal val experiences: List<Experience> = listOf(

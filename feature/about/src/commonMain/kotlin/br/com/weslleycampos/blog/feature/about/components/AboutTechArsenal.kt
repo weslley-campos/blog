@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -22,14 +23,16 @@ import br.com.weslleycampos.blog.core.ui.components.SectionEyebrow
 import br.com.weslleycampos.blog.core.ui.resources.CoreUiRes
 import br.com.weslleycampos.blog.core.ui.resources.about_eyebrow_arsenal
 import br.com.weslleycampos.blog.core.ui.theme.BlogTheme
+import br.com.weslleycampos.blog.core.ui.theme.painter
 import br.com.weslleycampos.blog.feature.about.data.TechItem
 import br.com.weslleycampos.blog.feature.about.data.techArsenal
 import org.jetbrains.compose.resources.stringResource
 
 /**
- * Tech Arsenal section — section header above a `FlowRow` of circle badges.
- * Each badge renders the tech initials inside a `surfaceContainerHigh`
- * circle bordered with a faint brand stroke; label sits below.
+ * Tech Arsenal section — section eyebrow above a `FlowRow` of circle badges.
+ * Each badge renders a tinted brand-coloured tech glyph inside a
+ * `surfaceContainerHigh` circle bordered with a faint brand stroke; label
+ * sits below.
  */
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -72,10 +75,11 @@ private fun TechBadge(item: TechItem) {
                 ),
             contentAlignment = Alignment.Center,
         ) {
-            Text(
-                text = item.initials,
-                style = BlogTheme.typography.labelMedium,
-                color = BlogTheme.colors.brand,
+            Icon(
+                painter = item.icon.painter,
+                contentDescription = item.label,
+                tint = BlogTheme.colors.brand,
+                modifier = Modifier.size(BADGE_ICON_SIZE),
             )
         }
         Text(
@@ -87,6 +91,7 @@ private fun TechBadge(item: TechItem) {
 }
 
 private val BADGE_SIZE = 56.dp
+private val BADGE_ICON_SIZE = 28.dp
 private const val BADGE_BORDER_ALPHA = 0.30f
 
 @Preview(widthDp = 400, heightDp = 520, showBackground = true)

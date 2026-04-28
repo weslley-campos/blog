@@ -1,6 +1,6 @@
 # Blog
 
-Personal blog built 2 with Kotlin Multiplatform and Compose Multiplatform — one Kotlin codebase running on **web (Wasm)**, **Desktop (JVM)**, **Android**, and **iOS**.
+Personal blog built 3 with Kotlin Multiplatform and Compose Multiplatform — one Kotlin codebase running on **web (Wasm)**, **Desktop (JVM)**, **Android**, and **iOS**.
 
 The Wasm target is the first to ship (served via nginx in Docker). Desktop, Android, and iOS will roll out incrementally — the multiplatform stack is in place from day one, the deployments arrive over time.
 

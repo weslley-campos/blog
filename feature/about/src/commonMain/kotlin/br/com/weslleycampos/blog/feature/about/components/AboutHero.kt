@@ -30,9 +30,9 @@ import br.com.weslleycampos.blog.core.ui.resources.about_bio_paragraph
 import br.com.weslleycampos.blog.core.ui.resources.about_eyebrow_about_me
 import br.com.weslleycampos.blog.core.ui.resources.about_hero_headline
 import br.com.weslleycampos.blog.core.ui.theme.BlogTheme
+import br.com.weslleycampos.blog.core.ui.theme.Deep7
 import br.com.weslleycampos.blog.core.ui.theme.InterFontFamily
 import br.com.weslleycampos.blog.core.ui.theme.Neutral0
-import br.com.weslleycampos.blog.core.ui.theme.Deep7
 import org.jetbrains.compose.resources.stringResource
 
 /**

@@ -39,7 +39,7 @@ jobs:
           apt-get update
           apt-get install -y --no-install-recommends libgl1
 
-      - name: 🧪 Run tests (JVM, excluding Compose UI tests)
+      - name: 🧪 Run tests
         run: ./gradlew jvmTest --stacktrace
 
       - name: 📤 Upload test reports

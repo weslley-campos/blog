@@ -34,7 +34,6 @@ import br.com.weslleycampos.blog.core.ui.theme.LocalDarkTheme
 import br.com.weslleycampos.blog.core.ui.theme.painter
 import br.com.weslleycampos.blog.core.ui.utils.LocalScreenSize
 import br.com.weslleycampos.blog.core.ui.utils.ScreenSize
-import br.com.weslleycampos.blog.core.ui.utils.ScreenSize.Compact
 import br.com.weslleycampos.blog.core.ui.utils.ScreenSizeParameterProvider
 import org.jetbrains.compose.resources.stringResource
 
@@ -57,7 +56,7 @@ fun BlogTopBar(
         modifier = modifier,
         horizontalPadding = BlogTheme.spacing.lg,
     ) {
-        LanguageIconButton(onClick = { showLanguageSelector = true})
+        LanguageIconButton(onClick = { showLanguageSelector = true })
         ThemeIconButton(onThemeToggle = onThemeToggle)
     }
 
@@ -68,7 +67,6 @@ fun BlogTopBar(
         )
     }
 }
-
 
 /**
  * Shared topbar — surfaceNav background, gradient logo anchored to the

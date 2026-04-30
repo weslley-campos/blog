@@ -16,11 +16,9 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import br.com.weslleycampos.blog.core.ui.components.BlogPrimaryButton
-import br.com.weslleycampos.blog.core.ui.components.BlogSecondaryButton
 import br.com.weslleycampos.blog.core.ui.resources.CoreUiRes
 import br.com.weslleycampos.blog.core.ui.resources.about_cta_email
 import br.com.weslleycampos.blog.core.ui.resources.about_cta_headline
-import br.com.weslleycampos.blog.core.ui.resources.about_cta_hire
 import br.com.weslleycampos.blog.core.ui.resources.about_cta_subtitle
 import br.com.weslleycampos.blog.core.ui.theme.BlogTheme
 import org.jetbrains.compose.resources.stringResource

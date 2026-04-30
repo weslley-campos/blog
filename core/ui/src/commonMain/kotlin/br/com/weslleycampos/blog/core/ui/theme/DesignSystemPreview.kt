@@ -129,6 +129,32 @@ private fun DesignSystemPage() {
                 "7" to Deep7,
             )
         )
+        Spacer(Modifier.height(24.dp))
+
+        SectionSubtitle("SlateBlue (Cool Steel — text on dark)")
+        ColorRampRow(
+            listOf(
+                "3" to SlateBlue3,
+                "5" to SlateBlue5,
+                "6" to SlateBlue6,
+                "7" to SlateBlue7,
+            )
+        )
+        Spacer(Modifier.height(24.dp))
+
+        SectionSubtitle("Accent Tints")
+        ColorRampRow(
+            listOf(
+                "ice" to IceLavender,
+                "amberBright" to FunctionalAmberBright,
+                "amberDeep" to FunctionalAmberDeep,
+                "redBright" to FunctionalRedBright,
+                "redDeep" to FunctionalRedDeep,
+                "greenBright" to FunctionalGreenBright,
+                "rust" to RustDeep,
+                "emerald" to EmeraldDeep,
+            )
+        )
         SectionDivider()
 
         // ── 2. Semantic Colors ──────────────────────────────
@@ -141,6 +167,8 @@ private fun DesignSystemPage() {
                 "surfaceElevated" to colors.surfaceElevated,
                 "surfaceSunken" to colors.surfaceSunken,
                 "surfaceNav" to colors.surfaceNav,
+                "surfaceSection" to colors.surfaceSection,
+                "surfaceContainerHigh" to colors.surfaceContainerHigh,
             )
         )
         Spacer(Modifier.height(20.dp))

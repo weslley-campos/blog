@@ -8,6 +8,39 @@
     <string name="app_name">Blog</string>
     <string name="author_name">Weslley Campos</string>
 
+    <!-- Top Bar -->
+    <string name="topbar_articles">Artigos</string>
+    <string name="topbar_snippets">Snippets</string>
+    <string name="topbar_projects">Projetos</string>
+    <string name="topbar_about">Sobre</string>
+
+    <!-- About Screen -->
+    <string name="about_eyebrow_about_me">Sobre mim</string>
+    <string name="about_hero_headline">Olá, sou Weslley.</string>
+    <string name="about_bio_paragraph">Engenheiro Android, oito anos trabalhando com apps de consumo, fluxos financeiros, plataformas de casa conectada e ferramentas de diagnóstico embarcado — o que se mantém constante é a disciplina, não a stack. Hoje a maior parte do meu trabalho é em Kotlin Multiplatform, compartilhando lógica entre iOS e Android sem as costuras aparecerem. As partes que me interessam de verdade são as chatas: código claro, testes que merecem estar ali e decisões de design que ainda fazem sentido um ano depois.</string>
+    <string name="about_avatar_initials">WC</string>
+    <string name="about_cta_resume">Baixar Currículo</string>
+
+    <string name="about_eyebrow_arsenal">Tech stack</string>
+
+    <string name="about_experience">Experiência</string>
+
+    <string name="about_education">Educação</string>
+    <string name="about_education_school">Universidade Federal de Sergipe</string>
+    <string name="about_education_degree">Bacharelado em Sistemas de Informação (2015 – 2020)</string>
+    <string name="about_education_description">Construí uma base sólida em programação, bancos de dados, gerenciamento de projetos, análise de sistemas e arquitetura de software.</string>
+
+    <string name="about_cta_headline">Vamos construir algo excepcional.</string>
+    <string name="about_cta_subtitle">Atualmente aberto a projetos selecionados de consultoria e palestras. Vamos conversar.</string>
+    <string name="about_cta_hire">Agendar uma conversa</string>
+    <string name="about_cta_email">Enviar Email</string>
+
+    <string name="about_footer_copyright">© 2026 Weslley Campos.</string>
+
+    <string name="a11y_about_avatar">Avatar de perfil</string>
+    <string name="a11y_about_resume">Baixar currículo em PDF</string>
+    <string name="a11y_about_external">Abre em nova aba</string>
+
     <!-- Common -->
     <string name="common_apply">Aplicar</string>
 

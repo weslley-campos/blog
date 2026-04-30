@@ -16,6 +16,11 @@ java {
 kotlin {
     compilerOptions {
         jvmTarget = JvmTarget.JVM_17
+        // Gradle 8.11's kotlin-dsl ships Kotlin 2.0, which can't read class
+        // metadata produced by Kotlin 2.3 (KSP 2.3.x, kotlin-gradle-plugin
+        // 2.3.x). Skip the version check so the convention plugins compile
+        // against newer Kotlin tooling.
+        freeCompilerArgs.add("-Xskip-metadata-version-check")
     }
 }
 

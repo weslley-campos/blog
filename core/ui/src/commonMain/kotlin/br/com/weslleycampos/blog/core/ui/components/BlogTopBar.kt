@@ -1,23 +1,17 @@
 package br.com.weslleycampos.blog.core.ui.components
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.widthIn
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.Text
-import androidx.compose.material3.VerticalDivider
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
@@ -26,21 +20,17 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.intl.Locale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import br.com.weslleycampos.blog.core.ui.resources.CoreUiRes
 import br.com.weslleycampos.blog.core.ui.resources.a11y_language_button
-import br.com.weslleycampos.blog.core.ui.resources.a11y_menu_button
 import br.com.weslleycampos.blog.core.ui.resources.a11y_theme_mode_button
 import br.com.weslleycampos.blog.core.ui.resources.author_name
 import br.com.weslleycampos.blog.core.ui.theme.BlogTheme
 import br.com.weslleycampos.blog.core.ui.theme.LocalDarkTheme
-import br.com.weslleycampos.blog.core.ui.theme.MerriWeatherFontFamily
 import br.com.weslleycampos.blog.core.ui.theme.painter
 import br.com.weslleycampos.blog.core.ui.utils.LocalScreenSize
 import br.com.weslleycampos.blog.core.ui.utils.ScreenSize
@@ -48,222 +38,114 @@ import br.com.weslleycampos.blog.core.ui.utils.ScreenSize.Compact
 import br.com.weslleycampos.blog.core.ui.utils.ScreenSizeParameterProvider
 import org.jetbrains.compose.resources.stringResource
 
+/**
+ * Top app bar — gradient logo on the leading edge, theme + language icon
+ * buttons on the trailing edge, gradient divider underneath. The site
+ * navigation menu (Articles / Snippets / Projects / About) is intentionally
+ * absent until the corresponding sections ship; reintroducing it means
+ * adding a row of `NavBarItem`s between the logo spacer and the icon row.
+ */
 @Composable
 fun BlogTopBar(
     onThemeToggle: (Boolean) -> Unit,
     onSelectLanguage: (Locale) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val currentScreenSize = LocalScreenSize.current
-    var selected by remember { mutableStateOf("Posts") }
     var showLanguageSelector by remember { mutableStateOf(false) }
 
-    when (currentScreenSize) {
-        Compact -> CompactTopBar(
-            onMenuClick = { },
-            onLanguageClick = { showLanguageSelector = true },
-            onThemeToggle = onThemeToggle,
-            modifier = modifier
-        )
-
-        else -> ExpandedTopBar(
-            selected = selected,
-            onItemClick = { selected = it },
-            onThemeToggle = onThemeToggle,
-            onLanguageClick = { showLanguageSelector = true },
-            modifier = modifier
-        )
+    TopBar(
+        modifier = modifier,
+        horizontalPadding = BlogTheme.spacing.lg,
+    ) {
+        LanguageIconButton(onClick = { showLanguageSelector = true})
+        ThemeIconButton(onThemeToggle = onThemeToggle)
     }
 
     if (showLanguageSelector) {
         SelectLanguageDialog(
             onDismiss = { showLanguageSelector = false },
-            onSelected = {
-                onSelectLanguage(Locale(languageTag = it))
-            }
+            onSelected = { onSelectLanguage(Locale(languageTag = it)) },
         )
     }
 }
 
-@Composable
-private fun ExpandedTopBar(
-    selected: String,
-    onItemClick: (String) -> Unit,
-    onThemeToggle: (Boolean) -> Unit,
-    onLanguageClick: () -> Unit,
-    modifier: Modifier = Modifier,
-) {
-    val maxSize = LocalScreenSize.current.size.dp
 
+/**
+ * Shared topbar — surfaceNav background, gradient logo anchored to the
+ * leading edge, trailing slot anchored to the right via `Alignment.CenterEnd`.
+ * Uses `Box` instead of `Row + Spacer.weight(1f)` because the latter can
+ * collapse the trailing children to zero width on Wasm/Skia under CMP 1.11
+ * when the parent constraint chain produces an intermediate-unbounded width.
+ */
+@Composable
+private fun TopBar(
+    horizontalPadding: Dp,
+    modifier: Modifier = Modifier,
+    trailing: @Composable RowScope.() -> Unit,
+) {
     Column(
-        modifier = Modifier.fillMaxWidth()
-            .background(color = BlogTheme.colors.surfaceElevated),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(color = BlogTheme.colors.surfaceNav),
     ) {
-        Row(
-            modifier = modifier.widthIn(max = maxSize)
+        Box(
+            modifier = modifier
+                .fillMaxWidth()
                 .height(BlogTheme.spacing.section)
-                .padding(horizontal = BlogTheme.spacing.lg),
-            verticalAlignment = Alignment.CenterVertically
+                .padding(horizontal = horizontalPadding),
+            contentAlignment = Alignment.CenterStart,
         ) {
-            Text(
+            GradientText(
                 text = stringResource(CoreUiRes.string.author_name),
-                style = BlogTheme.typography.titleMedium,
-                fontFamily = MerriWeatherFontFamily,
-                color = BlogTheme.colors.brand
+                brush = BlogTheme.gradients.brand,
+                style = BlogTheme.typography.titleLarge,
             )
-            Spacer(modifier = Modifier.weight(1f))
-            NavBarItem(
-                icon = BlogTheme.icons.run {
-                    if (selected == "Posts") Home else HomeOutline
-                }.painter,
-                label = "Posts",
-                isSelected = selected == "Posts",
-                onClick = { onItemClick("Posts") }
+            Row(
+                modifier = Modifier.align(Alignment.CenterEnd),
+                verticalAlignment = Alignment.CenterVertically,
+                content = trailing,
             )
-            Spacer(modifier = Modifier.width(BlogTheme.spacing.xs))
-            NavBarItem(
-                icon = BlogTheme.icons.run {
-                    if (selected == "About") User else UserOutline
-                }.painter,
-                label = "About",
-                isSelected = selected == "About",
-                onClick = { onItemClick("About") }
-            )
-            VerticalDivider(
-                modifier = Modifier.height(BlogTheme.spacing.xl)
-                    .padding(horizontal = BlogTheme.spacing.sm),
-                color = BlogTheme.colors.dividerGradientColor.copy(alpha = BlogTheme.colors.dividerGradientOpacity)
-            )
-
-            val isDarkThemeEnabled = LocalDarkTheme.current
-            IconButton(onClick = { onThemeToggle.invoke(!isDarkThemeEnabled) }) {
-                Icon(
-                    painter = BlogTheme.icons.run {
-                        if (isDarkThemeEnabled) Moon else Sun
-                    }.painter,
-                    contentDescription = stringResource(CoreUiRes.string.a11y_theme_mode_button),
-                    tint = BlogTheme.colors.textPrimary,
-                    modifier = Modifier.size(BlogTheme.sizes.icon.small)
-                )
-            }
-            IconButton(onClick = onLanguageClick) {
-                Icon(
-                    painter = BlogTheme.icons.Translate.painter,
-                    contentDescription = stringResource(CoreUiRes.string.a11y_language_button),
-                    tint = BlogTheme.colors.textPrimary,
-                    modifier = Modifier.size(BlogTheme.sizes.icon.small)
-                )
-            }
         }
-        HorizontalDivider(
-            color = BlogTheme.colors.dividerGradientColor.copy(alpha = BlogTheme.colors.dividerGradientOpacity)
-        )
+        NavGradientDivider()
     }
 }
 
 @Composable
-private fun NavBarItem(
-    icon: Painter,
-    label: String,
-    isSelected: Boolean,
-    onClick: () -> Unit,
-    modifier: Modifier = Modifier,
-) {
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
-        modifier = modifier.clip(shape = BlogTheme.shapes.full)
-            .clickable(onClick = onClick)
-            .padding(horizontal = BlogTheme.spacing.md, vertical = BlogTheme.spacing.sm),
-    ) {
+private fun NavGradientDivider() {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(NAV_DIVIDER_HEIGHT)
+            .background(BlogTheme.gradients.navDivider),
+    )
+}
+
+@Composable
+private fun LanguageIconButton(onClick: () -> Unit) {
+    IconButton(onClick = onClick) {
         Icon(
-            painter = icon,
-            contentDescription = label,
-            tint = if (isSelected) BlogTheme.colors.brand else BlogTheme.colors.textPrimary,
-            modifier = Modifier.size(BlogTheme.sizes.icon.small)
-        )
-        Spacer(modifier = Modifier.width(BlogTheme.spacing.sm))
-        Text(
-            text = label,
-            style = BlogTheme.typography.bodyMedium,
-            fontWeight = if (isSelected) FontWeight.SemiBold else FontWeight.Normal,
-            color = if (isSelected) BlogTheme.colors.brand else BlogTheme.colors.textPrimary,
+            painter = BlogTheme.icons.Translate.painter,
+            contentDescription = stringResource(CoreUiRes.string.a11y_language_button),
+            tint = BlogTheme.colors.textPrimary,
+            modifier = Modifier.size(BlogTheme.sizes.icon.small),
         )
     }
 }
 
 @Composable
-private fun CompactTopBar(
-    onMenuClick: () -> Unit,
-    onLanguageClick: () -> Unit,
-    onThemeToggle: (Boolean) -> Unit,
-    modifier: Modifier = Modifier,
-) {
-    val maxSize = LocalScreenSize.current.size.dp
-
-    Column(
-        modifier = Modifier.fillMaxWidth()
-            .background(BlogTheme.colors.surfaceElevated),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
-    ) {
-        Row(
-            modifier = modifier.widthIn(max = maxSize)
-                .height(BlogTheme.spacing.massive)
-                .padding(horizontal = BlogTheme.spacing.md),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Text(
-                text = stringResource(CoreUiRes.string.author_name),
-                style = BlogTheme.typography.titleSmall,
-                fontFamily = MerriWeatherFontFamily,
-                color = BlogTheme.colors.brand
-            )
-            Spacer(modifier = Modifier.weight(1f))
-
-            val isDarkThemeEnabled = LocalDarkTheme.current
-            IconButton(
-                onClick = { onThemeToggle.invoke(!isDarkThemeEnabled) },
-                modifier = Modifier.size(BlogTheme.sizes.icon.large)
-            ) {
-                Icon(
-                    painter = BlogTheme.icons.run {
-                        if (isDarkThemeEnabled) Moon else Sun
-                    }.painter,
-                    contentDescription = stringResource(CoreUiRes.string.a11y_theme_mode_button),
-                    tint = BlogTheme.colors.textPrimary,
-                    modifier = Modifier.size(BlogTheme.sizes.icon.small)
-                )
-            }
-            IconButton(
-                onClick = onLanguageClick,
-                modifier = Modifier.size(BlogTheme.sizes.icon.large)
-            ) {
-                Icon(
-                    painter = BlogTheme.icons.Translate.painter,
-                    contentDescription = stringResource(CoreUiRes.string.a11y_language_button),
-                    tint = BlogTheme.colors.textPrimary,
-                    modifier = Modifier.size(BlogTheme.sizes.icon.small)
-                )
-            }
-            IconButton(
-                onClick = onMenuClick,
-                modifier = Modifier.size(BlogTheme.sizes.icon.large)
-            ) {
-                Icon(
-                    painter = BlogTheme.icons.Menu.painter,
-                    contentDescription = stringResource(CoreUiRes.string.a11y_menu_button),
-                    tint = BlogTheme.colors.textPrimary,
-                    modifier = Modifier.size(BlogTheme.sizes.icon.small)
-                )
-            }
-        }
-        HorizontalDivider(
-            color = BlogTheme.colors.dividerGradientColor.copy(alpha = BlogTheme.colors.dividerGradientOpacity)
+private fun ThemeIconButton(onThemeToggle: (Boolean) -> Unit) {
+    val isDarkThemeEnabled = LocalDarkTheme.current
+    IconButton(onClick = { onThemeToggle.invoke(!isDarkThemeEnabled) }) {
+        Icon(
+            painter = BlogTheme.icons.run { if (isDarkThemeEnabled) Moon else Sun }.painter,
+            contentDescription = stringResource(CoreUiRes.string.a11y_theme_mode_button),
+            tint = BlogTheme.colors.textPrimary,
+            modifier = Modifier.size(BlogTheme.sizes.icon.small),
         )
     }
 }
+
+private val NAV_DIVIDER_HEIGHT = 1.dp
 
 @Preview(widthDp = 1200, showBackground = true, backgroundColor = 0xFFE4E4E7)
 @Preview(widthDp = 1200, showBackground = true, backgroundColor = 0xFF18181B, uiMode = 0x20)
@@ -272,14 +154,14 @@ fun BlogTopBarPreview(
     @PreviewParameter(ScreenSizeParameterProvider::class) screenSize: ScreenSize,
 ) {
     Box(
-        modifier = Modifier.width(width = (screenSize.size).dp).padding(24.dp),
+        modifier = Modifier.width(width = screenSize.size.dp).padding(24.dp),
         contentAlignment = Alignment.Center,
     ) {
         BlogTheme {
             CompositionLocalProvider(LocalScreenSize provides screenSize) {
                 BlogTopBar(
                     onThemeToggle = {},
-                    onSelectLanguage = {}
+                    onSelectLanguage = {},
                 )
             }
         }

@@ -8,6 +8,39 @@
     <string name="app_name">Blog</string>
     <string name="author_name">Weslley Campos</string>
 
+    <!-- Top Bar -->
+    <string name="topbar_articles">Articles</string>
+    <string name="topbar_snippets">Snippets</string>
+    <string name="topbar_projects">Projects</string>
+    <string name="topbar_about">About</string>
+
+    <!-- About Screen -->
+    <string name="about_eyebrow_about_me">About me</string>
+    <string name="about_hero_headline">Hi, I'm Weslley.</string>
+    <string name="about_bio_paragraph">Android engineer, eight years across consumer apps, financial flows, connected-home platforms, and embedded diagnostic tools — what stays constant is the discipline, not the stack. Most of my work today is in Kotlin Multiplatform, sharing logic between iOS and Android without the seams showing. The parts I care about most are the boring ones: clear code, tests that earn their place, and design choices that still make sense a year later.</string>
+    <string name="about_avatar_initials">WC</string>
+    <string name="about_cta_resume">Download Résumé</string>
+
+    <string name="about_eyebrow_arsenal">Tech stack</string>
+
+    <string name="about_experience">Experience</string>
+
+    <string name="about_education">Education</string>
+    <string name="about_education_school">Federal University of Sergipe</string>
+    <string name="about_education_degree">Bachelor's degree, Information Systems (2015 – 2020)</string>
+    <string name="about_education_description">Built a strong foundation in programming, databases, project management, systems analysis, and software architecture.</string>
+
+    <string name="about_cta_headline">Let's build something exceptional.</string>
+    <string name="about_cta_subtitle">Currently open to selective consulting projects and speaking engagements. Let's talk.</string>
+    <string name="about_cta_hire">Schedule a call</string>
+    <string name="about_cta_email">Send Email</string>
+
+    <string name="about_footer_copyright">© 2026 Weslley Campos.</string>
+
+    <string name="a11y_about_avatar">Profile avatar</string>
+    <string name="a11y_about_resume">Download résumé as PDF</string>
+    <string name="a11y_about_external">Opens in a new tab</string>
+
     <!-- Common -->
     <string name="common_apply">Apply</string>
 

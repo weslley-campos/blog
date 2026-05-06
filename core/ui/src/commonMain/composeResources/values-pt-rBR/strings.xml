@@ -41,6 +41,25 @@
     <string name="a11y_about_resume">Baixar currículo em PDF</string>
     <string name="a11y_about_external">Abre em nova aba</string>
 
+    <!-- Login Screen -->
+    <string name="login_eyebrow">BEM-VINDO DE VOLTA</string>
+    <string name="login_title">Entrar</string>
+    <string name="login_subtitle">Digite suas credenciais para continuar.</string>
+    <string name="login_email_label">EMAIL</string>
+    <string name="login_email_placeholder">voce@exemplo.com</string>
+    <string name="login_email_invalid">Insira um endereço de email válido</string>
+    <string name="login_password_label">SENHA</string>
+    <string name="login_password_placeholder">••••••••</string>
+    <string name="login_password_too_short">A senha deve ter pelo menos 8 caracteres</string>
+    <string name="login_invalid_credentials">Email ou senha incorretos.</string>
+    <string name="login_network_error">Sem conexão com a internet. Verifique sua rede e tente novamente.</string>
+    <string name="login_unexpected_error">Algo deu errado. Tente novamente.</string>
+    <string name="login_retry">Tentar novamente</string>
+    <string name="login_submit">Entrar</string>
+    <string name="login_authenticated_title">Você está conectado.</string>
+    <string name="login_authenticated_subtitle">Estado final do demo — fluxo de login concluído.</string>
+    <string name="a11y_login_password_visibility">Alternar visibilidade da senha</string>
+
     <!-- Common -->
     <string name="common_apply">Aplicar</string>
 

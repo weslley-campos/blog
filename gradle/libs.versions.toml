@@ -105,6 +105,7 @@ slack-lint-compose = { module = "com.slack.lint.compose:compose-lint-checks", ve
 junit = { module = "junit:junit", version.ref = "junit" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
+kotlin-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlin-coroutines" }
 
 # ================================================================
 # Dependencies of the included build-logic

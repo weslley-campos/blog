@@ -4,6 +4,7 @@ import br.com.weslleycampos.blog.core.common.CommonModule
 import br.com.weslleycampos.blog.core.navigation.NavigationModule
 import br.com.weslleycampos.blog.feature.about.AboutModule
 import br.com.weslleycampos.blog.feature.home.HomeModule
+import br.com.weslleycampos.blog.feature.login.LoginModule
 import org.koin.core.annotation.ComponentScan
 import org.koin.core.annotation.Module
 
@@ -13,6 +14,7 @@ import org.koin.core.annotation.Module
         NavigationModule::class,
         HomeModule::class,
         AboutModule::class,
+        LoginModule::class,
     ]
 )
 @ComponentScan

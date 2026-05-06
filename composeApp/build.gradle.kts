@@ -14,6 +14,7 @@ kotlin {
             implementation(projects.core.navigation)
             implementation(projects.feature.home)
             implementation(projects.feature.about)
+            implementation(projects.feature.login)
         }
     }
 }

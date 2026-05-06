@@ -35,6 +35,7 @@ include(":core:common")
 include(":core:navigation")
 include(":feature:home")
 include(":feature:about")
+include(":feature:login")
 include(":core:markdown")
 
 check(JavaVersion.current().isCompatibleWith(JavaVersion.VERSION_17)) {

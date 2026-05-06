@@ -41,6 +41,25 @@
     <string name="a11y_about_resume">Download résumé as PDF</string>
     <string name="a11y_about_external">Opens in a new tab</string>
 
+    <!-- Login Screen -->
+    <string name="login_eyebrow">WELCOME BACK</string>
+    <string name="login_title">Sign in</string>
+    <string name="login_subtitle">Enter your credentials to continue.</string>
+    <string name="login_email_label">EMAIL</string>
+    <string name="login_email_placeholder">you@example.com</string>
+    <string name="login_email_invalid">Please enter a valid email address</string>
+    <string name="login_password_label">PASSWORD</string>
+    <string name="login_password_placeholder">••••••••</string>
+    <string name="login_password_too_short">Password must be at least 8 characters</string>
+    <string name="login_invalid_credentials">The email or password is incorrect.</string>
+    <string name="login_network_error">No internet connection. Check your network and try again.</string>
+    <string name="login_unexpected_error">Something went wrong. Please try again.</string>
+    <string name="login_retry">Retry</string>
+    <string name="login_submit">Sign in</string>
+    <string name="login_authenticated_title">You\'re signed in.</string>
+    <string name="login_authenticated_subtitle">Demo end state — sign-in flow complete.</string>
+    <string name="a11y_login_password_visibility">Toggle password visibility</string>
+
     <!-- Common -->
     <string name="common_apply">Apply</string>
 

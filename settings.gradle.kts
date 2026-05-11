@@ -29,7 +29,10 @@ dependencyResolutionManagement {
     }
 }
 
-include(":composeApp")
+include(":app")
+include(":androidApp")
+include(":jvmApp")
+include(":wasmApp")
 include(":core:ui")
 include(":core:common")
 include(":core:navigation")

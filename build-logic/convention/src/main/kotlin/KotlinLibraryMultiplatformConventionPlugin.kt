@@ -1,7 +1,5 @@
-import com.android.build.api.dsl.LibraryExtension
-import extensions.configureAndroid
 import extensions.configureAndroidTarget
-import extensions.configureKotlin
+import extensions.configureKotlinLibrary
 import extensions.configureWasmJsLibrary
 import extensions.libs
 import org.gradle.api.Plugin
@@ -12,17 +10,18 @@ import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
 /**
- * Convention plugin that configures a Kotlin Multiplatform module.
+ * Convention plugin that configures a Kotlin Multiplatform library module
+ * targeting Android (via `com.android.kotlin.multiplatform.library`), JVM,
+ * and Wasm/JS.
  */
 @OptIn(ExperimentalWasmDsl::class)
 class KotlinLibraryMultiplatformConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) = with(target) {
-        apply(plugin = libs.plugins.kotlin.multiplatform.get().pluginId)
-        apply(plugin = libs.plugins.android.library.get().pluginId)
+        apply(plugin = libs.plugins.kotlin.multiplatform.asProvider().get().pluginId)
+        apply(plugin = libs.plugins.kotlin.multiplatform.library.get().pluginId)
         apply(plugin = libs.plugins.kotlin.serialization.get().pluginId)
 
-        extensions.configure<KotlinMultiplatformExtension>(::configureKotlin)
-        extensions.configure<LibraryExtension>(::configureAndroid)
+        extensions.configure<KotlinMultiplatformExtension>(::configureKotlinLibrary)
         extensions.configure<KotlinMultiplatformExtension>(::configureAndroidTarget)
         extensions.configure<KotlinMultiplatformExtension>(::configureWasmJsLibrary)
     }

@@ -36,7 +36,7 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
  */
 class KoinMultiplatformConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) = with(target) {
-        apply(plugin = libs.plugins.kotlin.multiplatform.get().pluginId)
+        apply(plugin = libs.plugins.kotlin.multiplatform.asProvider().get().pluginId)
         apply(plugin = libs.plugins.ksp.get().pluginId)
 
         extensions.configure<KotlinMultiplatformExtension> {
@@ -67,9 +67,13 @@ class KoinMultiplatformConventionPlugin : Plugin<Project> {
             kspCommonMainMetadata(libs.koin.compiler)
         }
 
-        // Trigger Common Metadata Generation from Native tasks
+        // Trigger Common Metadata Generation from Native tasks. The `kspCommonMainKotlinMetadata`
+        // task only exists on multi-target KMP modules with KSP processors registered on commonMain
+        // metadata. Single-target KMP modules (e.g., `wasmApp`, `jvmApp`) skip metadata compilation,
+        // so we wire the dependency through a TaskCollection that's a no-op when empty.
+        val kspCommonMainTask = tasks.matching { it.name == "kspCommonMainKotlinMetadata" }
         tasks.matching { it.name.startsWith("ksp") && it.name != "kspCommonMainKotlinMetadata" }.configureEach {
-            dependsOn("kspCommonMainKotlinMetadata")
+            dependsOn(kspCommonMainTask)
         }
     }
 }

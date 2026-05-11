@@ -16,7 +16,7 @@ fun Project.configureWasmJs(
                 val rootDirPath = project.rootDir.path
                 val projectDirPath = project.projectDir.path
                 commonWebpackConfig {
-                    outputFileName = "composeApp.js"
+                    outputFileName = "wasmApp.js"
                     devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
                         static(rootDirPath)
                         static(projectDirPath)

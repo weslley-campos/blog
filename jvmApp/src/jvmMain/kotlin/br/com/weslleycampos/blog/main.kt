@@ -16,6 +16,9 @@ import org.koin.ksp.generated.module
 import org.koin.ksp.generated.startKoin
 import java.awt.Dimension
 
+private const val MIN_WINDOW_WIDTH = 320
+private const val MIN_WINDOW_HEIGHT = 700
+
 fun main() = application {
     BlogKoinApp.startKoin {
         printLogger(level = Level.DEBUG)
@@ -26,7 +29,7 @@ fun main() = application {
         onCloseRequest = ::exitApplication,
         title = "Blog",
     ) {
-        window.minimumSize = Dimension(320, 700)
+        window.minimumSize = Dimension(MIN_WINDOW_WIDTH, MIN_WINDOW_HEIGHT)
         val entries = koinInject<EntriesAggregator>().entries
         val navigator = koinInject<Navigator> { parametersOf(AboutEntry) }
 

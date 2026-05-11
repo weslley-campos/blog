@@ -1,6 +1,7 @@
 package extensions
 
 import org.gradle.api.Project
+import org.gradle.kotlin.dsl.apply
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.getByType
@@ -107,19 +108,16 @@ internal fun Project.configureComposeMultiplatform(
                 implementation(libs.compose.animation)
             }
 
-            androidMain.dependencies {
+            // androidMain only exists when an Android target is registered.
+            // Single-target KMP modules (wasmApp, jvmApp) skip this block.
+            findByName("androidMain")?.dependencies {
                 // Compose UI Tooling — @Preview rendering in Android Studio Narwhal+
                 implementation(libs.compose.ui.tooling)
             }
 
-            wasmJsMain.dependencies {
-                implementation(libs.nav3.browser)
-            }
-
-            jvmMain.dependencies {
+            findByName("jvmTest")?.dependencies {
+                // Skiko / AWT runtime required by `runComposeUiTest` on the JVM.
                 implementation(compose.desktop.currentOs)
-                implementation(libs.kotlin.coroutines.swing)
-                implementation(libs.compose.ui.tooling)
             }
 
             commonTest.dependencies {

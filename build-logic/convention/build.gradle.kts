@@ -43,24 +43,29 @@ tasks {
 
 gradlePlugin {
     plugins {
-        register("kotlinApplicationMultiplatform") {
-            id = libs.plugins.blog.application.get().pluginId
-            implementationClass = "KotlinApplicationMultiplatformConventionPlugin"
-        }
-
         register("kotlinLibraryMultiplatform") {
             id = libs.plugins.blog.library.get().pluginId
             implementationClass = "KotlinLibraryMultiplatformConventionPlugin"
         }
 
-        register("composeApplicationMultiplatform") {
-            id = libs.plugins.blog.compose.application.get().pluginId
-            implementationClass = "ComposeApplicationMultiplatformConventionPlugin"
-        }
-
         register("composeLibraryMultiplatform") {
             id = libs.plugins.blog.compose.library.get().pluginId
             implementationClass = "ComposeLibraryMultiplatformConventionPlugin"
+        }
+
+        register("androidApplication") {
+            id = libs.plugins.blog.android.application.get().pluginId
+            implementationClass = "AndroidApplicationConventionPlugin"
+        }
+
+        register("jvmApplication") {
+            id = libs.plugins.blog.jvm.application.get().pluginId
+            implementationClass = "JvmApplicationConventionPlugin"
+        }
+
+        register("wasmApplication") {
+            id = libs.plugins.blog.wasm.application.get().pluginId
+            implementationClass = "WasmApplicationConventionPlugin"
         }
 
         register("koinMultiplatform") {

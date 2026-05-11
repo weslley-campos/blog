@@ -2,6 +2,7 @@ package extensions
 
 import org.gradle.accessors.dm.LibrariesForLibs
 import org.gradle.api.Project
+import org.gradle.api.artifacts.dsl.DependencyHandler
 import org.gradle.internal.extensions.stdlib.capitalized
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 import org.gradle.kotlin.dsl.getByType
@@ -37,6 +38,10 @@ fun String.toResClassName(): String = split(":")
 
 fun DependencyHandlerScope.debugImplementation(module: Any) {
     add("debugImplementation", module)
+}
+
+fun DependencyHandler.implementation(dependency: Any) {
+    add("implementation", dependency)
 }
 
 fun DependencyHandlerScope.detektPlugins(module: Any) {

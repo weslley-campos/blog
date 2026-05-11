@@ -2,33 +2,28 @@ package extensions
 
 import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.dsl.CommonExtension
+import com.android.build.api.dsl.KotlinMultiplatformAndroidLibraryExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.gradle.kotlin.dsl.configure
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
 /**
  * Configure Android common settings. to allow enable compose preview in commonMain, because
  * compose preview ui tooling relies on android sdk to render previews.
  */
-fun Project.configureAndroid(
-    extension: CommonExtension<*, *, *, *, *, *>,
-) {
+fun Project.configureAndroid(extension: CommonExtension) {
     val nameSpace = when (extension) {
         is ApplicationExtension -> blogPackage
         else -> packageName
     }
     extension.apply {
-        // Required to enable modularization in multiplatform project
-        // The Android configuration is REQUIRED for KSP code generation to work properly.
-        // compilation targets, and KSP tasks like kspCommonMainKotlinMetadata won't be available.
-        // This enables Koin annotation processing to generate modules in build/generated/
         namespace = nameSpace
         compileSdk = libs.versions.compileSdk.get().toInt()
-        defaultConfig {
+        defaultConfig.apply {
             minSdk = libs.versions.minSdk.get().toInt()
         }
-        compileOptions {
+        compileOptions.apply {
             sourceCompatibility = JavaVersion.VERSION_17
             targetCompatibility = JavaVersion.VERSION_17
         }
@@ -46,13 +41,11 @@ fun Project.configureAndroid(
 }
 
 internal fun Project.configureAndroidTarget(
-    extension: KotlinMultiplatformExtension
+    extension: KotlinMultiplatformExtension,
 ) {
-    extension.apply {
-        androidTarget {
-            compilerOptions {
-                jvmTarget.set(JvmTarget.JVM_17)
-            }
-        }
+    extension.extensions.configure<KotlinMultiplatformAndroidLibraryExtension> {
+        namespace = packageName
+        compileSdk = libs.versions.compileSdk.get().toInt()
+        minSdk = libs.versions.minSdk.get().toInt()
     }
 }

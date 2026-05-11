@@ -5,6 +5,9 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-store/
 
+# Local Docs
+docs/
+
 # Build artifacts
 dist/
 out/

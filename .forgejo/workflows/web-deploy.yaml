@@ -36,14 +36,14 @@ jobs:
         run: chmod +x gradlew
 
       - name: 📦 Web build
-        run: ./gradlew :composeApp:wasmJsBrowserDistribution --stacktrace
+        run: ./gradlew :wasmApp:wasmJsBrowserDistribution --stacktrace
 
       - name: 📤 Upload web dist
         if: (!cancelled())
         uses: https://code.forgejo.org/forgejo/upload-artifact@v4
         with:
           name: web-dist-${{ forgejo.sha }}
-          path: composeApp/build/dist/wasmJs/productionExecutable
+          path: wasmApp/build/dist/wasmJs/productionExecutable
           if-no-files-found: error
           retention-days: 7
 

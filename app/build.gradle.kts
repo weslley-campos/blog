@@ -1,7 +1,6 @@
 plugins {
-    alias(libs.plugins.blog.application)
-    alias(libs.plugins.blog.compose.application)
-    alias(libs.plugins.compose.hot.reload)
+    alias(libs.plugins.blog.library)
+    alias(libs.plugins.blog.compose.library)
     alias(libs.plugins.blog.koin)
     alias(libs.plugins.blog.detekt)
 }
@@ -9,12 +8,11 @@ plugins {
 kotlin {
     sourceSets {
         commonMain.dependencies {
+            api(projects.core.common)
+            api(projects.core.navigation)
             implementation(projects.core.ui)
-            implementation(projects.core.common)
-            implementation(projects.core.navigation)
             implementation(projects.feature.home)
             implementation(projects.feature.about)
         }
     }
 }
-

@@ -44,7 +44,8 @@ formatting:
   Filename:
     active: true
     excludes:
-      - '**/composeApp/src/wasmJsMain/kotlin/**/main.kt'
+      - '**/wasmApp/src/wasmJsMain/kotlin/**/main.kt'
+      - '**/jvmApp/src/jvmMain/kotlin/**/main.kt'
 
 exceptions:
   TooGenericExceptionCaught:
